@@ -1,0 +1,7 @@
+{
+  "web3FlexEnabled": false,
+  "web3": {
+    "chainId": 1,
+    "ownerEns": ""
+  }
+}

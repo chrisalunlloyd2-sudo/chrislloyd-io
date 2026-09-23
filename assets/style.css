@@ -69,6 +69,8 @@ a { color: var(--accent); }
 .socials span { color: var(--muted); border-style: dashed; }
 
 footer { border-top: 1px solid var(--line); color: var(--muted); padding: 22px 0 40px; font-size: .85rem; }
+.web3-badge { margin: 6px 0 0; font-size: .85rem; color: var(--accent); }
+.web3-badge[hidden] { display: none; }
 
 @media (min-width: 640px) {
   .section { padding: 52px 0 8px; }
