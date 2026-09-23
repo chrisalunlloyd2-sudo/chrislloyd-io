@@ -52,6 +52,28 @@ records at the registrar:
 
 Then verify the domain under *Settings → Pages* in this repo.
 
+## Web3 flex (optional, OFF by default)
+
+A read-only cosmetic module lives in `assets/web3.js`, isolated from the rest
+of the site. It is **disabled** until you turn it on in `data/config.json`:
+
+```json
+{ "web3FlexEnabled": true, "web3": { "chainId": 1, "ownerEns": "yourname.eth" } }
+```
+
+What it does when enabled:
+
+- Shows a **Connect Wallet** button in the hero. Read-only: it asks the wallet
+  for your address and, if you have one, your ENS name + avatar. It never
+  requests signatures, approvals, transactions, or any keys.
+- If `ownerEns` is set (and actually resolves on mainnet), shows a verified
+  ✓ ENS badge in the footer.
+
+What you need to supply before enabling: an ENS name you own (e.g.
+`yourname.eth`) or an address you're happy to show publicly. Until then leave
+`web3FlexEnabled` as `false`. The module stores nothing, and if the wallet
+library fails to load the rest of the site is unaffected.
+
 ## Notes
 
 - Social links with empty `url` render as placeholders — fill them in
