@@ -1,0 +1,41 @@
+[
+  {
+    "id": "mind-palace",
+    "title": "mind-palace",
+    "desc": "First-person graph-based memory palace for GitHub repos, databases and sovereign knowledge.",
+    "url": "https://github.com/chrisalunlloyd2-sudo/mind-palace",
+    "tags": [
+      "memory",
+      "graph"
+    ]
+  },
+  {
+    "id": "aegis-agent-bridge",
+    "title": "aegis-agent-bridge",
+    "desc": "Email sync bridge for agent orchestration: protocol, inbox poller, router and state manager.",
+    "url": "https://github.com/chrisalunlloyd2-sudo/aegis-agent-bridge",
+    "tags": [
+      "automation",
+      "email"
+    ]
+  },
+  {
+    "id": "living-ascii-art",
+    "title": "living-ascii-art",
+    "desc": "Living ASCII art from news headlines with rainbow fade animations.",
+    "url": "https://github.com/chrisalunlloyd2-sudo/living-ascii-art",
+    "tags": [
+      "art",
+      "cli"
+    ]
+  },
+  {
+    "id": "compendium-placeholder",
+    "title": "PLACEHOLDER — Business-automation compendium",
+    "desc": "Compendium of open-source business tools (timekeeping, quoting, scheduling). Add the repo link here when published.",
+    "url": "",
+    "tags": [
+      "placeholder"
+    ]
+  }
+]

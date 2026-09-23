@@ -1,0 +1,36 @@
+{
+  "site": {
+    "name": "Chris Lloyd Ltd",
+    "legalName": "Chris Alun Lloyd Ltd",
+    "tagline": "Painting, home renovation & automation tooling",
+    "blurb": "Independent UK limited company. Hands-on painting and home renovation, plus a growing open-source collection of business-automation tools built from running the business.",
+    "email": "placeholder@example.com",
+    "location": "United Kingdom"
+  },
+  "socials": [
+    {
+      "id": "github",
+      "label": "GitHub",
+      "url": "https://github.com/chrisalunlloyd2-sudo",
+      "placeholder": false
+    },
+    {
+      "id": "linkedin",
+      "label": "LinkedIn",
+      "url": "",
+      "placeholder": true
+    },
+    {
+      "id": "facebook",
+      "label": "Facebook",
+      "url": "",
+      "placeholder": true
+    },
+    {
+      "id": "instagram",
+      "label": "Instagram",
+      "url": "",
+      "placeholder": true
+    }
+  ]
+}

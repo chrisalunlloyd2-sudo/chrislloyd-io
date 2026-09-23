@@ -1,0 +1,26 @@
+[
+  {
+    "id": "interior-painting",
+    "title": "Interior Painting",
+    "desc": "Walls, ceilings, woodwork. Clean lines, tidy sites, quality finishes.",
+    "icon": "brush"
+  },
+  {
+    "id": "exterior-painting",
+    "title": "Exterior Painting",
+    "desc": "Fascias, soffits, doors, masonry paint. Weather-ready prep and durable coats.",
+    "icon": "home"
+  },
+  {
+    "id": "home-renovation",
+    "title": "Home Renovation",
+    "desc": "Room refreshes, small repairs, re-plastering prep, general handyman work.",
+    "icon": "tools"
+  },
+  {
+    "id": "wallpapering",
+    "title": "Wallpaper & Finishing",
+    "desc": "Hanging, feature walls, minor plaster repair before finishing.",
+    "icon": "layers"
+  }
+]

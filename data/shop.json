@@ -1,0 +1,29 @@
+[
+  {
+    "id": "example-product",
+    "title": "PLACEHOLDER — Example product",
+    "desc": "Placeholder card. Replace with a real product: add an Amazon affiliate link and a short note.",
+    "category": "General",
+    "url": "",
+    "url_label": "View on Amazon",
+    "placeholder": true
+  },
+  {
+    "id": "example-paint",
+    "title": "PLACEHOLDER — Trade paint",
+    "desc": "Placeholder card for a paint category product.",
+    "category": "Paint",
+    "url": "",
+    "url_label": "View on Amazon",
+    "placeholder": true
+  },
+  {
+    "id": "example-tools",
+    "title": "PLACEHOLDER — Tools & supplies",
+    "desc": "Placeholder card for a tools/business-supplies product.",
+    "category": "Tools",
+    "url": "",
+    "url_label": "View on Amazon",
+    "placeholder": true
+  }
+]
