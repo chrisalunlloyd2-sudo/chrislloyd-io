@@ -1,0 +1,18 @@
+[
+  {
+    "id": "example-trade-matt",
+    "title": "Trade matt emulsion, 10L",
+    "category": "Paint",
+    "desc": "PLACEHOLDER EXAMPLE REVIEW — goes on thick, covers in one, barely any smell. The site owner should replace this with a real product note.",
+    "rating": 4,
+    "placeholder": true
+  },
+  {
+    "id": "example-cutting-in-brush",
+    "title": "Angled cutting-in brush, 2\"",
+    "category": "Supplies",
+    "desc": "PLACEHOLDER EXAMPLE REVIEW — holds a line well, cleans up without losing bristles. Replace with real notes.",
+    "rating": 5,
+    "placeholder": true
+  }
+]
