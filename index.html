@@ -74,9 +74,51 @@
     <div class="contact-cols">
       <form id="contact-form" class="contact-form" action="https://formspree.io/f/OWNER_FORM_ID" method="POST">
         <p class="section-note" id="contact-form-note">Form backend not configured yet — this form opens your email client instead.</p>
-        <label>Name<input type="text" name="name" required autocomplete="name"></label>
-        <label>Email<input type="email" name="email" required autocomplete="email"></label>
-        <label>Message<textarea name="message" rows="5" required></textarea></label>
+        <label>Name
+          <input type="text" name="name" required autocomplete="name">
+        </label>
+        <label>How did you hear about us?
+          <select name="heard_about">
+            <option value="">Choose one (optional)</option>
+            <option value="referral">Referral — someone sent you my way</option>
+            <option value="search">Search (Google or similar)</option>
+            <option value="social">Social media</option>
+            <option value="other">Somewhere else</option>
+          </select>
+        </label>
+        <label>Tell me about your project
+          <textarea name="project" rows="6" placeholder="What's going on with the space? What made you reach out now?" required></textarea>
+        </label>
+        <fieldset class="choice-group">
+          <legend>The property is…</legend>
+          <label class="choice"><input type="radio" name="property_status" value="own" required> <span>Mine — I own it</span></label>
+          <label class="choice"><input type="radio" name="property_status" value="rent_approved"> <span>Rented — landlord is happy with the work</span></label>
+          <label class="choice"><input type="radio" name="property_status" value="rent_unapproved"> <span>Rented — haven't asked the landlord yet</span></label>
+          <label class="choice"><input type="radio" name="property_status" value="manager"> <span>I manage several properties</span></label>
+        </fieldset>
+        <fieldset class="choice-group">
+          <legend>Timing — when would you like this to happen?</legend>
+          <label class="choice"><input type="radio" name="timeline" value="ready" required> <span>Ready when you are</span></label>
+          <label class="choice"><input type="radio" name="timeline" value="months"> <span>Next few months</span></label>
+          <label class="choice"><input type="radio" name="timeline" value="ideas"> <span>Just gathering ideas for now</span></label>
+        </fieldset>
+        <label>A range helps me suggest the right paint and prep <span class="field-optional">(optional)</span>
+          <input type="text" name="budget" inputmode="decimal" placeholder="e.g. $1,500–$2,500">
+        </label>
+        <label>Best way to reach you
+          <select name="contact_preference">
+            <option value="email">Email is best</option>
+            <option value="phone">Phone call is best</option>
+          </select>
+        </label>
+        <label>Phone number <span class="field-optional">(optional — only if you'd like a call)</span>
+          <input type="tel" name="phone" autocomplete="tel">
+        </label>
+        <label>Photos of the space help with an accurate quote <span class="field-optional">(optional)</span>
+          <input type="file" name="photos" accept="image/*" multiple>
+        </label>
+        <p class="section-note privacy-note">Your info and photos are only used to prepare your quote.</p>
+        <input type="hidden" name="lead_tier" id="lead-tier" value="">
         <button class="btn" type="submit">Send</button>
         <p class="form-status" id="form-status" hidden></p>
       </form>

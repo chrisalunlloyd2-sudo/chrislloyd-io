@@ -190,6 +190,33 @@
     var form = document.getElementById("contact-form");
     var note = document.getElementById("contact-form-note");
     if (!form) return;
+
+    // Client-side lead tier (task 015). Computed from qualifying-flow answers and
+    // submitted as a hidden field so it arrives in the owner's inbox for triage.
+    // Never surfaced in the UI.
+    function computeLeadTier() {
+      var fd = new FormData(form);
+      var property = fd.get("property_status") || "";
+      var timeline = fd.get("timeline") || "";
+      var hasSignal =
+        (form.elements["photos"] && form.elements["photos"].files && form.elements["photos"].files.length > 0) ||
+        fd.get("heard_about") === "referral" ||
+        !!(fd.get("budget") || "").trim();
+      if (property === "own" && timeline !== "ideas" && hasSignal) return "hot";
+      if (property === "rent_approved" || property === "manager") return "warm";
+      if (property === "own" || property === "rent_approved" || property === "manager") return "warm"; // e.g. "gathering ideas" but real answers
+      if (property === "rent_unapproved") return "filtered";
+      if (timeline === "ideas") return "filtered";
+      return "warm";
+    }
+
+    function stampTier() {
+      var hidden = document.getElementById("lead-tier");
+      if (hidden) hidden.value = computeLeadTier();
+    }
+    // capture-phase listener: stamps the tier before the mailto/POST handlers run.
+    form.addEventListener("submit", stampTier, true);
+
     var configured = form.getAttribute("action") || "";
     if (/OWNER_FORM_ID/.test(configured)) {
       // No form backend configured: intercept submit and hand off to mail client.
@@ -197,7 +224,20 @@
         ev.preventDefault();
         var site = window.__siteEmail || "";
         var fd = new FormData(form);
-        var body = encodeURIComponent("Name: " + (fd.get("name") || "") + "\n\n" + (fd.get("message") || ""));
+        var lines = [
+          "Name: " + (fd.get("name") || ""),
+          "Heard about us: " + (fd.get("heard_about") || "(not said)"),
+          "",
+          "Project: " + (fd.get("project") || ""),
+          "",
+          "Property: " + (fd.get("property_status") || ""),
+          "Timeline: " + (fd.get("timeline") || ""),
+          "Budget: " + (fd.get("budget") || "(not said)"),
+          "Contact via: " + (fd.get("contact_preference") || "email") + (fd.get("phone") ? " — " + fd.get("phone") : ""),
+          "Lead tier: " + (document.getElementById("lead-tier") || {}).value || "",
+          ""
+        ];
+        var body = encodeURIComponent(lines.join("\n"));
         var subject = encodeURIComponent("Website enquiry from " + (fd.get("name") || "someone"));
         window.location.href = site
           ? "mailto:" + site + "?subject=" + subject + "&body=" + body
@@ -206,8 +246,8 @@
         if (status) {
           status.hidden = false;
           status.textContent = site
-            ? "Opened your email client — no form backend configured yet."
-            : "Opened your email client — (owner: set 'email' in data/site.json and/or add a Formspree form id).";
+            ? "Thanks — I'll be in touch soon. (Owner: no form backend configured yet, so this opened your email client.)"
+            : "Thanks — I'll be in touch soon. (Owner: set 'email' in data/site.json and/or add a Formspree form id.)";
         }
       });
       if (note) note.textContent = "Form backend not configured yet — this form opens your email client instead. (Owner: create a free Formspree form and put its id into the form action in index.html.)";
@@ -220,7 +260,7 @@
           method: "POST", body: new FormData(form),
           headers: { "Accept": "application/json" }
         }).then(function (r) {
-          if (status) { status.hidden = false; status.textContent = r.ok ? "Message sent. Thanks!" : "Sending failed (" + r.status + ") — please email directly."; }
+          if (status) { status.hidden = false; status.textContent = r.ok ? "Thanks — I'll be in touch soon." : "Sending failed (" + r.status + ") — please email directly."; }
           if (r.ok) form.reset();
         }).catch(function () {
           if (status) { status.hidden = false; status.textContent = "Network error — please email directly."; }

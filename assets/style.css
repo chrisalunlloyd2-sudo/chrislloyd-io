@@ -157,14 +157,29 @@ h2 {
   display: flex; flex-direction: column; gap: 6px;
   font-size: .85rem; color: var(--ivory-muted);
 }
-.contact-form input, .contact-form textarea {
+.contact-form input, .contact-form textarea, .contact-form select {
   background: var(--ink-alt); border: 1px solid var(--line);
   border-radius: 4px; color: var(--ivory);
   font: inherit; padding: 10px 12px;
 }
-.contact-form input:focus, .contact-form textarea:focus {
+.contact-form select { appearance: none; }
+.contact-form input:focus, .contact-form textarea:focus, .contact-form select:focus {
   outline: none; border-color: var(--teal);
 }
+.contact-form .field-optional { font-weight: normal; opacity: .7; font-size: .8rem; }
+.contact-form .choice-group {
+  display: flex; flex-direction: column; gap: 6px;
+  border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 10px 12px; margin: 0;
+}
+.contact-form .choice-group legend { font-size: .85rem; color: var(--ivory-muted); padding: 0 4px; }
+.contact-form .choice {
+  flex-direction: row; align-items: baseline; gap: 8px;
+  font-size: .92rem; color: var(--ivory); cursor: pointer;
+}
+.contact-form .choice input { accent-color: var(--teal); padding: 0; width: auto; }
+.contact-form input[type="file"] { padding: 8px 0; color: var(--ivory-muted); }
+.contact-form .privacy-note { margin: 0; font-size: .8rem; }
 .contact-form .btn { align-self: flex-start; }
 .form-status { font-size: .85rem; color: var(--teal); margin: 0; }
 .contact-side p { color: var(--ivory-muted); }
