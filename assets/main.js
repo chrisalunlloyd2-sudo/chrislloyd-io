@@ -9,6 +9,11 @@
     return n;
   }
 
+  function setMeta(attr, key, content) {
+    var m = document.querySelector("meta[" + attr + '="' + key + '"]');
+    if (m) m.setAttribute("content", content);
+  }
+
   // --- signature motif: 8-facet radial rosette -------------------------------
   // 8 triangular SVG polygons fanning from center, alternating terracotta/teal
   // fills at varying opacity, thin ink strokes between facets.
@@ -159,6 +164,18 @@
   window.__siteEmail = "";
   fetch("data/site.json").then(function (r) { return r.json(); }).then(function (s) {
     var site = s.site || {};
+    // --- SEO plumbing (task 016): keep canonical/og:url aligned with the
+    // configured base URL (site.canonicalBase) or the URL the page is
+    // actually served from. Static head defaults to the GitHub Pages URL.
+    (function () {
+      var here = window.location.origin + window.location.pathname;
+      var base = (site.canonicalBase ? site.canonicalBase.replace(/\/$/, "") + "/" : here);
+      var canon = document.getElementById("canonical-link");
+      if (canon) canon.href = base.replace(/\/$/, "") + "/index.html";
+      setMeta("property", "og:url", base);
+      // If site.json gains a real metaDescription, mirror it into the head.
+      if (site.metaDescription) setMeta("name", "description", site.metaDescription);
+    })();
     if (site.email && !/^placeholder/.test(site.email)) window.__siteEmail = site.email;
     if (site.legalName) document.getElementById("site-kicker").textContent = site.legalName;
     if (site.tagline) document.getElementById("site-tagline").textContent = site.tagline;

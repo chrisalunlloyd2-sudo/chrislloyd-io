@@ -10,7 +10,7 @@ Usage:
 
 JSON-encodes unknown extra keys; validates the result; writes atomically.
 """
-import argparse, json, os, sys, tempfile
+import argparse, json, os, subprocess, sys, tempfile
 
 VALID = ("services", "shop", "opensource", "reviews", "site")
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -92,6 +92,9 @@ def main():
     items.append(entry)
     save(path, items)
     print(f"added to {args.collection}: {entry.get('id')} -> {path}")
+    # sitemap.xml depends on data/posts.json and site.canonicalBase — regen after
+    # any data edit so it never drifts (cheap + idempotent).
+    subprocess.run([sys.executable, os.path.join(ROOT, "scripts", "gen_sitemap.py")])
 
 if __name__ == "__main__":
     main()

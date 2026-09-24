@@ -11,7 +11,7 @@ Usage:
 Posts are inserted newest-first by date. IDs are slugged from the title and
 deduplicated. Writes atomically; validates JSON before saving.
 """
-import argparse, json, os, re, sys, tempfile
+import argparse, json, os, re, subprocess, sys, tempfile
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 POSTS = os.path.join(ROOT, "data", "posts.json")
@@ -80,6 +80,8 @@ def main():
     posts.append(entry)
     posts.sort(key=lambda p: p.get("date", ""), reverse=True)
     save(posts)
+    # Keep sitemap.xml in sync — placeholder posts are skipped by the generator.
+    subprocess.run([sys.executable, os.path.join(ROOT, "scripts", "gen_sitemap.py")])
     print(f"added post: {entry['id']} ({entry['date']}) -> {POSTS}")
 
 

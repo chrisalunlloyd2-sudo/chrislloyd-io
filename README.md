@@ -42,6 +42,25 @@ python3 scripts/add_item.py site --field tagline --value "New tagline"
 Commit + push after editing and GitHub Pages redeploys automatically (usually
 within a minute or two).
 
+## SEO plumbing
+
+`robots.txt` and `sitemap.xml` live at the repo root. `sitemap.xml` lists
+`index.html`, `blog.html`, and every **real** (non-placeholder) blog post —
+placeholder example posts are skipped so crawlers never see them.
+
+- Adding a post with `scripts/add_post.py` (or any data edit via
+  `scripts/add_item.py`) regenerates `sitemap.xml` automatically. You can also
+  run `python3 scripts/gen_sitemap.py` manually — it's idempotent.
+- Canonical/OG URLs default to the GitHub Pages URL. When the custom domain is
+  live, set `site.canonicalBase` in `data/site.json` (e.g.
+  `https://chrislloyd.io`) and regenerate — `main.js`/`blog.js` mirror it into
+  the rendered head tags too.
+- Owner to-dos (flagged with `OWNER ACTION` comments in the HTML heads):
+  - add `assets/og-image.png` (1200×630) — og:image/twitter:image point there
+    but the file doesn't exist yet, so social previews currently lack an image;
+  - favicon already exists as an inline SVG data-URI; replace with a real
+    `.ico`/`.png` logo file when brand artwork is available.
+
 ## Custom domain
 
 `CNAME` is pre-set to `chrislloyd.io`. When the domain is registered, add DNS

@@ -62,6 +62,36 @@
     });
   }
 
+  // SEO: per-post head tags. base comes from site.canonicalBase when set,
+  // falling back to the deployed GitHub Pages URL.
+  function seoBase() {
+    var c = document.querySelector('link[rel="canonical"]');
+    if (c) {
+      var u = new URL(c.href);
+      return u.origin + u.pathname.replace(/blog\.html$/, "");
+    }
+    return window.location.origin + window.location.pathname.replace(/blog\.html$/, "");
+  }
+  function setMeta(attr, key, content) {
+    var m = document.querySelector("meta[" + attr + '="' + key + '"]');
+    if (m) m.setAttribute("content", content);
+  }
+  function applyPostSeo(p) {
+    var url = seoBase() + "blog.html?post=" + encodeURIComponent(p.id);
+    document.title = p.title + " — Chris Lloyd Ltd";
+    var c = document.getElementById("canonical-link");
+    if (c) c.href = url;
+    var desc = (p.excerpt || "").replace(/\[?\s*PLACEHOLDER[^\]]*\]?/i, "").trim() || p.title;
+    var d = document.querySelector('meta[name="description"]');
+    if (d) d.setAttribute("content", desc);
+    setMeta("property", "og:title", p.title + " — Chris Lloyd Ltd");
+    setMeta("property", "og:description", desc);
+    setMeta("property", "og:type", "article");
+    setMeta("property", "og:url", url);
+    setMeta("name", "twitter:title", p.title + " — Chris Lloyd Ltd");
+    setMeta("name", "twitter:description", desc);
+  }
+
   function renderPost(p) {
     var view = document.getElementById("post-view");
     var list = document.getElementById("post-list");
@@ -74,7 +104,7 @@
     var back = el("a", "back-link", "← All posts");
     back.href = "blog.html";
     view.appendChild(back);
-    document.title = p.title + " — Chris Lloyd Ltd";
+    applyPostSeo(p);
   }
 
   fetch("data/posts.json")

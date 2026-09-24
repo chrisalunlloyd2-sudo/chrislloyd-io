@@ -5,7 +5,9 @@
     "tagline": "Painting & renovation by trade. Automation tooling by habit.",
     "blurb": "Independent UK limited company. Hands-on painting and home renovation — plus the small business-automation tools built from actually running one.",
     "email": "placeholder@example.com",
-    "location": "United Kingdom"
+    "location": "United Kingdom",
+    "metaDescription": "Independent UK painting & renovation contractor. Also the curated tools, reviews and open-source automation tooling built from running the trade.",
+    "canonicalBase": ""
   },
   "socials": [
     {

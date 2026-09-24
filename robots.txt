@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://chrisalunlloyd2-sudo.github.io/chrislloyd-io/sitemap.xml
