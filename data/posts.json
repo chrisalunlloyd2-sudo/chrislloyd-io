@@ -1,0 +1,22 @@
+[
+  {
+    "id": "example-first-post",
+    "title": "Example: Notes from a full repaint week",
+    "date": "2026-09-24",
+    "excerpt": "PLACEHOLDER EXAMPLE POST — a short example of what a post looks like. Replace with real notes from the business.",
+    "body": [
+      "This is a placeholder post so you can see how the blog renders. Replace it with real posts using scripts/add_post.py.",
+      "Posts live in data/posts.json — each has a title, date, excerpt, and body paragraphs. The blog index lists them newest first; every post gets its own page at ?post=<id>."
+    ]
+  },
+  {
+    "id": "example-second-post",
+    "title": "Example: Why I prep for twice as long as I paint",
+    "date": "2026-09-23",
+    "excerpt": "PLACEHOLDER EXAMPLE POST — second sample. The ninety-percent rule: prep is most of the job.",
+    "body": [
+      "Another placeholder. Real posts should go here — job notes, before/afters, tool findings.",
+      "Add a new post with: python3 scripts/add_post.py --title \"Real title\" --date 2026-09-30 --excerpt \"One-liner\" --body-file post.md"
+    ]
+  }
+]

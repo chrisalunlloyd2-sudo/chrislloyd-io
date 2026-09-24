@@ -181,6 +181,21 @@ h2 {
   padding: 12px 14px; margin-top: 8px;
 }
 
+/* --- blog ------------------------------------------------------------------------ */
+.hero-slim { padding: 52px 0 40px; }
+.blog-card { display: flex; flex-direction: column; }
+.blog-date {
+  color: var(--terracotta); font-size: .8rem; letter-spacing: .08em;
+  text-transform: uppercase; margin: 0 0 8px;
+}
+.blog-card h3 { margin: 0 0 8px; font-size: 1.15rem; }
+.blog-card a { text-decoration: none; font-weight: 500; margin-top: auto; }
+.post-view { max-width: 68ch; }
+.post-view p { margin: 0 0 16px; line-height: 1.75; }
+.post-view .blog-date { margin-bottom: 18px; }
+.back-link { display: inline-block; margin-top: 12px; color: var(--ivory-muted); }
+.back-link:hover { color: var(--terracotta); }
+
 /* --- footer ------------------------------------------------------------------------ */
 footer {
   position: relative; overflow: hidden;
