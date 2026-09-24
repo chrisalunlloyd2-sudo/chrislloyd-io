@@ -25,5 +25,45 @@
     "url": "",
     "url_label": "View on Amazon",
     "placeholder": true
+  },
+  {
+    "title": "Interior Paint & Primer",
+    "desc": "PLACEHOLDER — category listing. Example products to be added by owner. # TODO: real Amazon affiliate link",
+    "category": "Interior Paint",
+    "url_label": "View on Amazon",
+    "id": "interior-paint---primer",
+    "placeholder": true
+  },
+  {
+    "title": "Exterior Paint & Masonry",
+    "desc": "PLACEHOLDER — category listing. Example products to be added by owner. # TODO: real Amazon affiliate link",
+    "category": "Exterior Paint",
+    "url_label": "View on Amazon",
+    "id": "exterior-paint---masonry",
+    "placeholder": true
+  },
+  {
+    "title": "Painter's Tools & Prep",
+    "desc": "PLACEHOLDER — category listing. Example products to be added by owner. # TODO: real Amazon affiliate link",
+    "category": "Tools & Prep",
+    "url_label": "View on Amazon",
+    "id": "painter-s-tools---prep",
+    "placeholder": true
+  },
+  {
+    "title": "Home Reno Hardware",
+    "desc": "PLACEHOLDER — category listing. Example products to be added by owner. # TODO: real Amazon affiliate link",
+    "category": "Home Renovation",
+    "url_label": "View on Amazon",
+    "id": "home-reno-hardware",
+    "placeholder": true
+  },
+  {
+    "title": "Business & Office Supplies",
+    "desc": "PLACEHOLDER — category listing. Example products to be added by owner. # TODO: real Amazon affiliate link",
+    "category": "Business Supplies",
+    "url_label": "View on Amazon",
+    "id": "business---office-supplies",
+    "placeholder": true
   }
 ]

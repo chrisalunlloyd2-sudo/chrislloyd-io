@@ -2,25 +2,25 @@
   {
     "id": "interior-painting",
     "title": "Interior Painting",
-    "desc": "Walls, ceilings, woodwork. Clean lines, tidy sites, quality finishes.",
+    "desc": "PLACEHOLDER EXAMPLE COPY — interior painting for walls, ceilings, woodwork and trim, with tidy prep and a clean finish. Owner: replace with your own wording.",
     "icon": "brush"
   },
   {
     "id": "exterior-painting",
     "title": "Exterior Painting",
-    "desc": "Fascias, soffits, doors, masonry paint. Weather-ready prep and durable coats.",
+    "desc": "PLACEHOLDER EXAMPLE COPY — exterior painting for fascias, soffits, doors and masonry. Owner: replace with your own wording.",
     "icon": "home"
   },
   {
     "id": "home-renovation",
     "title": "Home Renovation",
-    "desc": "Room refreshes, small repairs, re-plastering prep, general handyman work.",
+    "desc": "PLACEHOLDER EXAMPLE COPY — small refreshes and touch-ups: minor repairs, prep and finishing work. Owner: replace with your own wording.",
     "icon": "tools"
   },
   {
     "id": "wallpapering",
     "title": "Wallpaper & Finishing",
-    "desc": "Hanging, feature walls, minor plaster repair before finishing.",
+    "desc": "PLACEHOLDER EXAMPLE COPY — wallpaper hanging and finishing touches. Owner: replace with your own wording.",
     "icon": "layers"
   }
 ]
