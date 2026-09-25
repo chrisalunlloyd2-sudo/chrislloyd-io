@@ -37,5 +37,14 @@
     "tags": [
       "placeholder"
     ]
+  },
+  {
+    "title": "inference_coin",
+    "desc": "A personal hobby project — curious about computers and what idle machines can do when left running. Early-stage research in a private repo, not a product.",
+    "url": "https://github.com/chrisalunlloyd2-sudo/inference_coin",
+    "tags": [
+      "hobby"
+    ],
+    "id": "inference-coin"
   }
 ]
