@@ -3,15 +3,17 @@
     "id": "interior-painting",
     "title": "Interior Painting",
     "category": "painting",
-    "desc": "PLACEHOLDER EXAMPLE COPY — walls, ceilings, woodwork and trim, with tidy prep and a clean finish. Owner: replace with your own wording.",
-    "icon": "brush"
+    "desc": "Interior painting for Edmonton homes — walls, ceilings, trim and cabinets-adjacent woodwork, with tidy prep and a clean finish. [OWNER: replace placeholder wording]",
+    "icon": "brush",
+    "placeholder": true
   },
   {
     "id": "exterior-painting",
     "title": "Exterior Painting",
     "category": "painting",
-    "desc": "PLACEHOLDER EXAMPLE COPY — fascias, soffits, doors and masonry, weather-proofed properly. Owner: replace with your own wording.",
-    "icon": "home"
+    "desc": "Exterior painting for Edmonton and area homes — fascias, soffits, doors and masonry, prepped for Alberta winters. [OWNER: replace placeholder wording]",
+    "icon": "home",
+    "placeholder": true
   },
   {
     "id": "wallpapering",
@@ -24,8 +26,9 @@
     "id": "home-renovation",
     "title": "Home Renovation",
     "category": "labour",
-    "desc": "PLACEHOLDER EXAMPLE COPY — small refreshes and touch-ups: minor repairs, prep and finishing work. Owner: replace with your own wording.",
-    "icon": "tools"
+    "desc": "Drywall repair and painting, small refreshes and touch-ups: minor repairs, prep and finishing work. [OWNER: replace placeholder wording]",
+    "icon": "tools",
+    "placeholder": true
   },
   {
     "id": "flat-pack-assembly",

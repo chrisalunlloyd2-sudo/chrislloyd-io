@@ -1,6 +1,13 @@
 #!/usr/bin/env python3
 """Add a blog post to data/posts.json — the easy-to-automate blog helper.
 
+SEO note (task 017): long-tail, question-style titles are the intended blog
+strategy going forward — e.g. "how much does it cost to paint a house
+Edmonton", "best time to paint exterior Alberta", "how to prep walls before
+painting", "interior vs exterior paint Alberta winters". Informational
+shop/dropship angles like "best paint for Alberta winters" also fit the blog;
+avoid generic transactional titles ("buy paint online") — they can't compete.
+
 Usage:
   python3 scripts/add_post.py --title "Week on the scaffolds" --date 2026-10-01 \
       --excerpt "One-line summary for the index." \
