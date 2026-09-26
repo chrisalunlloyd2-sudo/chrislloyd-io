@@ -3,5 +3,6 @@
   "web3": {
     "chainId": 1,
     "ownerEns": ""
-  }
+  },
+  "sheetLogEndpoint": ""
 }
