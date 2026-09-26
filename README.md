@@ -56,10 +56,10 @@ placeholder example posts are skipped so crawlers never see them.
   `https://chrislloyd.io`) and regenerate — `main.js`/`blog.js` mirror it into
   the rendered head tags too.
 - Owner to-dos (flagged with `OWNER ACTION` comments in the HTML heads):
-  - add `assets/og-image.png` (1200×630) — og:image/twitter:image point there
-    but the file doesn't exist yet, so social previews currently lack an image;
   - favicon already exists as an inline SVG data-URI; replace with a real
     `.ico`/`.png` logo file when brand artwork is available.
+- About bio is final (owner-approved copy in `data/about.json`); the About
+  section displays a portrait photo (`assets/bio-photo.jpg`).
 
 ## Custom domain
 
