@@ -29,9 +29,26 @@ def slug(text):
 
 
 def parse(inbox_text):
-    """Return (entries, heading_line_numbers) for unsynced '## ' blocks."""
+    """Return (entries, heading_line_numbers) for unsynced '## ' blocks.
+
+    Fenced code blocks (``` ... ```) are skipped entirely -- the inbox
+    template example lives inside one and must never be parsed as an entry.
+    """
     entries, lines = [], inbox_text.splitlines()
-    starts = [i for i, ln in enumerate(lines) if ln.startswith("## ")]
+    starts, fence = [], None
+    for i, ln in enumerate(lines):
+        stripped = ln.strip()
+        if fence is None:
+            if stripped.startswith("```"):
+                fence = i
+                continue
+            if ln.startswith("## "):
+                starts.append(i)
+        elif stripped.startswith("```"):
+            fence = None
+    if fence is not None:
+        sys.exit("error: inbox has an unclosed ``` code fence -- close it, "
+                 "then re-run.")
 
     for n, start in enumerate(starts):
         heading = lines[start][3:].strip()
