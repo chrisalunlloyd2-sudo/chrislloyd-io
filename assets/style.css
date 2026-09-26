@@ -183,6 +183,10 @@ h2 {
 .contact-form .btn { align-self: flex-start; }
 .form-status { font-size: .85rem; color: var(--teal); margin: 0; }
 .contact-side p { color: var(--ivory-muted); }
+.contact-side #contact-phone a, .contact-side #contact-email a { color: var(--ivory); text-decoration: none; }
+.contact-side #contact-phone a:hover, .contact-side #contact-email a:hover { color: var(--terracotta); }
+.phone-note { font-size: .8rem; color: var(--ivory-muted); margin-left: 8px; }
+.contact-address { font-size: .92rem; line-height: 1.5; }
 .socials { list-style: none; display: flex; gap: 10px; flex-wrap: wrap; padding: 0; margin: 14px 0; }
 .socials a, .socials span {
   display: inline-block; padding: 8px 16px; border: 1px solid var(--line);

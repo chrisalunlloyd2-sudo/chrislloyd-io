@@ -3,9 +3,9 @@
     "photo": "",
     "photoAlt": "[OWNER PHOTO — add your photo as assets/owner.jpg and set \"photo\" in data/about.json]",
     "paragraphs": [
-      "[OWNER BIO — replace this placeholder copy.] Painter and decorator by trade, tinkerer with automation tooling by habit. The work is hands-on: prep done properly, clean lines, and a finish that lasts.",
-      "[OWNER BIO — paragraph 2.] The same instinct that keeps a paint edge sharp keeps the paperwork tidy: small tools and checklists that stop small jobs turning into big ones.",
-      "[OWNER BIO — paragraph 3.] Based in the UK, working locally. Happy to quote — see the services below or get in touch."
+      "Painter and decorator by trade, tinkerer with automation tooling by habit. Based in Edmonton, Alberta — I run a hands-on residential painting and home renovation operation, with prep done properly, clean lines, and a finish that lasts.",
+      "The same instinct that keeps a paint edge sharp keeps the paperwork tidy: this site doubles as the home of the small tools and checklists I built to stop small jobs turning into big ones. What works on real job sites ends up shared here.",
+      "Text is the fastest way to reach me — fire off an enquiry any time, or email first if you prefer. Happy to quote: see the services below, or send over a few photos of the space and I'll come back with a plan and a number."
     ]
   }
 }

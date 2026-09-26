@@ -183,9 +183,33 @@
     var em = document.getElementById("contact-email");
     if (site.email && !/^placeholder/.test(site.email)) {
       var a = el("a", null, site.email); a.href = "mailto:" + site.email;
-      em.textContent = ""; em.appendChild(a);
+      em.textContent = "Email: "; em.appendChild(a);
     } else {
       em.textContent = "Email: coming soon (set 'email' in data/site.json).";
+    }
+    var ph = document.getElementById("contact-phone");
+    if (ph) {
+      if (site.phone) {
+        var pa = el("a", null, site.phone);
+        pa.href = "tel:" + String(site.phone).replace(/[^+\\d]/g, "");
+        ph.textContent = ""; ph.appendChild(pa);
+        if (site.phoneNote) {
+          var note = el("span", "phone-note", "(" + site.phoneNote + ")");
+          ph.appendChild(note);
+        }
+      } else {
+        ph.textContent = "";
+      }
+    }
+    var ad = document.getElementById("contact-address");
+    if (ad) {
+      if (site.address && site.address.street) {
+        ad.textContent = site.address.street + ", " + site.address.city + ", "
+          + site.address.region + (site.address.postalCode ? " " + site.address.postalCode : "")
+          + ", " + site.address.country;
+      } else {
+        ad.textContent = "";
+      }
     }
     var ul = document.getElementById("socials-list");
     (s.socials || []).forEach(function (soc) {
