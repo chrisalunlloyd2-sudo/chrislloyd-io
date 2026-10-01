@@ -52,7 +52,7 @@ NAV = [
 FAVICON = ("<link rel=\"icon\" href=\"data:image/svg+xml,%3Csvg "
            "xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E"
            "%3Cpolygon points='50,4 88,27 88,73 50,96 12,73 12,27' "
-           "fill='%23c1613c'/%3E%3C/svg%3E>")
+           "fill='%23c86e3c'/%3E%3C/svg%3E>")
 
 
 def base_url():

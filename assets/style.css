@@ -4,8 +4,8 @@
   --ink-alt: #1b1f26;      /* alt section background */
   --ivory: #f2ede4;        /* primary text */
   --ivory-muted: #a9a196;  /* secondary text */
-  --terracotta: #c1613c;   /* accent 1 */
-  --teal: #3c8f82;         /* accent 2 */
+  --terracotta: #c86e3c;   /* accent 1 (darkened from #c1613c — task 031: WCAG 4.5:1 on both dark backgrounds) */
+  --teal: #3c9482;         /* accent 2 (lightened from #3c8f82 — task 031: WCAG 4.5:1 on both dark backgrounds) */
   --line: rgba(242, 237, 228, .14);
   --radius: 10px;
 }
@@ -175,7 +175,7 @@ h2 {
 .gallery-chip {
   position: absolute; top: 8px; left: 8px;
   font-size: .68rem; font-weight: 700; letter-spacing: .08em;
-  color: var(--ivory); border-radius: 999px; padding: 2px 9px;
+  color: var(--ink); border-radius: 999px; padding: 2px 9px;
   background: var(--terracotta);
 }
 .gallery-chip-after { background: var(--teal); }
@@ -200,10 +200,13 @@ h2 {
   font: inherit; padding: 10px 12px;
 }
 .contact-form select { appearance: none; }
+.contact-form input::placeholder, .contact-form textarea::placeholder {
+  color: var(--ivory-muted); opacity: 1; /* task 031: placeholder was default grey ~3.6:1 on --ink-alt */
+}
 .contact-form input:focus, .contact-form textarea:focus, .contact-form select:focus {
   outline: none; border-color: var(--teal);
 }
-.contact-form .field-optional { font-weight: normal; opacity: .7; font-size: .8rem; }
+.contact-form .field-optional { font-weight: normal; color: var(--ivory-muted); font-size: .8rem; }
 .contact-form .choice-group {
   display: flex; flex-direction: column; gap: 6px;
   border: 1px solid var(--line); border-radius: var(--radius);

@@ -18,7 +18,7 @@
   // 8 triangular SVG polygons fanning from center, alternating terracotta/teal
   // fills at varying opacity, thin ink strokes between facets.
   var SVG_NS = "http://www.w3.org/2000/svg";
-  var ACCENTS = ["#c1613c", "#3c8f82"]; // terracotta, teal
+  var ACCENTS = ["#c86e3c", "#3c9482"]; // terracotta, teal (task 031: synced with style.css tokens for 4.5:1 contrast)
 
   function rosette() {
     var svg = document.createElementNS(SVG_NS, "svg");
