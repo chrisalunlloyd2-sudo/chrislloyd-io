@@ -1,22 +1,45 @@
 [
   {
-    "id": "example-first-post",
-    "title": "Example: Notes from a full repaint week",
-    "date": "2026-09-24",
-    "excerpt": "PLACEHOLDER EXAMPLE POST — a short example of what a post looks like. Replace with real notes from the business.",
+    "id": "how-to-prep-walls-before-painting--edmonton-interior-checkli",
+    "title": "How to prep walls before painting: Edmonton interior checklist",
+    "date": "2026-10-01",
+    "excerpt": "DRAFT — owner review before publishing: A wall-prep checklist for Edmonton interior painting — clearing, repairs, filling, sanding and cutting-in, in the order prep actually happens on site.",
     "body": [
-      "This is a placeholder post so you can see how the blog renders. Replace it with real posts using scripts/add_post.py.",
-      "Posts live in data/posts.json — each has a title, date, excerpt, and body paragraphs. The blog index lists them newest first; every post gets its own page at ?post=<id>."
+      "A fresh coat of paint is only as good as what's underneath it. On interior jobs in Edmonton, prep is where most of the time on site goes — and the checklist below is roughly the order the work happens in a real room.",
+      "Clear the room first. Furniture out (or pushed to the centre and sheeted), outlet covers and switch plates off, window hardware and anything hanging on the walls down. Bagging hardware and labelling the bags saves a lot of head-scratching at reassembly time.",
+      "Wall prep comes next. Scuff-sand shiny spots and any glossy paint where new paint needs to grip, fill nail holes and small dings with filler, and let it dry properly before a light second sand. Greasy areas — kitchen walls especially — get washed down so paint doesn't lift later.",
+      "Nail pops, loose drywall tape and crumbly filler get cut back and redone rather than painted over; a patched spot that flashes through a finished coat means redoing the whole wall. Where patches are bigger, spotting primer on the repairs stops them from showing as dull or shiny patches under the finish coat.",
+      "Dust and cutting-in are the last prep steps before paint: floors sheeted, vacuum done, then a careful cut-in line along ceilings, trim and corners so the roller work stays in the middle of the wall.",
+      "That's the sequence that keeps an interior job tidy and makes the finish last — and it's why a quote should mention prep hours, not just coats of paint."
     ]
   },
   {
-    "id": "example-second-post",
-    "title": "Example: Why I prep for twice as long as I paint",
-    "date": "2026-09-23",
-    "excerpt": "PLACEHOLDER EXAMPLE POST — second sample. The ninety-percent rule: prep is most of the job.",
+    "id": "home-renovation-checklist--what-order-should-the-work-be-don",
+    "title": "Home renovation checklist: what order should the work be done in?",
+    "date": "2026-10-01",
+    "excerpt": "DRAFT — owner review before publishing: The order renovation work follows — dusty before clean, wet before dry, rough before finish — and why the sequence matters more than the calendar.",
     "body": [
-      "Another placeholder. Real posts should go here — job notes, before/afters, tool findings.",
-      "Add a new post with: python3 scripts/add_post.py --title \"Real title\" --date 2026-09-30 --excerpt \"One-liner\" --body-file post.md"
+      "Homeowners often ask what order a renovation should happen in — and the honest answer is that the sequence exists to stop finished work from getting wrecked by work that comes later. Here's the order small renovation jobs around Edmonton typically follow.",
+      "Structural and layout work comes first: anything touching framing, openings or plumbing rough-in happens before anything cosmetic. There's no point taping and mudding drywall if a wall is about to move.",
+      "Then the \"wet and dusty\" trades, roughly in this order: HVAC and plumbing rough-in, electrical rough-in, insulation, drywall hang and tape, then sanding. Sanding drywall dust gets everywhere, so flooring and anything finished stays out until the dust work is done.",
+      "After dust comes moisture-prone work: paint and cabinet-adjacent finishes. On repaint-and-refresh jobs we're often called in at this stage — repairs, prep and finishing work once the dusty phases are finished.",
+      "Then flooring goes in, followed by trim, doors and fixture setting. Flooring before trim lets the trim sit down onto the finished floor for a clean line; installing trim first usually means scribing and fudging later.",
+      "Fixtures, hardware and punch-list last. Switch plates, faucet handles, doorstops and the little touch-ups get finished once everything heavy is out of the way.",
+      "The rule of thumb: dusty before clean, wet before dry, rough before finish. If a quote has painting scheduled before flooring, ask why — getting the order right is most of what keeps a reno on schedule."
+    ]
+  },
+  {
+    "id": "when-is-the-best-time-to-paint-a-house-exterior-in-alberta",
+    "title": "When is the best time to paint a house exterior in Alberta?",
+    "date": "2026-10-01",
+    "excerpt": "DRAFT — owner review before publishing: Alberta's exterior painting window explained — surface temperature, overnight lows, and why June-to-early-September is the dependable range.",
+    "body": [
+      "Alberta weather makes exterior painting a seasonal question — paint needs the right surface temperature and enough curing time before frost, and Edmonton doesn't offer a huge window. Here's roughly how the season plays out.",
+      "Late spring through early fall is the workable window. The general rule most paints quote is surface (not just air) temperatures above about 10°C, with temperatures staying in range long enough for the coat to cure — overnight lows matter as much as afternoon highs.",
+      "Early summer is the dependable sweet spot: long daylight hours, warm surfaces, and no morning dew issues. Late August and September can also be very good painting weather — the catch is how fast the season can end, because the first hard frost can arrive earlier than expected.",
+      "Spring is the gamble. May snowfall isn't unusual on the prairies, and surfaces on the north side of a house can stay cold well into the day even when the afternoon feels fine. Shady walls need a temperature check before paint goes on, not after.",
+      "Even within a good day, the window matters: morning dew and evening temperature drops shrink the usable hours at the edges of the season. Exterior jobs are scheduled around the forecast, not around the calendar.",
+      "Practical answer: for exterior painting in Alberta, aim for June through early September, watch overnight lows, and treat late-season dates as weather-permitting. Planning an exterior job? Booking early-summer dates is the safest bet."
     ]
   }
 ]
