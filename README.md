@@ -20,6 +20,7 @@ from JSON files in `data/`:
 | `data/services.json` | Services grid |
 | `data/shop.json` | Shop grid (Amazon affiliate cards) |
 | `data/opensource.json` | Open-source project cards |
+| `data/testimonials.json` | Testimonials grid (customer quotes; placeholders until real reviews) |
 
 ### Add a service / product / project
 
@@ -64,6 +65,13 @@ placeholder example posts are skipped so crawlers never see them.
     `.ico`/`.png` logo file when brand artwork is available.
 - About bio is final (owner-approved copy in `data/about.json`); the About
   section displays a portrait photo (`assets/bio-photo.jpg`).
+- Testimonials (2026-10-01, task 025): seeded as PLACEHOLDER entries in
+  `data/testimonials.json`. Replace quotes with real customer words (with
+  permission), set `placeholder` to `false`, and add `date` (ISO) and
+  `rating` (1-5) when known. Schema.org `Review` JSON-LD is emitted by
+  `assets/main.js` ONLY for non-placeholder entries — placeholder stars are
+  never emitted as structured data (Google penalises self-serving review
+  stars). Smoke test: `python3 scripts/check_testimonials.py`.
 
 ## Custom domain
 
