@@ -7,6 +7,7 @@ gen_sitemap.py helpers (is_placeholder, atomic write), add_post.py
 """
 import json
 import os
+import subprocess
 import sys
 import tempfile
 import unittest
@@ -137,6 +138,105 @@ class TestTestimonials(unittest.TestCase):
         for t in self.items:
             self.assertTrue(t.get("placeholder") is True)
             self.assertIn("PLACEHOLDER", t["quote"])
+
+
+class TestAreaPages(unittest.TestCase):
+    """Task 026: static service-area pages (data/area-pages.json)."""
+
+    def setUp(self):
+        with open(os.path.join(ROOT, "data", "area-pages.json"), encoding="utf-8") as fh:
+            self.data = json.load(fh)
+
+    def test_data_valid_and_nonempty(self):
+        self.assertIsInstance(self.data.get("pages"), list)
+        self.assertGreaterEqual(len(self.data["pages"]), 4)
+
+    def test_required_fields_per_page(self):
+        for p in self.data["pages"]:
+            self.assertIn("slug", p)
+            self.assertIn("city", p)
+            self.assertIn("drivingContext", p)
+            self.assertTrue(p["intro"], "page intro must not be empty")
+
+    def test_generated_pages_exist_and_reference_generator(self):
+        import gen_area_pages
+        for p in self.data["pages"]:
+            path = os.path.join(ROOT, p["slug"] + ".html")
+            self.assertTrue(os.path.exists(path), f"{path} missing — run gen_area_pages.py")
+            html = open(path, encoding="utf-8").read()
+            self.assertIn("scripts/gen_area_pages.py", html,
+                          "generated page must carry provenance comment")
+
+    def test_render_covers_seo_plumbing(self):
+        import gen_area_pages
+        page = self.data["pages"][0]
+        html = gen_area_pages.render(page, is_draft=True)
+        self.assertIn("rel=\"canonical\"", html)
+        self.assertIn(f"{page['slug']}.html", html.split('rel="canonical"')[1])
+        for prop in ("og:title", "og:description", "og:url", "og:image"):
+            self.assertIn(f"property=\"{prop}\"", html)
+        for name in ("twitter:card", "twitter:title", "twitter:image"):
+            self.assertIn(f"name=\"{name}\"", html)
+        self.assertIn("application/ld+json", html)
+        # JSON-LD is pretty-printed — parse rather than substring-match.
+        ld_blob = html.split('<script type="application/ld+json">', 1)[1]
+        ld = json.loads(ld_blob.split("</script>", 1)[0])
+        self.assertEqual(ld["areaServed"], [page["city"]])
+        self.assertEqual(ld["@type"], "HomeAndConstructionBusiness")
+        self.assertIn("assets/style.css", html)
+        self.assertIn("index.html#contact", html)
+        # draft flag must surface as a visible note on the page
+        self.assertIn("Draft copy", html)
+
+    def test_render_draft_off_hides_note(self):
+        import gen_area_pages
+        page = self.data["pages"][0]
+        html = gen_area_pages.render(page, is_draft=False)
+        self.assertNotIn("data-draft-note", html)
+
+    def test_check_mode_detects_stale(self):
+        # Rewrite one page with a dummy byte and confirm --check catches it.
+        import gen_area_pages
+        page = self.data["pages"][0]
+        path = os.path.join(ROOT, page["slug"] + ".html")
+        original = open(path, encoding="utf-8").read()
+        try:
+            with open(path, "w", encoding="utf-8") as fh:
+                fh.write("<!DOCTYPE html><!-- stale -->\n")
+            self.assertEqual(gen_area_pages.main.__doc__ or "", "")
+            rc = subprocess.run(
+                [sys.executable, os.path.join(ROOT, "scripts", "gen_area_pages.py"), "--check"],
+                capture_output=True, text=True)
+            self.assertEqual(rc.returncode, 1, "--check must flag stale page")
+        finally:
+            with open(path, "w", encoding="utf-8") as fh:
+                fh.write(original)
+
+    def test_regenerate_is_idempotent(self):
+        rc = subprocess.run(
+            [sys.executable, os.path.join(ROOT, "scripts", "gen_area_pages.py")],
+            capture_output=True, text=True)
+        self.assertEqual(rc.returncode, 0)
+        self.assertIn("nothing rewritten", rc.stdout)
+
+
+class TestAreaSitemap(unittest.TestCase):
+    """Task 026: sitemap integration for service-area pages."""
+
+    def test_load_area_pages_lists_real_slugs(self):
+        import gen_sitemap
+        slugs = gen_sitemap.load_area_pages()
+        self.assertIn("st-albert.html", slugs)
+        self.assertIn("sherwood-park.html", slugs)
+        self.assertIn("leduc.html", slugs)
+        self.assertIn("spruce-grove.html", slugs)
+
+    def test_sitemap_xml_includes_area_pages(self):
+        with open(os.path.join(ROOT, "sitemap.xml"), encoding="utf-8") as fh:
+            xml = fh.read()
+        for slug in ("st-albert.html", "sherwood-park.html",
+                     "leduc.html", "spruce-grove.html"):
+            self.assertIn(slug, xml, f"sitemap.xml missing {slug} — run gen_sitemap.py")
 
 
 if __name__ == "__main__":
