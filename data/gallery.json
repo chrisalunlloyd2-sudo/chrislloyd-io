@@ -1,0 +1,12 @@
+[
+  {
+    "id": "placeholder-gallery-before-after-job",
+    "title": "PLACEHOLDER — Before & After Entry",
+    "caption": "PLACEHOLDER ENTRY — replace with a real job: what the space looked like before, and the same view when the job was finished. Drop the photo pair into assets/gallery/ and update the src/alt fields here (set placeholder to false once real).",
+    "before": { "src": "assets/gallery/placeholder-before.jpg", "alt": "PLACEHOLDER — before photo of the space (owner supplies)" },
+    "after": { "src": "assets/gallery/placeholder-after.jpg", "alt": "PLACEHOLDER — after photo of the same space (owner supplies)" },
+    "location": "",
+    "year": "",
+    "placeholder": true
+  }
+]

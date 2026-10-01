@@ -21,6 +21,7 @@ from JSON files in `data/`:
 | `data/shop.json` | Shop grid (Amazon affiliate cards) |
 | `data/opensource.json` | Open-source project cards |
 | `data/testimonials.json` | Testimonials grid (customer quotes; placeholders until real reviews) |
+| `data/gallery.json` | Before & after gallery grid (photo pairs; placeholders until owner supplies photos) |
 
 ### Add a service / product / project
 
@@ -72,6 +73,17 @@ placeholder example posts are skipped so crawlers never see them.
   `assets/main.js` ONLY for non-placeholder entries — placeholder stars are
   never emitted as structured data (Google penalises self-serving review
   stars). Smoke test: `python3 scripts/check_testimonials.py`.
+- Before & after gallery (2026-10-01, task 027): layout + data plumbing is
+  live, photos arrive later. `data/gallery.json` holds one PLACEHOLDER entry
+  pointing at `assets/gallery/placeholder-*.jpg` — those image files were
+  deliberately **not** created. To publish a real pair: drop both photos into
+  `assets/gallery/`, add an entry to the JSON (one per job), and set
+  `placeholder` to `false`. The renderer (`renderGallery` in `assets/main.js`)
+  shows an entry only when both image files actually load (`img.onerror`
+  removes broken ones), so the live site never shows broken-image icons; if
+  nothing loads it shows a single muted "photos coming soon" note instead of
+  an empty grid. Gallery is a section, not a page — never add it to
+  `sitemap.xml`.
 
 ## Custom domain
 

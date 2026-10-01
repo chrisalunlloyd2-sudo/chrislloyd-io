@@ -220,6 +220,78 @@ class TestAreaPages(unittest.TestCase):
         self.assertIn("nothing rewritten", rc.stdout)
 
 
+class TestGallery(unittest.TestCase):
+    """Task 027: before/after gallery — layout + data plumbing, photos later."""
+
+    def setUp(self):
+        with open(os.path.join(ROOT, "data", "gallery.json"), encoding="utf-8") as fh:
+            self.items = json.load(fh)
+        self.index_html = open(os.path.join(ROOT, "index.html"), encoding="utf-8").read()
+        self.main_js = open(os.path.join(ROOT, "assets", "main.js"), encoding="utf-8").read()
+        self.style_css = open(os.path.join(ROOT, "assets", "style.css"), encoding="utf-8").read()
+
+    def test_gallery_json_valid(self):
+        self.assertIsInstance(self.items, list)
+        self.assertGreaterEqual(len(self.items), 1, "seed at least the PLACEHOLDER entry")
+
+    def test_entries_follow_schema(self):
+        for g in self.items:
+            self.assertIn("id", g)
+            self.assertIn("title", g)
+            self.assertIn("caption", g)
+            for side in ("before", "after"):
+                self.assertIn(side, g)
+                self.assertIn("src", g[side])
+                self.assertIn("alt", g[side])
+            if "year" in g and g["year"] not in (None, ""):
+                self.assertTrue(str(g["year"]).isdigit())
+
+    def test_only_placeholder_entries_until_photos_arrive(self):
+        self.assertGreater(len(self.items), 0)
+        for g in self.items:
+            self.assertTrue(g.get("placeholder") is True)
+            self.assertIn("PLACEHOLDER", g["title"])
+            for side in ("before", "after"):
+                self.assertIn("PLACEHOLDER", g[side]["alt"])
+                # placeholder sources must point at assets/gallery/ (never created)
+                self.assertTrue(g[side]["src"].startswith("assets/gallery/"))
+
+    def test_no_placeholder_image_files_shipped(self):
+        self.assertFalse(os.path.exists(os.path.join(ROOT, "assets", "gallery", "placeholder-before.jpg")))
+        self.assertFalse(os.path.exists(os.path.join(ROOT, "assets", "gallery", "placeholder-after.jpg")))
+
+    def test_section_and_nav_wiring(self):
+        self.assertIn('id="gallery"', self.index_html)
+        self.assertIn('id="gallery-grid"', self.index_html)
+        self.assertIn('href="#gallery"', self.index_html)
+        # section sits between #testimonials and #faq in the document
+        t_i = self.index_html.find('<section id="testimonials"')
+        g_i = self.index_html.find('<section id="gallery"')
+        f_i = self.index_html.find('<section id="faq"')
+        self.assertTrue(0 < t_i < g_i < f_i, "gallery must sit between testimonials and faq")
+
+    def test_renderer_wiring_in_main_js(self):
+        self.assertIn('fetch("data/gallery.json")', self.main_js)
+        self.assertIn('"gallery-grid"', self.main_js)
+        self.assertIn("img.onerror", self.main_js)
+        self.assertIn("renderGallery();", self.main_js)
+        # onerror must remove the card (no broken-image icons live)
+        self.assertLess(
+            self.main_js.index("img.onerror"), self.main_js.index("removeChild(c)"),
+            "onerror handler must remove the broken gallery card")
+
+    def test_sitemap_untouched_by_gallery(self):
+        with open(os.path.join(ROOT, "sitemap.xml"), encoding="utf-8") as fh:
+            xml = fh.read()
+        self.assertNotIn("gallery", xml, "gallery is a section, not a page — keep it out of sitemap.xml")
+
+    def test_renderer_pure_functions_in_node(self):
+        # node-side smoke test: extract + exec the pure helpers, assert behavior
+        script = os.path.join(ROOT, "scripts", "test_gallery_logic.js")
+        rc = subprocess.run(["node", script], capture_output=True, text=True)
+        self.assertEqual(rc.returncode, 0, "node gallery-logic tests failed:\n" + rc.stdout + rc.stderr)
+
+
 class TestAreaSitemap(unittest.TestCase):
     """Task 026: sitemap integration for service-area pages."""
 

@@ -407,6 +407,83 @@
       });
   }
 
+  // --- before/after gallery: photo pairs from data/gallery.json ----------------
+  // Photos arrive later (owner supplies pairs into assets/gallery/). Entries
+  // are shown only when both image files actually load: img.onerror removes
+  // broken/placeholder entries so the live site never shows broken-image
+  // icons, and if nothing renders a single muted note line replaces the grid.
+  var GALLERY_SIDES = ["before", "after"];
+
+  // Pure: an entry is displayable only with a src for BOTH sides. (Whether the
+  // src file exists is checked at runtime by img.onerror in renderGallery.)
+  function galleryRenderable(item) {
+    return !!item && GALLERY_SIDES.every(function (w) {
+      return !!(item[w] && typeof item[w].src === "string" && item[w].src.length);
+    });
+  }
+
+  function galleryCard(item) {
+    var c = el("article", "card gallery-card" + (item.placeholder ? " placeholder" : ""));
+    if (item.title) c.appendChild(el("h3", null, item.title));
+    var pair = el("div", "gallery-pair");
+    GALLERY_SIDES.forEach(function (which) {
+      var fig = el("figure", "gallery-side");
+      var img = el("img", "gallery-img");
+      img.src = item[which].src;
+      img.alt = item[which].alt || "";
+      img.loading = "lazy";
+      img.onerror = function () {
+        img.onerror = null;
+        if (c.parentNode) c.parentNode.removeChild(c); // hide broken entry
+      };
+      fig.appendChild(img);
+      fig.appendChild(el("figcaption", "gallery-chip gallery-chip-" + which, which.toUpperCase()));
+      pair.appendChild(fig);
+    });
+    c.appendChild(pair);
+    if (item.caption) c.appendChild(el("p", "gallery-caption", item.caption));
+    if (item.location || item.year) {
+      var meta = el("ul", "meta");
+      if (item.location) meta.appendChild(el("li", null, item.location));
+      if (item.year) meta.appendChild(el("li", null, String(item.year)));
+      c.appendChild(meta);
+    }
+    return c;
+  }
+
+  function renderGallery() {
+    var grid = document.getElementById("gallery-grid");
+    if (!grid) return Promise.resolve();
+    return fetch("data/gallery.json")
+      .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+      .then(function (items) {
+        var renderable = (items || []).filter(galleryRenderable);
+        renderable.forEach(function (item) { grid.appendChild(galleryCard(item)); });
+        // Settle counting: the empty-state note waits until every remaining
+        // image has either loaded or errored (broken card removal included).
+        var cards = [].slice.call(grid.querySelectorAll(".gallery-card"));
+        var pending = cards.length;
+        var settled = function () {
+          pending -= 1;
+          if (pending > 0) return;
+          if (!grid.querySelectorAll(".gallery-card").length) {
+            grid.appendChild(el("p", "section-note gallery-empty",
+              "Before & after photos coming soon — real job pairs will appear here."));
+          }
+        };
+        if (!pending) { settled(); return; }
+        cards.forEach(function (c) {
+          [].slice.call(c.querySelectorAll("img")).forEach(function (img) {
+            img.addEventListener("load", settled);
+            img.addEventListener("error", settled);
+          });
+        });
+      })
+      .catch(function (e) {
+        grid.appendChild(el("p", "section-note", "Before & after failed to load (" + e.message + ")."));
+      });
+  }
+
   // --- seasonal promo strip (data/promo-calendar.json, picks current season) --
   function renderPromoStrip() {
     var strip = document.getElementById("promo-strip");
@@ -430,6 +507,7 @@
   renderJSON("data/opensource.json", "opensource-grid");
   renderJSON("data/reviews.json", "reviews-grid", reviewCard);
   renderTestimonials();
+  renderGallery();
   renderServices();
   renderAbout();
   renderFAQ();

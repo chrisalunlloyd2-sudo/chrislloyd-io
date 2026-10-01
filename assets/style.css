@@ -161,6 +161,28 @@ h2 {
 .testimonial footer .meta-date { color: var(--ivory-muted); font-size: .8rem; }
 .testimonial .rating { margin: 8px 0 0; }
 
+/* --- gallery (before/after pairs; images supplied later — task 027) -------------- */
+/* Card background matches #reviews/#contact (alt section on ink) via #gallery rule. */
+#gallery .gallery-card { background: var(--ink); }
+.gallery-pair {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 0 0 12px;
+}
+.gallery-side { position: relative; margin: 0; }
+.gallery-img {
+  display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover;
+  border-radius: 6px; border: 1px solid var(--line); background: var(--ink-alt);
+}
+.gallery-chip {
+  position: absolute; top: 8px; left: 8px;
+  font-size: .68rem; font-weight: 700; letter-spacing: .08em;
+  color: var(--ivory); border-radius: 999px; padding: 2px 9px;
+  background: var(--terracotta);
+}
+.gallery-chip-after { background: var(--teal); }
+.gallery-caption { font-size: .93rem; color: var(--ivory-muted); margin: 0 0 10px; }
+.gallery-card .meta { margin-bottom: 0; }
+.gallery-empty { margin: 0; }
+
 /* --- contact --------------------------------------------------------------------- */
 .contact-cols { display: grid; grid-template-columns: 1.2fr .8fr; gap: 28px; }
 .contact-form {
@@ -243,6 +265,7 @@ footer .wrap { position: relative; }
 /* --- responsive ---------------------------------------------------------------------- */
 @media (max-width: 760px) {
   .services-cols, .contact-cols { grid-template-columns: 1fr; }
+  .gallery-pair { grid-template-columns: 1fr; }
   .about { flex-direction: column; }
   .about-mark { width: 88px; height: 88px; }
   .rosette-hero { width: 300px; height: 300px; top: -100px; right: -100px; }
