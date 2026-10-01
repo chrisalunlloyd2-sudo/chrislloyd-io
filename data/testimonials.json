@@ -1,0 +1,26 @@
+[
+  {
+    "id": "placeholder-testimonial-backsplash",
+    "author": "PLACEHOLDER — Real Customer Name",
+    "quote": "PLACEHOLDER TESTIMONIAL — the kitchen backsplash lines are dead straight and they left the kitchen cleaner than they found it. Replace this with a real customer quote (with permission).",
+    "date": "",
+    "rating": null,
+    "placeholder": true
+  },
+  {
+    "id": "placeholder-testimonial-exterior",
+    "author": "PLACEHOLDER — Real Customer Name",
+    "quote": "PLACEHOLDER TESTIMONIAL — quoted on Monday, prepped Thursday, finished the exterior in three days. Replace this with a real customer quote (with permission).",
+    "date": "",
+    "rating": null,
+    "placeholder": true
+  },
+  {
+    "id": "placeholder-testimonial-rental-turnover",
+    "author": "PLACEHOLDER — Real Customer Name",
+    "quote": "PLACEHOLDER TESTIMONIAL — turned our rental around between tenants, walls and trim, with zero drama. Replace this with a real customer quote (with permission).",
+    "date": "",
+    "rating": null,
+    "placeholder": true
+  }
+]

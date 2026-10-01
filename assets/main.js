@@ -100,6 +100,25 @@
     return c;
   }
 
+  // --- testimonial card (customer quote; distinct from product reviews) -------
+  function testimonialCard(item) {
+    var c = el("blockquote", "card testimonial" + (item.placeholder ? " placeholder" : ""));
+    if (item.quote) {
+      var q = el("p", "quote", item.quote);
+      q.setAttribute("cite", item.id || "testimonial");
+      c.appendChild(q);
+    }
+    var footer = el("footer", null);
+    footer.appendChild(el("strong", null, item.author || "Customer"));
+    if (item.date) footer.appendChild(el("span", "meta-date", " — " + item.date));
+    c.appendChild(footer);
+    if (item.rating) {
+      var stars = Math.max(1, Math.min(5, Math.round(item.rating)));
+      c.appendChild(el("p", "rating", "★★★★★".slice(0, stars) + "☆☆☆☆☆".slice(0, 5 - stars)));
+    }
+    return c;
+  }
+
   function renderJSON(url, gridId, make) {
     var grid = document.getElementById(gridId);
     if (!grid) return Promise.resolve();
@@ -347,6 +366,47 @@
       });
   }
 
+  // --- testimonials: quotes from data/testimonials.json + schema.org Review ---
+  // JSON-LD policy: only REAL reviews (placeholder !== true) get Review markup.
+  // Placeholder star ratings are never emitted as structured data — Google
+  // penalises self-serving/placeholder review stars (see task 025).
+  function renderTestimonials() {
+    var grid = document.getElementById("testimonials-grid");
+    if (!grid) return Promise.resolve();
+    return fetch("data/testimonials.json")
+      .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+      .then(function (items) {
+        (items || []).forEach(function (item) { grid.appendChild(testimonialCard(item)); });
+        var ld = {
+          "@context": "https://schema.org",
+          "@type": "ItemList",
+          "itemListElement": (items || []).filter(function (i) { return i.placeholder !== true; })
+            .map(function (i, n) {
+              var rev = {
+                "@type": "Review",
+                "author": { "@type": "Person", "name": i.author || "Customer" },
+                "reviewBody": i.quote || ""
+              };
+              if (i.rating) {
+                rev.reviewRating = { "@type": "Rating", "ratingValue": String(Math.round(i.rating)), "bestRating": "5", "worstRating": "1" };
+              }
+              if (i.date) rev.datePublished = i.date;
+              return { "@type": "ListItem", "position": n + 1, "item": rev };
+            })
+        };
+        if (ld.itemListElement.length) {
+          var script = document.createElement("script");
+          script.type = "application/ld+json";
+          script.id = "testimonials-jsonld";
+          script.textContent = JSON.stringify(ld);
+          document.head.appendChild(script);
+        }
+      })
+      .catch(function (e) {
+        grid.appendChild(el("p", "section-note", "Testimonials failed to load (" + e.message + ")."));
+      });
+  }
+
   // --- seasonal promo strip (data/promo-calendar.json, picks current season) --
   function renderPromoStrip() {
     var strip = document.getElementById("promo-strip");
@@ -369,6 +429,7 @@
   renderJSON("data/shop.json", "shop-grid");
   renderJSON("data/opensource.json", "opensource-grid");
   renderJSON("data/reviews.json", "reviews-grid", reviewCard);
+  renderTestimonials();
   renderServices();
   renderAbout();
   renderFAQ();

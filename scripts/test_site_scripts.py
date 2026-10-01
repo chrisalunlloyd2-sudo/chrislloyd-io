@@ -112,5 +112,32 @@ class TestAddPost(unittest.TestCase):
             self.assertIn("title", p)
 
 
+class TestTestimonials(unittest.TestCase):
+    """Task 025: data/testimonials.json — schema + placeholder policy."""
+
+    def setUp(self):
+        with open(os.path.join(ROOT, "data", "testimonials.json"), encoding="utf-8") as fh:
+            self.items = json.load(fh)
+
+    def test_testimonials_json_valid(self):
+        self.assertIsInstance(self.items, list)
+        self.assertGreaterEqual(len(self.items), 2, "seed 2-3 placeholder testimonials")
+
+    def test_entries_follow_schema(self):
+        for t in self.items:
+            self.assertIn("id", t)
+            self.assertIn("author", t)
+            self.assertIn("quote", t)
+            if "rating" in t and t["rating"] is not None:
+                self.assertTrue(1 <= t["rating"] <= 5)
+
+    def test_all_entries_marked_placeholder(self):
+        # PLACEHOLDER-only policy: rating markup (JSON-LD) is never emitted for
+        # these (main.js filters placeholder !== true); quotes are clearly marked.
+        for t in self.items:
+            self.assertTrue(t.get("placeholder") is True)
+            self.assertIn("PLACEHOLDER", t["quote"])
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)
