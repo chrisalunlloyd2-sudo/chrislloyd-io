@@ -1,0 +1,47 @@
+{
+  "note": "Citation sweep targets — NAP (name/address/phone) must be identical everywhere. Draft status list.",
+  "targets": [
+    {
+      "name": "HomeStars",
+      "priority": "high",
+      "status": "draft copy pending",
+      "nap": "verify"
+    },
+    {
+      "name": "BBB (Better Business Bureau Central Alberta)",
+      "priority": "medium",
+      "status": "not started",
+      "nap": "verify"
+    },
+    {
+      "name": "Yelp Canada",
+      "priority": "medium",
+      "status": "not started",
+      "nap": "verify"
+    },
+    {
+      "name": "YellowPages.ca",
+      "priority": "medium",
+      "status": "not started",
+      "nap": "verify"
+    },
+    {
+      "name": "Google Business Profile",
+      "priority": "highest (owner must create account)",
+      "status": "draft copy ready (gbp-draft.json)",
+      "nap": "verify"
+    },
+    {
+      "name": "411.ca",
+      "priority": "low",
+      "status": "not started",
+      "nap": "auto-aggregator"
+    },
+    {
+      "name": "Houzz",
+      "priority": "low",
+      "status": "not started",
+      "nap": "verify"
+    }
+  ]
+}

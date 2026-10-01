@@ -1,0 +1,31 @@
+{
+  "business_name": "Chris Lloyd Ltd (Chris Alun Lloyd Ltd)",
+  "categories": [
+    "Painting",
+    "Handyman/Handyperson"
+  ],
+  "primary_category": "Painting",
+  "phone": "+1 (587) 926-4323",
+  "phone_note": "Text-first; or email chrisalunlloyd2@gmail.com",
+  "address": "10412 66 Ave NW, Edmonton, AB T6H 1V9",
+  "service_area": [
+    "Edmonton",
+    "St. Albert",
+    "Sherwood Park",
+    "Spruce Grove",
+    "Stony Plain",
+    "Leduc",
+    "Beaumont",
+    "Fort Saskatchewan"
+  ],
+  "hours_note": "By appointment; quotes by text/email any time",
+  "short_description": "Edmonton painter & renovator. Interior/exterior painting, drywall repair, refreshes. Free written quotes by text or email.",
+  "long_description": "Residential painting and home renovation for Edmonton and area. I do interior repaints, exterior siding and trim, drywall repair, and refresh work — prepped properly and finished clean. Quotes are free, in writing, and by text or email (I keep phone tag out of the process). Trade-grade paint lines; materials included or labour-only, your choice. Serving Edmonton, St. Albert, Sherwood Park, Spruce Grove, Stony Plain, Leduc, Beaumont and Fort Saskatchewan.",
+  "services": [
+    "Interior painting",
+    "Exterior painting",
+    "Drywall repair",
+    "Cabinet-adjacent trim painting",
+    "Home refresh projects"
+  ]
+}
