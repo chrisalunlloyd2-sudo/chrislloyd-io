@@ -79,6 +79,8 @@ def jsonld_for(page):
         "email": "chrisalunlloyd2@gmail.com",
         "telephone": "+1-587-926-4323",
         "url": base_url() + page["slug"] + ".html",
+        "image": base_url() + "assets/og-image.png",
+        "logo": base_url() + "assets/og-image.png",
         "address": {
             "@type": "PostalAddress",
             "streetAddress": "10412 66 Ave NW",
@@ -89,6 +91,7 @@ def jsonld_for(page):
         },
         "areaServed": [page["city"]],
         "serviceType": "Residential painting and home renovation",
+        "sameAs": ["https://github.com/chrisalunlloyd2-sudo"],
     }
     return json.dumps(biz, indent=2, ensure_ascii=False)
 
