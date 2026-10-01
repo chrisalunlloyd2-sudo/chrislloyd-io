@@ -55,6 +55,10 @@ placeholder example posts are skipped so crawlers never see them.
   live, set `site.canonicalBase` in `data/site.json` (e.g.
   `https://chrislloyd.io`) and regenerate — `main.js`/`blog.js` mirror it into
   the rendered head tags too.
+- NOTE (2026-10-01, task 024): this was verified live — chrislloyd.info 301s to
+  the Pages URL, `canonicalBase` is intentionally EMPTY, and Pages URLs are the
+  canonical scheme for now. Post-permalink canonicals are set client-side by
+  `assets/blog.js` against the same base.
 - Owner to-dos (flagged with `OWNER ACTION` comments in the HTML heads):
   - favicon already exists as an inline SVG data-URI; replace with a real
     `.ico`/`.png` logo file when brand artwork is available.
