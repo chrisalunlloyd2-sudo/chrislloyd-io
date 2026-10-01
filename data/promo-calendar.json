@@ -1,0 +1,49 @@
+{
+  "note": "Edmonton seasonal promo calendar — follows the actual Alberta trade cycle, not generic retail months. Interior = winter money; exterior = summer money. Owner edits copy freely; dates are season-anchors, not ad schedules.",
+  "seasons": [
+    {
+      "id": "winter-interior",
+      "name": "Winter Interior Season",
+      "months": [11, 12, 1, 2],
+      "months_label": "Nov–Feb",
+      "focus": "interior",
+      "headline": "Windows stay shut — interiors are the season",
+      "angle": "Fast-curing dry air = great finish. Zero-VOC options for closed houses. Interior repaint slots book out first in January.",
+      "promo_copy": "Winter interior repaints book out early — lock your January–February slot now.",
+      "related_service": "interior-painting"
+    },
+    {
+      "id": "spring-exterior-booking",
+      "name": "Exterior Booking Window",
+      "months": [3, 4],
+      "months_label": "Mar–Apr",
+      "focus": "exterior",
+      "headline": "Book your exterior before the frost is off the ground",
+      "angle": "Exterior season starts when overnight lows stop threatening 5°C — quotes done in March paint in May. First-come scheduling for fascia, siding, doors and trim.",
+      "promo_copy": "Spring exterior repaint calendar is open — March quotes paint in May.",
+      "related_service": "exterior-painting"
+    },
+    {
+      "id": "summer-exterior",
+      "name": "Exterior Season",
+      "months": [5, 6, 7, 8],
+      "months_label": "May–Aug",
+      "focus": "exterior",
+      "headline": "Peak season — the longest daylight stretch of the year",
+      "angle": "Full exterior cycles: fascias, soffits, doors, masonry. Deck/fence staining fits here too. Job sites rotate weekly — flexible scheduling matters.",
+      "promo_copy": "Exterior season is live — fascia, soffit, siding and doors while the weather holds.",
+      "related_service": "exterior-painting"
+    },
+    {
+      "id": "fall-catchup",
+      "name": "Fall Catch-Up + Winterize",
+      "months": [9, 10],
+      "months_label": "Sep–Oct",
+      "focus": "both",
+      "headline": "Last exterior windows + interior shift begins",
+      "angle": "Sunny-side exterior work in dry stretches; interior jobs transition as nights cool. Drywall repairs done NOW cure before heating-season shrink sets in.",
+      "promo_copy": "October exterior windows are closing — interior slots opening as things cool.",
+      "related_service": "home-renovation"
+    }
+  ]
+}

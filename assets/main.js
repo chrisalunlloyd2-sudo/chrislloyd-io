@@ -347,12 +347,32 @@
       });
   }
 
+  // --- seasonal promo strip (data/promo-calendar.json, picks current season) --
+  function renderPromoStrip() {
+    var strip = document.getElementById("promo-strip");
+    if (!strip) return Promise.resolve();
+    return fetch("data/promo-calendar.json")
+      .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+      .then(function (cal) {
+        var m = new Date().getMonth() + 1; // 1-12
+        var cur = (cal.seasons || []).filter(function (s) {
+          return (s.months || []).indexOf(m) !== -1;
+        })[0];
+        if (cur && cur.promo_copy) {
+          strip.textContent = cur.promo_copy;
+          strip.hidden = false;
+        }
+      })
+      .catch(function () { /* silent: promo strip is optional garnish */ });
+  }
+
   renderJSON("data/shop.json", "shop-grid");
   renderJSON("data/opensource.json", "opensource-grid");
   renderJSON("data/reviews.json", "reviews-grid", reviewCard);
   renderServices();
   renderAbout();
   renderFAQ();
+  renderPromoStrip();
   mountRosettes();
 
   document.getElementById("year").textContent = new Date().getFullYear();
