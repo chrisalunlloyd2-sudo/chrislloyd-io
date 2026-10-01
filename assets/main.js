@@ -310,11 +310,49 @@
     }
   })();
 
+  // --- FAQ: Q&A list from data/faq.json + FAQPage JSON-LD ---------------------
+  function renderFAQ() {
+    var list = document.getElementById("faq-list");
+    if (!list) return Promise.resolve();
+    return fetch("data/faq.json")
+      .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+      .then(function (data) {
+        var items = data.faq || [];
+        var ld = {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": items.map(function (item) {
+            return {
+              "@type": "Question",
+              "name": item.q,
+              "acceptedAnswer": { "@type": "Answer", "text": item.a }
+            };
+          })
+        };
+        var script = document.createElement("script");
+        script.type = "application/ld+json";
+        script.textContent = JSON.stringify(ld);
+        document.head.appendChild(script);
+        items.forEach(function (item) {
+          var qa = el("div", "faq-item");
+          var h = el("h3", null, item.q);
+          var p = el("p", null, item.a);
+          qa.appendChild(h);
+          qa.appendChild(p);
+          list.appendChild(qa);
+        });
+      })
+      .catch(function (e) {
+        list.appendChild(el("p", "section-note", "Content failed to load (" + e.message + ")."));
+      });
+  }
+
   renderJSON("data/shop.json", "shop-grid");
   renderJSON("data/opensource.json", "opensource-grid");
   renderJSON("data/reviews.json", "reviews-grid", reviewCard);
   renderServices();
   renderAbout();
+  renderFAQ();
   mountRosettes();
 
   document.getElementById("year").textContent = new Date().getFullYear();

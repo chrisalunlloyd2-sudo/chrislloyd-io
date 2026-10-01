@@ -93,6 +93,13 @@ h2 {
 .section-alt { background: var(--ink-alt); }
 .section-note { color: var(--ivory-muted); margin: -8px 0 18px; font-size: .95rem; }
 
+/* --- FAQ (Q&A stack, hairline dividers — no cards, no gradients) ------------- */
+.faq-list { max-width: 760px; }
+.faq-item { padding: 18px 0 20px; border-bottom: 1px solid var(--line); }
+.faq-item:last-child { border-bottom: none; }
+.faq-item h3 { font-size: 1.05rem; font-weight: 600; margin: 0 0 8px; color: var(--ivory); }
+.faq-item p { margin: 0; color: var(--ivory-muted); line-height: 1.65; }
+
 /* --- about -------------------------------------------------------------------- */
 .about { display: flex; gap: 28px; align-items: flex-start; }
 .about-mark {
