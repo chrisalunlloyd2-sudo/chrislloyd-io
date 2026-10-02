@@ -368,6 +368,15 @@ class TestEstimator(unittest.TestCase):
         self.assertEqual(rc.returncode, 0, "node estimator-logic tests failed:\n" + rc.stdout + rc.stderr)
         self.assertIn("ALL ESTIMATOR LOGIC TESTS PASS", rc.stdout)
 
+    def test_node_shipped_file_smoke(self):
+        # executes the REAL assets/main.js under a minimal DOM shim: guards
+        # against breaking the shipped file (helpers exposed, listener wired,
+        # pricing.json fetched) without needing a browser in CI.
+        script = os.path.join(ROOT, "scripts", "test_estimator_smoke.js")
+        rc = subprocess.run(["node", script], capture_output=True, text=True)
+        self.assertEqual(rc.returncode, 0, "node estimator smoke failed:\n" + rc.stdout + rc.stderr)
+        self.assertIn("ALL ESTIMATOR SHIPPED-FILE SMOKE TESTS PASS", rc.stdout)
+
     def test_gen_fixtures_script_is_deterministic(self):
         # two runs must produce byte-identical fixtures
         out1 = subprocess.run([sys.executable, os.path.join(ROOT, "scripts", "gen_estimator_fixtures.py")],
