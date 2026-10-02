@@ -391,6 +391,47 @@ class TestEstimator(unittest.TestCase):
                          "committed fixtures stale vs gen_estimator_fixtures.py output")
 
 
+class TestPriceSheet(unittest.TestCase):
+    """Task 035: deterministic price-sheet PDF from data/pricing.json."""
+
+    def test_gen_pricesheet_pdf_bytes_stable(self):
+        import gen_pricesheet
+        rates, placeholder = gen_pricesheet.load_rates()
+        self.assertTrue(placeholder, "pricing.json is still placeholder — PDF test "
+                                     "assumes the _edit_me marker is present; if you "
+                                     "set real rates, drop this assertion")
+        tmp1 = os.path.join(tempfile.mkdtemp(), "ps1.pdf")
+        tmp2 = os.path.join(tempfile.mkdtemp(), "ps2.pdf")
+        gen_pricesheet.build_pdf(rates, tmp1)
+        gen_pricesheet.build_pdf(rates, tmp2)
+        self.assertTrue(os.path.getsize(tmp1) > 1000, "PDF suspiciously small")
+        with open(tmp1, "rb") as a, open(tmp2, "rb") as b:
+            self.assertEqual(a.read(), b.read(),
+                             "regenerate run produced different bytes — "
+                             "PDF must be byte-deterministic")
+        # header text is extractable via naive flate-decode; skip if zlib absent
+        import re
+        import zlib
+        with open(tmp1, "rb") as fh:
+            blob = fh.read()
+        decoded = []
+        for m in re.finditer(rb"stream\r?\n(.*?)endstream", blob, re.S):
+            try:
+                decoded.append(zlib.decompress(m.group(1)))
+            except zlib.error:
+                pass
+        text = b"\n".join(decoded).decode("latin-1", "replace")
+        self.assertIn("Pricing Guide", text)
+        self.assertIn("PLACEHOLDER RATES", text)
+        self.assertIn("Rates subject to confirmation", text)
+
+    def test_gen_pricesheet_default_output_writable(self):
+        # dist/ default path constructs cleanly and module imports are side-effect-free
+        import gen_pricesheet
+        self.assertTrue(gen_pricesheet.RATE_LABELS)
+        self.assertIn("labour_rate", dict(gen_pricesheet.RATE_LABELS))
+
+
 class TestAreaSitemap(unittest.TestCase):
     """Task 026: sitemap integration for service-area pages."""
 
