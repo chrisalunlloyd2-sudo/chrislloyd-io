@@ -7,6 +7,7 @@ gen_sitemap.py helpers (is_placeholder, atomic write), add_post.py
 """
 import json
 import os
+import re
 import subprocess
 import sys
 import tempfile
@@ -368,6 +369,14 @@ class TestEstimator(unittest.TestCase):
         self.assertEqual(rc.returncode, 0, "node estimator-logic tests failed:\n" + rc.stdout + rc.stderr)
         self.assertIn("ALL ESTIMATOR LOGIC TESTS PASS", rc.stdout)
 
+    def test_node_getready_smoke_test(self):
+        # Task 036: shipped-file DOM-shim smoke test for the get-ready reveal
+        script = os.path.join(ROOT, "scripts", "test_getready_smoke.js")
+        self.assertTrue(os.path.exists(script), "node smoke test file missing")
+        rc = subprocess.run(["node", script], capture_output=True, text=True)
+        self.assertEqual(rc.returncode, 0, "node get-ready smoke test failed:\n" + rc.stdout + rc.stderr)
+        self.assertIn("ALL GET-READY SHIPPED-FILE SMOKE TESTS PASS", rc.stdout)
+
     def test_node_shipped_file_smoke(self):
         # executes the REAL assets/main.js under a minimal DOM shim: guards
         # against breaking the shipped file (helpers exposed, listener wired,
@@ -449,6 +458,106 @@ class TestAreaSitemap(unittest.TestCase):
         for slug in ("st-albert.html", "sherwood-park.html",
                      "leduc.html", "spruce-grove.html"):
             self.assertIn(slug, xml, f"sitemap.xml missing {slug} — run gen_sitemap.py")
+
+
+class TestLeadMagnet(unittest.TestCase):
+    """Task 036 (roadmap 30): quote-request auto-reply checklist + on-site
+    get-ready reveal. Single source of truth: data/lead_magnet.json, rendered
+    both by scripts/gen_autoreply_email.py (email body) and main.js (post-
+    submit block). Honesty constraint from tasks 015/030 applies to copy."""
+
+    def setUp(self):
+        with open(os.path.join(ROOT, "data", "lead_magnet.json"), encoding="utf-8") as fh:
+            self.magnet = json.load(fh)
+        self.index_html = open(os.path.join(ROOT, "index.html"), encoding="utf-8").read()
+        self.main_js = open(os.path.join(ROOT, "assets", "main.js"), encoding="utf-8").read()
+        # only the visitor-facing copy strings are scanned for honesty — the
+        # _owner_action/_disclaimer meta blocks legitimately discuss the
+        # constraint itself and would self-match.
+        self.customer_facing = {
+            "titles": [i["title"] for i in self.magnet["checklist"]],
+            "details": [i["detail"] for i in self.magnet["checklist"]],
+            "closing": self.magnet.get("closing_note", ""),
+        }
+
+    def test_checklist_has_items_with_titles(self):
+        items = self.magnet.get("checklist") or []
+        self.assertGreaterEqual(len(items), 5, "lead magnet checklist too thin")
+        for it in items:
+            self.assertIn("title", it)
+            self.assertIn("id", it)
+            self.assertTrue(it["title"].strip(), f"empty title on {it.get('id')}")
+
+    def test_generator_deterministic_bytes(self):
+        import gen_autoreply_email
+        items, closing, placeholder = gen_autoreply_email.load_magnet()
+        a = gen_autoreply_email.render_text(items, closing, placeholder)
+        b = gen_autoreply_email.render_text(items, closing, placeholder)
+        self.assertEqual(a, b, "auto-reply body must be deterministic")
+        self.assertGreater(len(a), 200, "generated body suspiciously small")
+        # numbering: non-placeholder items get sequential "N." markers. With
+        # the current all-but-one real seed the expected values are known.
+        self.assertIn("\n2. Take photos", a)
+        self.assertIn("\n7. Write down", a)
+        self.assertIn("Thank", gen_autoreply_email.SUBJECT)
+
+    def test_honest_copy_bans_response_time_promises(self):
+        # tasks 015/030 constraint — visitor-facing copy must never manufacture
+        # response-time promises. Scan the generated email body (SUBJECT +
+        # checklist text + closing) and the on-site block copy. Meta blocks
+        # (_owner_action/_disclaimer) legitimately discuss the constraint and
+        # are excluded from the scan (they would self-match).
+        import gen_autoreply_email
+        items, closing, placeholder = gen_autoreply_email.load_magnet()
+        text = (gen_autoreply_email.SUBJECT + "\n"
+                + gen_autoreply_email.render_text(items, closing, placeholder) + "\n"
+                + "\n".join(self.customer_facing["titles"])
+                + "\n".join(self.customer_facing["details"])
+                + self.customer_facing["closing"])
+        banned = [
+            r"within\s+\d+", r"\d+\s*(min|hour|hr|business day|day)s?\b.*response",
+            r"response\s*(time|within)", r"we('ll| will) (repl|respond|reply|get back)",
+            r"guarantee", r"same[- ]day",
+        ]
+        for pat in banned:
+            self.assertIsNone(re.search(pat, text, re.I),
+                              f"honesty violation: {pat!r} matched lead-magnet copy")
+        # the closing note must be present and explicitly non-promising
+        self.assertIn("no automated promises", self.customer_facing["closing"])
+        self.assertIn("no automated promises", gen_autoreply_email.render_text(items, closing, placeholder))
+
+    def test_site_wiring_and_single_source_of_truth(self):
+        # get-ready block exists in index.html, hidden by default
+        self.assertIn('id="get-ready"', self.index_html)
+        self.assertIn('id="get-ready-list"', self.index_html)
+        gr_chunk = self.index_html.split('id="get-ready"', 1)[1].split("</form>", 1)[0]
+        gr_chunk = self.index_html.split('<div class="get-ready"', 1)[1].split("</ol>", 1)[0]
+        self.assertIn("hidden", gr_chunk)
+        # main.js fetches the SAME data file the CLI generator reads
+        self.assertIn('fetch("data/lead_magnet.json")', self.main_js)
+        self.assertIn("setupGetReady", self.main_js)
+        # reveal fires on the form's submit in BOTH backend branches
+        self.assertIn('getElementById("contact-form").addEventListener("submit"', self.main_js)
+        # placeholder contract: flagged items exist and _owner_action refers
+        # to the Formspree autoresponse decision
+        self.assertTrue(self.magnet.get("_edit_me") is True)
+        self.assertTrue(any(i.get("placeholder") for i in self.magnet["checklist"]),
+                        "seed at least one PLACEHOLDER item")
+        owner_block = " ".join(self.magnet.get("_owner_action", []))
+        self.assertIn("OWNER ACTION", owner_block)
+        self.assertIn("PLACEHOLDER", owner_block)
+        self.assertIn("Formspree", owner_block)
+
+    def test_generator_cli_runs_and_writes_file(self):
+        import gen_autoreply_email
+        out1 = os.path.join(tempfile.mkdtemp(), "r1.txt")
+        out2 = os.path.join(tempfile.mkdtemp(), "r2.txt")
+        for out in (out1, out2):
+            subprocess.run([sys.executable, os.path.join(ROOT, "scripts", "gen_autoreply_email.py"),
+                            "--out", out], capture_output=True, text=True, check=True)
+        self.assertTrue(os.path.getsize(out1) > 200)
+        with open(out1, encoding="utf-8") as a, open(out2, encoding="utf-8") as b:
+            self.assertEqual(a.read(), b.read(), "CLI invocations must produce identical bytes")
 
 
 if __name__ == "__main__":

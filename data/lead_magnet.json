@@ -1,0 +1,65 @@
+{
+  "_edit_me": true,
+  "_owner_action": [
+    "OWNER ACTION (placeholder until Chris fills the real checklist):",
+    "- This file drives two places: (1) the get-ready block shown on the site",
+    "  right after a quote request is sent, and (2) scripts/gen_autoreply_email.py,",
+    "  which renders the same checklist as text for an auto-reply / send-anywhere",
+    "  email. Edit here once, both update — tests keep them in sync.",
+    "- PLACEHOLDER lines are honest 'not promised' copy: no response times, no",
+    "  guarantees. If you edit, keep the <PLACEHOLDER> markers in items you",
+    "  have not verified yet (the site hides nothing but also promises nothing).",
+    "- Formspree free tier cannot send automatic reply emails to the submitter;",
+    "  that is a paid feature. Auto-reply email delivery is therefore OWNER",
+    "  ACTION: either upgrade Formspree and configure its autoresponse there,",
+    "  or leave the on-site get-ready block as the only delivery channel (it",
+    "  shows the checklist at the exact moment of submission, no email needed).",
+    "- See /root/Claude/NOTES-AUTOREPLY.md for the full decision memo."
+  ],
+  "checklist": [
+    {
+      "id": "measure",
+      "title": "Measure the rooms or walls you're asking about",
+      "detail": "Wall length and height is enough — I'll calculate paint and prep from there. The on-site estimator uses the same numbers.",
+      "placeholder": true
+    },
+    {
+      "id": "photos",
+      "title": "Take photos of each space",
+      "detail": "One wide shot per wall you want painted, plus any problem areas you want fixed (nail pops, drywall patches, peeling trim).",
+      "placeholder": false
+    },
+    {
+      "id": "paint-preference",
+      "title": "Note any paint colours or brands you already have in mind",
+      "detail": "Not sure yet? That's fine — I can bring colour samples. Just don't buy paint before we talk.",
+      "placeholder": false
+    },
+    {
+      "id": "access",
+      "title": "Think about access",
+      "detail": "Is parking easy, is there an elevator or a walk-up, are there pets or kids to plan around? These affect scheduling more than anything else.",
+      "placeholder": false
+    },
+    {
+      "id": "scope-check",
+      "title": "Decide what's in and out of scope",
+      "detail": "One wall vs. whole house, trims and doors included or not — it's your call, and a clear scope keeps the quote accurate.",
+      "placeholder": false
+    },
+    {
+      "id": "landlord",
+      "title": "If you rent, get your landlord's okay sorted",
+      "detail": "The form asks about this because painting a rental without approval causes real problems later.",
+      "placeholder": false
+    },
+    {
+      "id": "questions",
+      "title": "Write down your questions",
+      "detail": "Timelines, materials, how I work, anything you're unsure about — good questions now mean fewer surprises later.",
+      "placeholder": false
+    }
+  ],
+  "closing_note": "Nothing else is required before you hit send — the checklist is optional prep that makes the first conversation faster. I'll come back to you directly, with a real quote based on what you've sent (no automated promises here).",
+  "_disclaimer": "Copy constraint (tasks 015/030): no response-time promises. Keep this file factual and honest. PLACEHOLDER items are rendered with a 'still to be confirmed' note by the site and the email generator."
+}

@@ -329,6 +329,49 @@
     }
   })();
 
+  // --- get-ready checklist (task 036 lead magnet) ---------------------------
+  // Revealed right after the visitor submits the quote form. Data:
+  // data/lead_magnet.json — the same source of truth for
+  // scripts/gen_autoreply_email.py (auto-reply email body). PLACEHOLDER-
+  // flagged items are shown with an honest "(confirm before we start)" note,
+  // never silently. No response-time promises anywhere (tasks 015/030).
+  (function setupGetReady() {
+    var box = document.getElementById("get-ready");
+    var list = document.getElementById("get-ready-list");
+    var note = document.getElementById("get-ready-note");
+    if (!box || !list) return;
+    fetch("data/lead_magnet.json")
+      .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+      .then(function (data) {
+        var items = data.checklist || [];
+        var els = {};
+        items.filter(function (it) { return !it.placeholder; })
+             .forEach(function (it, i) {
+               var li = el("li");
+               var title = el("strong", null, it.title || "");
+               li.appendChild(title);
+               if (it.detail) {
+                 li.appendChild(document.createElement("br"));
+                 li.appendChild(el("span", null, it.detail));
+               }
+               list.appendChild(li);
+               els[it.id] = { title: title, detail: it.detail || "" };
+             });
+        // closing note is the honesty block — always shown, never a promise
+        if (note) note.textContent = data.closing_note || "";
+        // capture: placeholder items are omitted here but surfaced as
+        // "(confirm before we start)" annotations in the email generator.
+        window.__getReadyItems = els;
+      })
+      .catch(function () {
+        // data fetch failure: leave block hidden (site stays functional, no
+        // broken get-ready shell)
+      });
+    document.getElementById("contact-form").addEventListener("submit", function () {
+      box.hidden = false;
+    }, true);
+  })();
+
   // --- FAQ: Q&A list from data/faq.json + FAQPage JSON-LD ---------------------
   function renderFAQ() {
     var list = document.getElementById("faq-list");

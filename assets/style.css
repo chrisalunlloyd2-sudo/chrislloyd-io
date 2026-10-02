@@ -222,6 +222,14 @@ h2 {
 .contact-form .privacy-note { margin: 0; font-size: .8rem; }
 .contact-form .btn { align-self: flex-start; }
 .form-status { font-size: .85rem; color: var(--teal); margin: 0; }
+
+/* get-ready checklist (task 036) — revealed post-submit, lead magnet block */
+.get-ready { margin-top: 28px; padding: 18px 20px; border: 1px solid var(--line); border-radius: 10px; background: rgba(255,255,255,.03); }
+.get-ready h3 { margin: 0 0 6px; font-size: 1.05rem; }
+.get-ready-lede { color: var(--ivory-muted); font-size: .95rem; margin: 0 0 12px; }
+.get-ready-list { margin: 0; padding-left: 22px; display: grid; gap: 10px; }
+.get-ready-list strong { display: inline; }
+.get-ready-list span { color: var(--ivory-muted); font-size: .93rem; }
 .contact-side p { color: var(--ivory-muted); }
 .contact-side #contact-phone a, .contact-side #contact-email a { color: var(--ivory); text-decoration: none; }
 .contact-side #contact-phone a:hover, .contact-side #contact-email a:hover { color: var(--terracotta); }
