@@ -1,0 +1,20 @@
+{
+  "_owner_action": [
+    "Chris: the rates below are PLACEHOLDERS seeded from scripts/quote_estimator.py DEFAULTS (commit 1812ca5).",
+    "OWNER ACTION: replace them with your real production rates before relying on customer-facing output.",
+    "Keep this table in sync with quote_estimator.py DEFAULTS - scripts/test_site_scripts.py asserts they match (drift alarm)."
+  ],
+  "_edit_me": true,
+  "rates": {
+    "labour_rate": 55.0,
+    "coats_standard": 2,
+    "roller_sqft_hr": 150.0,
+    "cutin_hr_per_room": 1.5,
+    "prep_hr_per_room": 2.5,
+    "repair_hr_per_pop": 0.25,
+    "height_9ft_factor": 1.3,
+    "exterior_sqft_hr": 100.0,
+    "paint_cost_wall_gal": 75.0,
+    "gal_coverage_sqft": 350.0
+  }
+}

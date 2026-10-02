@@ -272,7 +272,59 @@ footer .wrap { position: relative; }
   .about { flex-direction: column; }
   .about-mark { width: 88px; height: 88px; }
   .rosette-hero { width: 300px; height: 300px; top: -100px; right: -100px; }
+  .estimator { grid-template-columns: 1fr; } /* task 034: stack widget on mobile */
 }
 @media (min-width: 640px) {
   .section { padding: 64px 0 16px; }
 }
+
+/* --- estimator (task 034: deterministic quote widget, no backend) ------------- */
+.estimator {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 28px;
+  align-items: start;
+}
+.estimator-form {
+  display: flex; flex-direction: column; gap: 14px;
+  background: var(--ink); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 20px;
+}
+/* reuse the proven contact-form field styling for estimator inputs */
+.estimator-form label {
+  display: flex; flex-direction: column; gap: 6px;
+  font-size: .85rem; color: var(--ivory-muted);
+}
+.estimator-form input, .estimator-form select {
+  background: var(--ink-alt); border: 1px solid var(--line);
+  border-radius: 4px; color: var(--ivory);
+  font: inherit; padding: 10px 12px;
+}
+.estimator-form input::placeholder { color: var(--ivory-muted); opacity: 1; }
+.estimator-form input:focus, .estimator-form select:focus {
+  outline: none; border-color: var(--teal);
+}
+.estimator-form .choice-group {
+  display: flex; flex-direction: column; gap: 6px;
+  border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 10px 12px; margin: 0;
+}
+.estimator-form .choice-group legend { font-size: .85rem; color: var(--ivory-muted); padding: 0 4px; }
+.estimator-form .choice {
+  flex-direction: row; align-items: baseline; gap: 8px;
+  font-size: .92rem; color: var(--ivory); cursor: pointer;
+}
+.estimator-form .choice input { accent-color: var(--teal); padding: 0; width: auto; }
+.estimator-form .btn { align-self: flex-start; }
+.est-sidenote { margin: 0; font-size: .8rem; }
+.estimator-out {
+  background: var(--ink-alt); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 20px;
+}
+.est-range { font-size: 1.5rem; color: var(--ivory); margin: 0 0 12px; }
+.est-range strong { font-weight: 600; color: var(--teal); }
+.est-range-note { display: block; font-size: .82rem; font-weight: 400; color: var(--ivory-muted); margin-top: 4px; }
+.est-lines { margin: 0 0 14px; }
+.est-lines dt { font-size: .8rem; text-transform: uppercase; letter-spacing: .04em; color: var(--ivory-muted); margin-top: 10px; }
+.est-lines dd { margin: 2px 0 0; color: var(--ivory); font-size: .98rem; }
+.est-disclaimer { font-size: .85rem; color: var(--ivory-muted); margin: 0; border-top: 1px solid var(--line); padding-top: 12px; }
+.est-disclaimer strong { color: var(--terracotta); }
+.est-disclaimer a { color: var(--teal); }

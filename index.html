@@ -59,7 +59,7 @@
 </header>
 
 <nav class="nav wrap">
-  <a href="#about">About</a><a href="#services">Services</a><a href="#shop">Shop</a><a href="#reviews">Reviews</a><a href="#testimonials">Testimonials</a><a href="#gallery">Gallery</a><a href="#opensource">Open Source</a><a href="#faq">FAQ</a><a href="blog.html">Blog</a><a href="#contact">Contact</a>
+  <a href="#about">About</a><a href="#services">Services</a><a href="#shop">Shop</a><a href="#reviews">Reviews</a><a href="#testimonials">Testimonials</a><a href="#gallery">Gallery</a><a href="#estimator">Estimate</a><a href="#opensource">Open Source</a><a href="#faq">FAQ</a><a href="blog.html">Blog</a><a href="#contact">Contact</a>
 </nav>
 
 <main>
@@ -112,6 +112,46 @@
     <h2><svg class="glyph" viewBox="0 0 16 16" aria-hidden="true"><rect x="2" y="3" width="12" height="10" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M2 11l3.5-3.5 2.5 2.5L11 7l3 4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><circle cx="6" cy="6.2" r="1" fill="currentColor"/></svg> Before &amp; After <span class="h2-note">— same view, before we started and after we finished</span></h2>
     <p class="section-note">Real job photos go here — pairs of before-and-after shots as owners supply them (one pair per card).</p>
     <div class="grid" id="gallery-grid"></div>
+  </section>
+
+  <!-- Task 034 (roadmap 25): customer-facing paint-quote ESTIMATOR widget.
+       Rates: data/pricing.json (PLACEHOLDER EDIT-ME — owner must replace with
+       real production rates). Formulas mirror scripts/quote_estimator.py —
+       single source of truth, do not fork the math here. -->
+  <section id="estimator" class="wrap section">
+    <h2><svg class="glyph" viewBox="0 0 16 16" aria-hidden="true"><rect x="2" y="2" width="12" height="12" rx="2" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M5.5 6h5M5.5 9h5M5.5 12h3" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg> Instant Estimate <span class="h2-note">— rough paint-job cost, before we talk</span></h2>
+    <p class="section-note">Answer a few questions and get a ballpark labour + paint range in seconds. An estimate, not a quote — the real quote comes after I see the job.</p>
+    <div class="estimator">
+      <div class="estimator-form">
+        <div class="choice-group">
+          <legend>What needs painting?</legend>
+          <label class="choice"><input type="radio" name="est-mode" value="interior" checked> Interior — rooms</label>
+          <label class="choice"><input type="radio" name="est-mode" value="exterior"> Exterior — siding area</label>
+        </div>
+        <div id="est-interior-fields">
+          <label>Rooms <input type="number" id="est-rooms" min="1" max="20" step="1" value="3" inputmode="numeric"></label>
+          <label>Room size (ft) <input type="text" id="est-size" value="12x14" placeholder="12x14" inputmode="decimal"></label>
+          <label>Ceiling height
+            <select id="est-height">
+              <option value="8" selected>8 ft</option>
+              <option value="9">9 ft</option>
+            </select>
+          </label>
+          <label>Extra drywall repairs <input type="number" id="est-repairs" min="0" max="50" step="1" value="0" inputmode="numeric"></label>
+        </div>
+        <div id="est-exterior-fields" hidden>
+          <label>Siding area (sq ft) <input type="number" id="est-sqft" min="100" max="20000" step="10" value="1500" inputmode="numeric"></label>
+          <p class="section-note est-sidenote">Two coats assumed. Weather-window dependent; steep or high walls may add time.</p>
+        </div>
+        <button type="button" id="est-calc" class="btn">Get my estimate</button>
+        <noscript><p class="section-note">Enable JavaScript to use the estimator — or just call/email and I'll price it with you.</p></noscript>
+      </div>
+      <div class="estimator-out" id="est-out" hidden>
+        <div class="est-range" id="est-range"></div>
+        <dl class="est-lines" id="est-lines"></dl>
+        <p class="est-disclaimer" id="est-disclaimer">Estimate only — <strong>not a quote.</strong> Actual price depends on paint choice, site conditions and exactly what we scope together. <a href="#contact">Get a real quote →</a></p>
+      </div>
+    </div>
   </section>
 
   <section id="faq" class="wrap section section-alt">

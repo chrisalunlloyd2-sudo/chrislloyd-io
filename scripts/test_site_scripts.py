@@ -292,6 +292,96 @@ class TestGallery(unittest.TestCase):
         self.assertEqual(rc.returncode, 0, "node gallery-logic tests failed:\n" + rc.stdout + rc.stderr)
 
 
+class TestEstimator(unittest.TestCase):
+    """Task 034 (roadmap 25): customer-facing estimator widget — wiring,
+    pricing.json drift alarm vs quote_estimator.DEFAULTS, node logic tests."""
+
+    def setUp(self):
+        self.index_html = open(os.path.join(ROOT, "index.html"), encoding="utf-8").read()
+        self.main_js = open(os.path.join(ROOT, "assets", "main.js"), encoding="utf-8").read()
+        with open(os.path.join(ROOT, "data", "pricing.json"), encoding="utf-8") as fh:
+            self.pricing = json.load(fh)
+
+    def test_pricing_json_mirror_of_cli_defaults(self):
+        import quote_estimator
+        for k, v in quote_estimator.DEFAULTS.items():
+            self.assertIn(k, self.pricing["rates"], f"pricing.json missing rate {k}")
+            self.assertEqual(self.pricing["rates"][k], v,
+                             f"pricing.json rates.{k} drifted from quote_estimator.DEFAULTS")
+
+    def test_pricing_placeholder_markers_present(self):
+        self.assertTrue(self.pricing.get("_edit_me") is True)
+        self.assertIn("rates", self.pricing)
+        owner_block = " ".join(self.pricing.get("_owner_action", []))
+        self.assertIn("OWNER ACTION", owner_block,
+                      "pricing.json must carry the OWNER-ACTION comment block")
+        self.assertIn("PLACEHOLDER", owner_block)
+
+    def test_section_and_nav_wiring(self):
+        self.assertIn('id="estimator"', self.index_html)
+        self.assertIn('id="est-calc"', self.index_html)
+        self.assertIn('id="est-out"', self.index_html)
+        self.assertIn('href="#estimator"', self.index_html)
+        self.assertIn("Estimate only", self.index_html)
+        self.assertIn("not a quote", self.index_html)
+        # disclaimer must link to the contact form (CTA)
+        est_chunk = self.index_html.split('<section id="estimator"', 1)[1].split("</section>", 1)[0]
+        self.assertIn('href="#contact"', est_chunk)
+        # section sits between #gallery and #faq
+        g_i = self.index_html.find('<section id="gallery"')
+        e_i = self.index_html.find('<section id="estimator"')
+        f_i = self.index_html.find('<section id="faq"')
+        self.assertTrue(0 < g_i < e_i < f_i, "estimator must sit between gallery and faq")
+
+    def test_renderer_wiring_in_main_js(self):
+        self.assertIn('fetch("data/pricing.json")', self.main_js)
+        self.assertIn("renderEstimator();", self.main_js)
+        self.assertIn("estimateInterior", self.main_js)
+        self.assertIn("estimateExterior", self.main_js)
+        self.assertIn("parseRoomSize", self.main_js)
+
+    def test_calculator_is_deterministic_client_side(self):
+        # no backend/fetch/LLM inside the compute path: fetch appears only once
+        # for the rate table; no LLM/network calls anywhere near the estimator.
+        est_chunk = self.main_js.split("paint-quote estimator", 1)[1].split("#expose estimator", 1)[0] \
+            if "#expose estimator" in self.main_js else self.main_js.split("paint-quote estimator", 1)[1]
+        self.assertEqual(est_chunk.count("fetch("), 1, "estimator must fetch only the rate table")
+        for banned in ("XMLHttpRequest", "api.openai", "chatgpt", "localhost:"):
+            self.assertNotIn(banned, est_chunk)
+
+    def test_math_mirrors_cli_for_widget_defaults(self):
+        # golden parity: JS-mirrored formulas produce EXACTLY the same numbers
+        # as quote_estimator.py for the widget default inputs (regression guard
+        # against forking the math); full parity suite runs in node below.
+        import quote_estimator
+        fixtures = json.load(open(os.path.join(ROOT, "scripts", "test_estimator_fixtures.json")))
+        cli = quote_estimator.interior(3, 12, 14, 8, 0)
+        self.assertEqual(fixtures["interior_default"]["total_range"], list(cli["total_range"]))
+        self.assertEqual(fixtures["interior_default"]["wall_sqft"], cli["wall_sqft"])
+
+    def test_node_estimator_logic_tests(self):
+        script = os.path.join(ROOT, "scripts", "test_estimator_logic.js")
+        fixtures = os.path.join(ROOT, "scripts", "test_estimator_fixtures.json")
+        self.assertTrue(os.path.exists(script), "node test file missing")
+        self.assertTrue(os.path.exists(fixtures), "fixtures missing — run gen_estimator_fixtures.py")
+        rc = subprocess.run(["node", script], capture_output=True, text=True)
+        self.assertEqual(rc.returncode, 0, "node estimator-logic tests failed:\n" + rc.stdout + rc.stderr)
+        self.assertIn("ALL ESTIMATOR LOGIC TESTS PASS", rc.stdout)
+
+    def test_gen_fixtures_script_is_deterministic(self):
+        # two runs must produce byte-identical fixtures
+        out1 = subprocess.run([sys.executable, os.path.join(ROOT, "scripts", "gen_estimator_fixtures.py")],
+                              capture_output=True, text=True)
+        out2 = subprocess.run([sys.executable, os.path.join(ROOT, "scripts", "gen_estimator_fixtures.py")],
+                              capture_output=True, text=True)
+        self.assertEqual(out1.returncode, 0)
+        self.assertEqual(out1.stdout, out2.stdout, "fixture generation is not deterministic")
+        # and must still match the committed fixture file
+        committed = open(os.path.join(ROOT, "scripts", "test_estimator_fixtures.json")).read()
+        self.assertEqual(out1.stdout.strip(), committed.strip(),
+                         "committed fixtures stale vs gen_estimator_fixtures.py output")
+
+
 class TestAreaSitemap(unittest.TestCase):
     """Task 026: sitemap integration for service-area pages."""
 

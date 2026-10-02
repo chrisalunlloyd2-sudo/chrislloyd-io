@@ -1,0 +1,76 @@
+{
+ "interior_default": {
+  "wall_sqft": 1248,
+  "labour_hours": 20.3,
+  "labour_cost": 1117.6,
+  "paint_gallons": 7.1,
+  "paint_cost": 534.86,
+  "total_range": [
+   1487,
+   1900
+  ],
+  "rates": "PLACEHOLDER EDIT-ME"
+ },
+ "interior_9ft": {
+  "wall_sqft": 936,
+  "labour_hours": 19.5,
+  "labour_cost": 1071.79,
+  "paint_gallons": 5.3,
+  "paint_cost": 401.14,
+  "total_range": [
+   1326,
+   1694
+  ],
+  "rates": "PLACEHOLDER EDIT-ME"
+ },
+ "interior_small": {
+  "wall_sqft": 320,
+  "labour_hours": 6.1,
+  "labour_cost": 337.33,
+  "paint_gallons": 1.8,
+  "paint_cost": 137.14,
+  "total_range": [
+   427,
+   546
+  ],
+  "rates": "PLACEHOLDER EDIT-ME"
+ },
+ "interior_repairs": {
+  "wall_sqft": 1248,
+  "labour_hours": 21.6,
+  "labour_cost": 1186.35,
+  "paint_gallons": 7.1,
+  "paint_cost": 534.86,
+  "total_range": [
+   1549,
+   1979
+  ],
+  "rates": "PLACEHOLDER EDIT-ME"
+ },
+ "exterior_default": {
+  "siding_sqft": 1500,
+  "labour_hours": 30.0,
+  "labour_cost": 1650.0,
+  "paint_gallons": 8.6,
+  "paint_cost": 771.43,
+  "total_range": [
+   2179,
+   2785
+  ],
+  "note": "weather-window dependent; excludes scaffolding/height premiums",
+  "rates": "PLACEHOLDER EDIT-ME"
+ },
+ "exterior_2x": {
+  "siding_sqft": 3000,
+  "labour_hours": 60.0,
+  "labour_cost": 3300.0,
+  "paint_gallons": 17.1,
+  "paint_cost": 1542.86,
+  "total_range": [
+   4359,
+   5569
+  ],
+  "note": "weather-window dependent; excludes scaffolding/height premiums",
+  "rates": "PLACEHOLDER EDIT-ME"
+ }
+}
