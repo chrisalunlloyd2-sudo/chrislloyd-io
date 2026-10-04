@@ -65,5 +65,21 @@
     "url_label": "View on Amazon",
     "id": "business---office-supplies",
     "placeholder": true
+  },
+  {
+    "title": "After-Painting Home Decor",
+    "desc": "Throws, linens, trays and pillows for the freshly painted room.",
+    "category": "After Painting",
+    "url": "https://sahhfb-wz.myshopify.com/collections/all",
+    "url_label": "Shop the Store",
+    "id": "after-painting-home-decor"
+  },
+  {
+    "title": "Candles, Diffusers & Oils",
+    "desc": "Soy candles, reed diffusers and essential oils for a freshly painted room.",
+    "category": "After Painting",
+    "url": "https://sahhfb-wz.myshopify.com/collections/all",
+    "url_label": "Shop the Store",
+    "id": "candles--diffusers---oils"
   }
 ]
