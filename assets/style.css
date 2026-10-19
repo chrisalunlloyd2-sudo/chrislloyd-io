@@ -337,3 +337,7 @@ footer .wrap { position: relative; }
 .est-disclaimer strong { color: var(--terracotta); }
 .est-disclaimer a { color: var(--teal); }
 section[hidden] { display: none; }
+
+.wip { margin: 1.5rem 0 0; text-align: center; }
+.wip img { max-width: min(100%, 320px); height: auto; border-radius: 12px; }
+.wip figcaption { margin-top: .5rem; font-size: .9rem; opacity: .8; }
