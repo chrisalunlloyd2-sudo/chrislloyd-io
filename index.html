@@ -162,10 +162,13 @@
   <section id="contact" class="wrap section section-alt">
     <h2><svg class="glyph" viewBox="0 0 16 16" aria-hidden="true"><polygon points="2,4 14,4 14,12 2,12" fill="none" stroke="currentColor" stroke-width="1.5"/><polyline points="2,4 8,9 14,4" fill="none" stroke="currentColor" stroke-width="1.5"/></svg> Contact</h2>
     <div class="contact-cols">
-      <form id="contact-form" class="contact-form" action="https://formspree.io/f/OWNER_FORM_ID" method="POST">
-        <p class="section-note" id="contact-form-note">Form backend not configured yet — this form opens your email client instead.</p>
+      <form id="contact-form" class="contact-form" action="https://formspree.io/f/xgaoqjdj" method="POST" enctype="multipart/form-data">
+        <p class="section-note" id="contact-form-note" hidden></p>
         <label>Name
           <input type="text" name="name" required autocomplete="name">
+        </label>
+        <label>Email
+          <input type="email" name="email" required autocomplete="email">
         </label>
         <label>How did you hear about us?
           <select name="heard_about">
@@ -209,8 +212,10 @@
         </label>
         <p class="section-note privacy-note">Your info and photos are only used to prepare your quote.</p>
         <input type="hidden" name="lead_tier" id="lead-tier" value="">
+        <input type="hidden" name="_subject" value="Website enquiry">
+        <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
         <button class="btn" type="submit">Send</button>
-        <p class="form-status" id="form-status" hidden></p>
+        <p class="form-status" id="form-status" role="status" hidden></p>
       </form>
       <div class="get-ready" id="get-ready" hidden aria-live="polite">
         <h3>Get ready for your quote</h3>

@@ -286,6 +286,7 @@
         var fd = new FormData(form);
         var lines = [
           "Name: " + (fd.get("name") || ""),
+          "Email: " + (fd.get("email") || ""),
           "Heard about us: " + (fd.get("heard_about") || "(not said)"),
           "",
           "Project: " + (fd.get("project") || ""),
@@ -294,7 +295,7 @@
           "Timeline: " + (fd.get("timeline") || ""),
           "Budget: " + (fd.get("budget") || "(not said)"),
           "Contact via: " + (fd.get("contact_preference") || "email") + (fd.get("phone") ? " — " + fd.get("phone") : ""),
-          "Lead tier: " + (document.getElementById("lead-tier") || {}).value || "",
+          "Lead tier: " + ((document.getElementById("lead-tier") || {}).value || ""),
           ""
         ];
         var body = encodeURIComponent(lines.join("\n"));
@@ -316,15 +317,35 @@
       form.addEventListener("submit", function (ev) {
         ev.preventDefault();
         var status = document.getElementById("form-status");
-        fetch(form.action, {
-          method: "POST", body: new FormData(form),
-          headers: { "Accept": "application/json" }
+        var btn = form.querySelector('button[type="submit"]');
+        function say(t) { if (status) { status.hidden = false; status.textContent = t; } }
+        function send(fd) {
+          return fetch(form.action, { method: "POST", body: fd, headers: { "Accept": "application/json" } });
+        }
+        var fd = new FormData(form);
+        var photos = form.elements["photos"];
+        var hadPhotos = !!(photos && photos.files && photos.files.length);
+        if (btn) btn.disabled = true;
+        send(fd).then(function (r) {
+          if (r.ok || !hadPhotos) return r;
+          // Photo uploads can be refused by the form backend; keep the enquiry itself.
+          fd.delete("photos");
+          return send(fd).then(function (r2) { r2.photosDropped = r2.ok; return r2; });
         }).then(function (r) {
-          if (status) { status.hidden = false; status.textContent = r.ok ? "Thanks — I'll be in touch soon." : "Sending failed (" + r.status + ") — please email directly."; }
-          if (r.ok) form.reset();
+          if (r.ok) {
+            say(r.photosDropped
+              ? "Thanks — I got your message, but the photos did not upload. Please email them to me."
+              : "Thanks — I'll be in touch soon.");
+            form.reset();
+            return;
+          }
+          return r.json().catch(function () { return {}; }).then(function (j) {
+            var errs = (j.errors || []).map(function (e) { return e.message; }).filter(Boolean);
+            say(errs.length ? errs.join(" ") : "Sending failed (" + r.status + ") — please email directly.");
+          });
         }).catch(function () {
-          if (status) { status.hidden = false; status.textContent = "Network error — please email directly."; }
-        });
+          say("Network error — please email directly.");
+        }).then(function () { if (btn) btn.disabled = false; });
       });
     }
   })();
