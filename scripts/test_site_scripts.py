@@ -250,7 +250,13 @@ class TestGallery(unittest.TestCase):
     def test_only_placeholder_entries_until_photos_arrive(self):
         self.assertGreater(len(self.items), 0)
         for g in self.items:
-            self.assertTrue(g.get("placeholder") is True)
+            if g.get("placeholder") is not True:
+                # real entry (added by scripts/add_gallery.py): files must exist, text must be real
+                for side in ("before", "after"):
+                    self.assertTrue(os.path.isfile(os.path.join(ROOT, g[side]["src"])), g[side]["src"])
+                    self.assertTrue(g[side]["alt"].strip())
+                self.assertNotIn("PLACEHOLDER", g["title"].upper())
+                continue
             self.assertIn("PLACEHOLDER", g["title"])
             for side in ("before", "after"):
                 self.assertIn("PLACEHOLDER", g[side]["alt"])
@@ -265,8 +271,13 @@ class TestGallery(unittest.TestCase):
         self.assertIn('id="gallery"', self.index_html)
         self.assertIn('id="gallery-grid"', self.index_html)
         # basics-only site: section kept but hidden and not in the nav (remove `hidden` to bring it back)
-        self.assertIn('<section id="gallery" hidden', self.index_html)
-        self.assertNotIn('href="#gallery"', self.index_html)
+        has_real = any(g.get("placeholder") is not True for g in self.items)
+        if has_real:  # add_gallery.py un-hides it and adds the nav link
+            self.assertNotIn('<section id="gallery" hidden', self.index_html)
+            self.assertIn('href="#gallery"', self.index_html)
+        else:
+            self.assertIn('<section id="gallery" hidden', self.index_html)
+            self.assertNotIn('href="#gallery"', self.index_html)
         # section sits between #testimonials and #faq in the document
         t_i = self.index_html.find('<section id="testimonials"')
         g_i = self.index_html.find('<section id="gallery"')
@@ -403,10 +414,71 @@ class TestEstimator(unittest.TestCase):
                          "committed fixtures stale vs gen_estimator_fixtures.py output")
 
 
+class TestAddGallery(unittest.TestCase):
+    """scripts/add_gallery.py on a throwaway copy of the site (never the real files)."""
+
+    def setUp(self):
+        import shutil
+        self.tmp = tempfile.mkdtemp()
+        os.makedirs(os.path.join(self.tmp, "data"))
+        for f in ("data/gallery.json", "index.html"):
+            shutil.copy(os.path.join(ROOT, f), os.path.join(self.tmp, f))
+        try:
+            from PIL import Image
+        except ImportError:
+            self.skipTest("Pillow not installed")
+        self.img = os.path.join(self.tmp, "in.jpg")
+        im = Image.new("RGB", (2400, 1600), (20, 90, 160))
+        exif = Image.Exif()
+        exif[0x8825] = {1: "N"}  # GPS IFD present
+        im.save(self.img, exif=exif)
+        self.args = ["--before", self.img, "--after", self.img, "--title", "Bedroom repaint",
+                     "--caption", "Two coats.", "--alt-before", "Bedroom before", "--alt-after", "Bedroom after",
+                     "--root", self.tmp]
+
+    def run_add(self, extra):
+        sys.path.insert(0, os.path.join(ROOT, "scripts"))
+        import add_gallery
+        add_gallery.main(self.args + extra)
+
+    def test_refuses_without_client_ok(self):
+        with self.assertRaises(SystemExit):
+            self.run_add([])
+        self.assertFalse(os.path.exists(os.path.join(self.tmp, "assets")))
+
+    def test_refuses_placeholder_text(self):
+        self.args[self.args.index("Two coats.")] = "PLACEHOLDER caption"
+        with self.assertRaises(SystemExit):
+            self.run_add(["--client-ok"])
+
+    def test_adds_entry_strips_exif_resizes_and_unhides(self):
+        from PIL import Image
+        self.run_add(["--client-ok", "--year", "2026"])
+        items = json.load(open(os.path.join(self.tmp, "data", "gallery.json")))
+        self.assertEqual(len(items), 1)
+        self.assertIs(items[0]["placeholder"], False)
+        out = Image.open(os.path.join(self.tmp, items[0]["before"]["src"]))
+        self.assertLessEqual(max(out.size), 1200)
+        self.assertEqual(len(out.getexif()), 0)
+        html = open(os.path.join(self.tmp, "index.html")).read()
+        self.assertNotIn('<section id="gallery" hidden', html)
+        self.assertIn('href="#gallery"', html)
+
+    def test_second_add_keeps_unique_ids(self):
+        self.run_add(["--client-ok"])
+        self.run_add(["--client-ok"])
+        ids = [i["id"] for i in json.load(open(os.path.join(self.tmp, "data", "gallery.json")))]
+        self.assertEqual(len(ids), len(set(ids)))
+
+
 class TestPriceSheet(unittest.TestCase):
     """Task 035: deterministic price-sheet PDF from data/pricing.json."""
 
     def test_gen_pricesheet_pdf_bytes_stable(self):
+        try:
+            import fpdf  # noqa: F401
+        except ImportError:
+            self.skipTest("fpdf2 not installed (pip install fpdf2)")
         import gen_pricesheet
         rates, placeholder = gen_pricesheet.load_rates()
         self.assertTrue(placeholder, "pricing.json is still placeholder — PDF test "
