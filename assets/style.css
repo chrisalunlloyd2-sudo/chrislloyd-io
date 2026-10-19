@@ -336,3 +336,4 @@ footer .wrap { position: relative; }
 .est-disclaimer { font-size: .85rem; color: var(--ivory-muted); margin: 0; border-top: 1px solid var(--line); padding-top: 12px; }
 .est-disclaimer strong { color: var(--terracotta); }
 .est-disclaimer a { color: var(--teal); }
+section[hidden] { display: none; }

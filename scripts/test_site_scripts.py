@@ -264,7 +264,9 @@ class TestGallery(unittest.TestCase):
     def test_section_and_nav_wiring(self):
         self.assertIn('id="gallery"', self.index_html)
         self.assertIn('id="gallery-grid"', self.index_html)
-        self.assertIn('href="#gallery"', self.index_html)
+        # basics-only site: section kept but hidden and not in the nav (remove `hidden` to bring it back)
+        self.assertIn('<section id="gallery" hidden', self.index_html)
+        self.assertNotIn('href="#gallery"', self.index_html)
         # section sits between #testimonials and #faq in the document
         t_i = self.index_html.find('<section id="testimonials"')
         g_i = self.index_html.find('<section id="gallery"')
@@ -322,7 +324,8 @@ class TestEstimator(unittest.TestCase):
         self.assertIn('id="estimator"', self.index_html)
         self.assertIn('id="est-calc"', self.index_html)
         self.assertIn('id="est-out"', self.index_html)
-        self.assertIn('href="#estimator"', self.index_html)
+        self.assertIn('<section id="estimator" hidden', self.index_html)
+        self.assertNotIn('href="#estimator"', self.index_html)
         self.assertIn("Estimate only", self.index_html)
         self.assertIn("not a quote", self.index_html)
         # disclaimer must link to the contact form (CTA)
