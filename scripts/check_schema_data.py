@@ -21,6 +21,11 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 failures = []
 
 AREA_SLUGS = ["st-albert", "sherwood-park", "leduc", "spruce-grove"]
+try:
+    with open(os.path.join(ROOT, "data", "area-pages.json"), encoding="utf-8") as f:
+        AREA_CITY = {p["slug"]: p["city"] for p in json.load(f).get("pages", [])}
+except (OSError, json.JSONDecodeError):
+    AREA_CITY = {}
 PAGES_BASE = "https://chrisalunlloyd2-sudo.github.io/chrislloyd-io/"
 GITHUB_URL = "https://github.com/chrisalunlloyd2-sudo"
 
@@ -86,6 +91,8 @@ if biz:
     check("[index] logo absolute og-image", biz.get("logo") == og, f"got {biz.get('logo')!r}")
     check("[index] sameAs is GitHub only", biz.get("sameAs") == [GITHUB_URL],
           f"got {biz.get('sameAs')!r}")
+    check("[index] description is the site.json blurb verbatim",
+          biz.get("description") == site.get("blurb"), f"got {biz.get('description')!r}")
     same_as = biz.get("sameAs") or []
     site_socials = {s.get("url") for s in json.loads(read("data/site.json")).get("socials", [])
                     if s.get("placeholder") is True}
@@ -105,6 +112,13 @@ for slug in AREA_SLUGS:
               abiz.get("url") == PAGES_BASE + slug + ".html", f"got {abiz.get('url')!r}")
         check(f"[{slug}] sameAs GitHub only", abiz.get("sameAs") == [GITHUB_URL],
               f"got {abiz.get('sameAs')!r}")
+        city = AREA_CITY.get(slug, slug)
+        check(f"[{slug}] description is the page's own meta copy",
+              abiz.get("description") ==
+              (f"Interior & exterior house painting in {city}, Alberta, "
+               f"plus drywall repair and small renovation work. "
+               f"Based in nearby Edmonton — tidy prep, honest quotes."),
+              f"got {abiz.get('description')!r}")
 
 # --- 4: FAQ data contract ------------------------------------------------------
 faq = json.loads(read("data/faq.json")).get("faq", [])
@@ -117,8 +131,8 @@ check("no static FAQPage JSON-LD duplicate in index.html",
       '"@type"' not in index_html or "FAQPage" not in index_html)
 
 # --- generator parity guard ----------------------------------------------------
-gen = read("scripts/gen_area_pages.py")
-for field in ('"image"', '"logo"', '"sameAs"'):
-    check(f"gen_area_pages.py emits {field}", field in gen)
+GEN = read("scripts/gen_area_pages.py")
+for field in ('"description"', '"image"', '"logo"', '"sameAs"'):
+    check(f"gen_area_pages.py emits {field}", field in GEN)
 
 sys.exit(1 if failures else 0)

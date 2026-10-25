@@ -72,10 +72,16 @@ def load_data():
 
 
 def jsonld_for(page):
+    city = page["city"]
     biz = {
         "@context": "https://schema.org",
         "@type": "HomeAndConstructionBusiness",
         "name": "Chris Alun Lloyd Ltd",
+        "description": (
+            f"Interior & exterior house painting in {city}, Alberta, "
+            f"plus drywall repair and small renovation work. "
+            f"Based in nearby Edmonton — tidy prep, honest quotes."
+        ),
         "email": "chrisalunlloyd2@gmail.com",
         "telephone": "+1-587-926-4323",
         "url": base_url() + page["slug"] + ".html",
