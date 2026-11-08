@@ -97,7 +97,7 @@ def jsonld_for(page):
         },
         "areaServed": [page["city"]],
         "serviceType": "Residential painting and home renovation",
-        "sameAs": ["https://github.com/chrisalunlloyd2-sudo"],
+        "sameAs": ["https://github.com/chrisalunlloyd2-sudo", "https://www.facebook.com/profile.php?id=61596402479406", "https://www.threads.com/@christopheralunlloyd"],
     }
     return json.dumps(biz, indent=2, ensure_ascii=False)
 
