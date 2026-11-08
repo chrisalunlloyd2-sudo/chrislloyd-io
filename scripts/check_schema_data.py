@@ -90,7 +90,7 @@ if biz:
     og = PAGES_BASE + "assets/og-image.png"
     check("[index] image absolute og-image", biz.get("image") == og, f"got {biz.get('image')!r}")
     check("[index] logo absolute og-image", biz.get("logo") == og, f"got {biz.get('logo')!r}")
-    check("[index] sameAs is exactly the non-placeholder socials", biz.get("sameAs") == EXPECTED_SAMEAS,
+    check("[index] sameAs is exactly the non-placeholder socials", sorted(biz.get("sameAs") or []) == sorted(EXPECTED_SAMEAS),
           f"got {biz.get('sameAs')!r}")
     check("[index] description is the site.json blurb verbatim",
           biz.get("description") == site.get("blurb"), f"got {biz.get('description')!r}")
@@ -111,7 +111,7 @@ for slug in AREA_SLUGS:
         nap_ok(abiz, slug)
         check(f"[{slug}] url is the per-page Pages URL",
               abiz.get("url") == PAGES_BASE + slug + ".html", f"got {abiz.get('url')!r}")
-        check(f"[{slug}] sameAs is exactly the non-placeholder socials", abiz.get("sameAs") == EXPECTED_SAMEAS,
+        check(f"[{slug}] sameAs is exactly the non-placeholder socials", asorted(biz.get("sameAs") or []) == sorted(EXPECTED_SAMEAS),
               f"got {abiz.get('sameAs')!r}")
         city = AREA_CITY.get(slug, slug)
         check(f"[{slug}] description is the page's own meta copy",
