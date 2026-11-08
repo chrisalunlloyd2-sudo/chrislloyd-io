@@ -3,7 +3,8 @@
     "Painting",
     "After Painting",
     "Home Tech",
-    "Home Decor"
+    "Home Decor",
+    "Comfort & Storage"
   ],
   "items": [
     {
@@ -197,21 +198,6 @@
       "url": "https://jvtesw-cg.myshopify.com/products/paint-roller-kit-with-extension-pole-2-4ft-adjustable-pole-professional-27-piece-paint-kit-49-paint-rollers-paint-brushes-for-walls-works-with-all-latex-oil-based-paints-and-wood-finishes"
     },
     {
-      "id": "gamblin-gamvar-varnish-brush-50mm-gb0115",
-      "title": "Gamblin Gamvar Varnish Brush, 50 mm",
-      "category": "Painting",
-      "desc": "GB01150, GAMVAR VARNISH BRUSH 50MM.",
-      "features": [
-        "Model No : GB01150",
-        "Upc : 729911011508",
-        "Brand : Gamblin",
-        "Country of Origin : DE",
-        "GAMVAR VARNISH BRUSH 50MM"
-      ],
-      "image": "assets/store/gamblin-gamvar-varnish-brush-50mm-gb0115.jpg",
-      "url": "https://jvtesw-cg.myshopify.com/products/gamblin-gamvar-varnish-brush-50mm-gb01150"
-    },
-    {
       "id": "mini-wireless-laser-projection-keyboard-",
       "title": "Mini Wireless Laser Projection Keyboard",
       "category": "Home Tech",
@@ -239,38 +225,6 @@
       ],
       "image": "assets/store/s-k80-75-keyboard-with-color-oled-displa.jpg",
       "url": "https://jvtesw-cg.myshopify.com/products/s-k80-75-keyboard-with-color-oled-display-mechanical-gaming-keyboard-hot-swap-keyboard-gasket-mount-rgb-custom-keyboard"
-    },
-    {
-      "id": "x-41-usb-wired-rgb-gaming-mouse-24000-dp",
-      "title": "X-41 USB Wired RGB Gaming Mouse",
-      "category": "Home Tech",
-      "desc": "『SENSITIVE DPI MMO MOUSE』Focus on MMO gamers: this professional MMO gaming mouse built-in up to 24000 DPI, 1000 Hz…",
-      "features": [
-        "It has an adjustable sensitivity level (range from 200 - 12400) built right into the gaming mouse.",
-        "You can easily adjust the mouse sensitivity using buttons on the mouse.Great micro switches provide crisp, firm clicks.",
-        "Lightning fast is not just to say-thanks to the improved optical SG8960 gaming sensor, the X-41 can instantly register every click/swipe…",
-        "Efficient, accurate and low latency are all included in the box.",
-        "『COMFORTABLE SHAPE & TEXTURED GRIP』 Ergonomic Right-Handed design with the frosted painting surface avoids hand sweat and slippery.",
-        "The shape and texture on the mouse are extremely comfortable in the hand and the size is suited for most."
-      ],
-      "image": "assets/store/x-41-usb-wired-rgb-gaming-mouse-24000-dp.jpg",
-      "url": "https://jvtesw-cg.myshopify.com/products/x-41-usb-wired-rgb-gaming-mouse-24000-dpi-sg8960-10-buttons-programmable-game-optical-mice-for-computer-pc-laptop"
-    },
-    {
-      "id": "908s-80w-electric-digital-soldering-iron",
-      "title": "908S 80W Digital Soldering Iron Station",
-      "category": "Home Tech",
-      "desc": "908S 80W Electric digital soldering iron station 220V 110V temperature adjustable welding soldering tips tools…",
-      "features": [
-        "908S 80W Electric digital soldering iron station 220V 110V temperature adjustable welding soldering tips tools accessories Electric…",
-        "Suitable tin wires should be selected during welding, which is conducive to welding and head maintenance.",
-        "The welding head should be kept clean during welding, which is beneficial to the welding and the appearance of the welding spot.",
-        "Tin is often coated on the tip of the soldering iron to facilitate soldering and prevent oxidation.",
-        "Rest should add tin and turn off the power supply, which is beneficial to life and prevent oxidation.",
-        "Soldering iron tip should be disposed of in time after oxidation, which is beneficial to welding and prevent scrapping"
-      ],
-      "image": "assets/store/908s-80w-electric-digital-soldering-iron.jpg",
-      "url": "https://jvtesw-cg.myshopify.com/products/908s-80w-electric-digital-soldering-iron-station-220v-110v-temperature-adjustable-welding-soldering-tips-tools-accessories"
     },
     {
       "id": "d5-starry-moon-lamp-8cm-led-night-light-",
@@ -304,7 +258,7 @@
     {
       "id": "5-pcs-shaggy-duvet-cover-bedding-set-lon",
       "title": "5-Piece Shaggy Duvet Cover Bedding Set",
-      "category": "Home Decor",
+      "category": "Comfort & Storage",
       "desc": "MorroMorn provide you with luxury and comfortable bedding.",
       "features": [
         "PACKAGE INCLUDES 5 PCS! 1x duvet cover 104\"x90\", 1x sheet 106\"x98\", 2x shaggy pillow cases 20\"x37\", 1x bonus Love shaped throw pillow. (No…",
@@ -315,6 +269,103 @@
       ],
       "image": "assets/store/5-pcs-shaggy-duvet-cover-bedding-set-lon.jpg",
       "url": "https://jvtesw-cg.myshopify.com/products/5-pcs-shaggy-duvet-cover-bedding-set-long-faux-fur-luxury-ultra-soft-cozy-aqua-king-california-king"
+    },
+    {
+      "id": "paint-brush-2-5-inch-angled-synthetic-pa",
+      "title": "Angled Paint Brush, 2.5 Inch",
+      "category": "Painting",
+      "desc": "Our Mister Rui paint brush features a 2.5-inch angled design, ideal for precision cutting in walls and achieving smooth…",
+      "features": [
+        "Professional Quality Paint Brushes: Our Mister Rui paint brush features a 2.5-inch angled design, ideal for precision cutting in walls and…",
+        "Ergonomic Long Handle: Designed with comfort in mind, the ergonomic long handle of our paint brush provides excellent control, allowing…",
+        "Versatile for All Painting Supplies: This versatile paint brush set is perfect for use with both oil and latex paints, making it an…",
+        "Durable Synthetic Filament Blend: Made from a thick quality synthetic filament blend, these paint brushes hold more paint to save time…",
+        "Effective Home Improvement Tool: The Mister Rui paint brush offers high-quality performance, making it one of the best choices among paint…",
+        "Great Gift Choice for Friends: Ideal for gifting to family and friends for housewarming. It also makes a practical present for DIY…"
+      ],
+      "image": "assets/store/paint-brush-2-5-inch-angled-synthetic-pa.jpg",
+      "url": "https://jvtesw-cg.myshopify.com/products/paint-brush-2-5-inch-angled-synthetic-paint-brush-for-walls"
+    },
+    {
+      "id": "18-inch-microfiber-paint-roller-covers-6",
+      "title": "18 Inch Microfiber Paint Roller Covers, 6-Pack",
+      "category": "Painting",
+      "desc": "The 6 pack microfiber 18 inch paint roller is individually packaged, making it convenient for customers to store and…",
+      "features": [
+        "Individually Packaged Design: The 6 pack microfiber 18 inch paint roller is individually packaged, making it convenient for customers to…",
+        "Ideal Size: With a large 18 inch size, the paint roller covers a larger surface area, saving you time and effort while achieving optimal…",
+        "High-Quality Materials: The paint roller is made of high-density fine fiber material, providing excellent coverage, the combination of…",
+        "Washable and Reusable: The durable paint roller covers can be washed and re-used for long-lasting performance, from one painting project to…",
+        "Wide Range of Uses: Suitable for various indoor and outdoor painting projects, including walls, ceilings, and the whole house, inside and…"
+      ],
+      "image": "assets/store/18-inch-microfiber-paint-roller-covers-6.jpg",
+      "url": "https://jvtesw-cg.myshopify.com/products/18-inch-microfiber-paint-roller-covers-6-pack-3-8-nap"
+    },
+    {
+      "id": "shelf-without-drilling-shampoo-holder-ba",
+      "title": "No-Drill Floating Shelf and Shampoo Holder",
+      "category": "Comfort & Storage",
+      "desc": "No drilling bathroom shelf space aluminum wall hanging integrated toilet toile tries storage wall mirror front tray",
+      "features": [],
+      "image": "assets/store/shelf-without-drilling-shampoo-holder-ba.jpg",
+      "url": "https://jvtesw-cg.myshopify.com/products/shelf-without-drilling-shampoo-holder-bathroom-wall-floating-white-black-shelves-stick-bath-organizer-for-kitchen-accessories"
+    },
+    {
+      "id": "macrame-hanging-shelf-boho-wall-decor-be",
+      "title": "Macrame Hanging Shelf, Boho Wall Decor",
+      "category": "Home Decor",
+      "desc": "Place your favorite plants and other objects, and use our macrame wall hanging shelf.",
+      "features": [
+        "You can enjoy the rustic look throughout the home.",
+        "When you fill the blank space with plants, books, etc.it will add a beautiful touch to any wall in your home.",
+        "Application：These hanging wall shelves can be hung on the wall, also used as a plant hanger.",
+        "They are the perfect addition to your living room, bathroom, bedroom, kitchen,nursery, apartment and office.",
+        "Great for any room decor.",
+        "Great Gift: The hanging shelf is very suitable for people who love boho style."
+      ],
+      "image": "assets/store/macrame-hanging-shelf-boho-wall-decor-be.jpg",
+      "url": "https://jvtesw-cg.myshopify.com/products/macrame-hanging-shelf-boho-wall-decor-bedroom-1-pc-rustic-wood-floating-shelves-for-room-nursery-bathroom-living-room-college"
+    },
+    {
+      "id": "punch-free-floating-shelves-for-wall-sto",
+      "title": "Punch-Free Self-Adhesive Floating Shelves",
+      "category": "Comfort & Storage",
+      "desc": "Made of space aluminum, is rust-proof and anti-corrosion, ensuring durability, stability and toughness,always keep your…",
+      "features": [
+        "No-drilling installation avoids wall damage and powerful adhesion and waterproof performance of glue help the rack attach to the wall…",
+        "Maximizing the used of space in bathroom, keeping neat and organized.",
+        "A great rack for holding lotion, shampoo, facial cream, makeup and all that stuff.",
+        "Specifications: Item name: Bathroom Shelves Material: Space aluminum Color: Black Size: 20/30/40/50cm Note: - There might be little error…",
+        "The colors deviation might differ due to different monitor settings, please kindly understand.",
+        "Packing list Package includes: 1*Bathroom Shelves 1*A set of installation accessories"
+      ],
+      "image": "assets/store/punch-free-floating-shelves-for-wall-sto.jpg",
+      "url": "https://jvtesw-cg.myshopify.com/products/punch-free-floating-shelves-for-wall-storage-self-adhesive-rack-20-50cm-kitchen-home-decor-bathroom-accessorie-modern-matt-black"
+    },
+    {
+      "id": "antminer-maquina-de-mineria-de-bitcoin-s",
+      "title": "Antminer S19 95T Bitcoin Miner",
+      "category": "Home Tech",
+      "desc": "Antminer S19 95T Bitcoin Miner",
+      "features": [],
+      "image": "assets/store/antminer-maquina-de-mineria-de-bitcoin-s.jpg",
+      "url": "https://jvtesw-cg.myshopify.com/products/antminer-maquina-de-mineria-de-bitcoin-s19-95t-95th-90t-bitmain-ant-mainer-asic-antmin-usado-nuevo-2024"
+    },
+    {
+      "id": "baby-groot-pens-holder-or-groot-planter-",
+      "title": "Baby Groot Pen Holder / Planter Pot",
+      "category": "Home Decor",
+      "desc": "Decorate Baby Groot's Hair Style By Your Own Imagination!",
+      "features": [
+        "Groot Action Figures Flower Pot: Best Christmas gift idea for your friends featuring the beloved character design",
+        "Product Specifications: Made from PVC material with a height of 6 inches and weight of 12.76 ounces",
+        "Living Environment Enhancement: Grow succulents and flowers to make your living space more vibrant and lively",
+        "Versatile Pen Holder Function: Groot action figures design can be placed on your desk to organize pens or small items as cute collectibles",
+        "Thoughtful Design Details: Features a hollow bottom for stability and includes a small drainage hole at the base to allow excess water to…",
+        "Multi-Purpose Functionality: Works as a flowerpot, pen holder, or decorative piece for home, garden, patio, office, or car"
+      ],
+      "image": "assets/store/baby-groot-pens-holder-or-groot-planter-.jpg",
+      "url": "https://jvtesw-cg.myshopify.com/products/baby-groot-pens-holder-or-groot-planter-pot-perfect-for-tiny-succulents-6"
     }
   ]
 }

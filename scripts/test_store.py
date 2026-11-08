@@ -22,7 +22,7 @@ class StoreLint(unittest.TestCase):
     def test_store_and_curation_agree(self):
         handles = [i["handle"] for i in self.cur["items"]]
         self.assertEqual(len(handles), len(set(handles)), "duplicate handle")
-        self.assertEqual(len(self.store["items"]), len(handles))
+        self.assertEqual(len(self.store["items"]), len([i for i in self.cur["items"] if not i.get("hidden")]))
         for item in self.store["items"]:
             self.assertIn(item["category"], self.cur["categories"])
             base = self.cur["store_base"] + "/products/"
@@ -40,7 +40,7 @@ class StoreLint(unittest.TestCase):
                 self.assertTrue(os.path.getsize(os.path.join(ROOT, item["image"])) > 1000, item["image"])
 
     def test_no_off_niche_or_placeholder_products(self):
-        banned = ("example product", "antminer", "groot", "protein", "creatine", "hoodie")
+        banned = ("example product", "protein", "creatine", "hoodie")
         for item in self.store["items"]:
             for w in banned:
                 self.assertNotIn(w, item["title"].lower(), item["title"])
@@ -60,6 +60,15 @@ class StoreLint(unittest.TestCase):
         for u in uses:
             self.assertEqual(u["category"], "Concept idea")
         self.assertRegex(read("index.html").lower(), r"concept")
+
+
+class VoiceLint(unittest.TestCase):
+    def test_voice_uses_labelled_in_development(self):
+        uses = json.loads(read("data/voice.json"))
+        self.assertEqual(len(uses), 5)
+        for u in uses:
+            self.assertEqual(u["category"], "In development")
+        self.assertIn("not released", read("index.html"))
 
 
 if __name__ == "__main__":

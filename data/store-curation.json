@@ -4,7 +4,8 @@
     "Painting",
     "After Painting",
     "Home Tech",
-    "Home Decor"
+    "Home Decor",
+    "Comfort & Storage"
   ],
   "items": [
     {
@@ -75,7 +76,8 @@
     {
       "handle": "gamblin-gamvar-varnish-brush-50mm-gb01150",
       "category": "Painting",
-      "title": "Gamblin Gamvar Varnish Brush, 50 mm"
+      "title": "Gamblin Gamvar Varnish Brush, 50 mm",
+      "hidden": true
     },
     {
       "handle": "mini-wireless-laser-projection-keyboard-bluetooth-virtual-keyboard-mouse-function-for-laptop-smartphone-keyboard-projector",
@@ -90,12 +92,14 @@
     {
       "handle": "x-41-usb-wired-rgb-gaming-mouse-24000-dpi-sg8960-10-buttons-programmable-game-optical-mice-for-computer-pc-laptop",
       "category": "Home Tech",
-      "title": "X-41 USB Wired RGB Gaming Mouse"
+      "title": "X-41 USB Wired RGB Gaming Mouse",
+      "hidden": true
     },
     {
       "handle": "908s-80w-electric-digital-soldering-iron-station-220v-110v-temperature-adjustable-welding-soldering-tips-tools-accessories",
       "category": "Home Tech",
-      "title": "908S 80W Digital Soldering Iron Station"
+      "title": "908S 80W Digital Soldering Iron Station",
+      "hidden": true
     },
     {
       "handle": "d5-starry-moon-lamp-8cm-led-night-light-with-stand-perfect-for-bedroom-decor-and-gifts",
@@ -109,8 +113,85 @@
     },
     {
       "handle": "5-pcs-shaggy-duvet-cover-bedding-set-long-faux-fur-luxury-ultra-soft-cozy-aqua-king-california-king",
-      "category": "Home Decor",
+      "category": "Comfort & Storage",
       "title": "5-Piece Shaggy Duvet Cover Bedding Set"
+    },
+    {
+      "handle": "paint-brush-2-5-inch-angled-synthetic-paint-brush-for-walls",
+      "category": "Painting",
+      "title": "Angled Paint Brush, 2.5 Inch"
+    },
+    {
+      "handle": "18-inch-microfiber-paint-roller-covers-6-pack-3-8-nap",
+      "category": "Painting",
+      "title": "18 Inch Microfiber Paint Roller Covers, 6-Pack"
+    },
+    {
+      "handle": "3folding-keyboard-mini-wireless-keyboard-foldable-dual-bluetooth-keyboard-with-touchpad-for-windows-android-ios-ipad-phone",
+      "category": "Home Tech",
+      "title": "Foldable Mini Wireless Bluetooth Keyboard",
+      "hidden": true
+    },
+    {
+      "handle": "2-pcs-for-airtag-wallet-holder-card-case-for-airtags-credit-card-size-with-keychain-slim-safety-anti-lost-for-purse-backpack-handbag-clutch-black",
+      "category": "Home Tech",
+      "title": "AirTag Wallet Holder Card Case, 2-Pack",
+      "hidden": true
+    },
+    {
+      "handle": "shelf-without-drilling-shampoo-holder-bathroom-wall-floating-white-black-shelves-stick-bath-organizer-for-kitchen-accessories",
+      "category": "Comfort & Storage",
+      "title": "No-Drill Floating Shelf and Shampoo Holder"
+    },
+    {
+      "handle": "macrame-hanging-shelf-boho-wall-decor-bedroom-1-pc-rustic-wood-floating-shelves-for-room-nursery-bathroom-living-room-college",
+      "category": "Home Decor",
+      "title": "Macrame Hanging Shelf, Boho Wall Decor"
+    },
+    {
+      "handle": "punch-free-floating-shelves-for-wall-storage-self-adhesive-rack-20-50cm-kitchen-home-decor-bathroom-accessorie-modern-matt-black",
+      "category": "Comfort & Storage",
+      "title": "Punch-Free Self-Adhesive Floating Shelves"
+    },
+    {
+      "handle": "imitation-animal-skin-carpet-non-slip-cow-zebra-striped-area-rugs-and-carpets-for-home-living-room-bedroom-floor-mat",
+      "category": "Home Decor",
+      "title": "Non-Slip Animal Skin Pattern Area Rug",
+      "hidden": true
+    },
+    {
+      "handle": "kitchen-floor-mat-large-home-living-room-bedroom-bathroom-carpet-decoration-print-stone-bamboo-lotus-pray-area-rugs",
+      "category": "Home Decor",
+      "title": "Large Home Floor Mat",
+      "hidden": true
+    },
+    {
+      "handle": "4x5-9-fluffy-soft-area-rugs-for-bedrooms-grey-washable-rug",
+      "category": "Comfort & Storage",
+      "title": "Fluffy Soft Washable Area Rug, Grey",
+      "hidden": true
+    },
+    {
+      "handle": "solar-garden-lights-outdoor-decor-moon-fairy-crackle-glass-lights-warm-white-led-metal-stake-ornament-unique-gift-for-gardening",
+      "category": "Home Decor",
+      "title": "Solar Garden Moon Fairy Crackle Glass Lights",
+      "hidden": true
+    },
+    {
+      "handle": "4-pcs-solar-deck-lights-led-outdoor-lighting-garden-step-waterproof-for-stairs-patio-pathway-yard-fence-wall-lamp",
+      "category": "Home Decor",
+      "title": "4-Piece Solar Deck Lights, Outdoor",
+      "hidden": true
+    },
+    {
+      "handle": "antminer-maquina-de-mineria-de-bitcoin-s19-95t-95th-90t-bitmain-ant-mainer-asic-antmin-usado-nuevo-2024",
+      "category": "Home Tech",
+      "title": "Antminer S19 95T Bitcoin Miner"
+    },
+    {
+      "handle": "baby-groot-pens-holder-or-groot-planter-pot-perfect-for-tiny-succulents-6",
+      "category": "Home Decor",
+      "title": "Baby Groot Pen Holder / Planter Pot"
     }
   ]
 }

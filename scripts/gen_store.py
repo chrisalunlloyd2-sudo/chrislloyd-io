@@ -61,7 +61,7 @@ def parse(body):
         if len(x) < 9 or "?" in x or JUNK.search(x) or x.lower() in seen: continue
         seen.add(x.lower()); feats.append(x)
         if len(feats) == 6: break
-    ss = [x for x in sentences(text) if not JUNK.search(x)]
+    ss = [x for x in sentences(text) if not JUNK.search(x) and "?" not in x]
     first = ss[0] if ss else text
     if re.match(r"^1\.", first): first = re.sub(r"^1\.\s*", "", first)
     first = re.split(r"\s[\u2013\u2014]\s", first)[0]
@@ -160,13 +160,14 @@ def main(snap):
     base = cur["store_base"]
     out = []
     for it in cur["items"]:
+        if it.get("hidden"): continue
         p = prods.get(it["handle"])
         if not p:
             print("MISSING handle:", it["handle"][:50], file=sys.stderr); continue
         short, feats = parse(p.get("body_html"))
         out.append({
             "id": it["handle"][:40], "title": it["title"], "category": it["category"],
-            "desc": short, "features": feats,
+            "desc": short or it["title"], "features": feats,
             "image": fetch_image(it["handle"][:40], p["images"][0]["src"] if p.get("images") else ""),
             "url": f"{base}/products/{it['handle']}",
         })

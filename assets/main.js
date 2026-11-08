@@ -754,6 +754,7 @@
   renderJSON("data/shop.json", "shop-grid");
   renderStore();
   renderJSON("data/lidar.json", "lidar-grid");
+  renderJSON("data/voice.json", "voice-grid");
   renderJSON("data/opensource.json", "opensource-grid");
   renderJSON("data/reviews.json", "reviews-grid", reviewCard);
   renderTestimonials();

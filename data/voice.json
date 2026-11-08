@@ -1,0 +1,32 @@
+[
+  {
+    "id": "voice-use-1",
+    "title": "Hands-free job notes",
+    "desc": "Dictate a note while your hands are covered in paint, and have it filed against the right job.",
+    "category": "In development"
+  },
+  {
+    "id": "voice-use-2",
+    "title": "Log hours and materials",
+    "desc": "Say what you used and how long it took, and have it recorded without touching a screen.",
+    "category": "In development"
+  },
+  {
+    "id": "voice-use-3",
+    "title": "Ask about the day",
+    "desc": "Ask for today's jobs, reminders and what is next, and hear the answer read back.",
+    "category": "In development"
+  },
+  {
+    "id": "voice-use-4",
+    "title": "Reorder supplies by voice",
+    "desc": "Say what ran out and get a link to reorder it from the store.",
+    "category": "In development"
+  },
+  {
+    "id": "voice-use-5",
+    "title": "Only does what it is allowed to",
+    "desc": "Designed to carry out a fixed list of allowed actions and to confirm before it changes anything.",
+    "category": "In development"
+  }
+]
