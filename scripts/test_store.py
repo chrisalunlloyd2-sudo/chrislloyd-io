@@ -1,0 +1,66 @@
+import json, os, re, unittest
+
+ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
+
+
+def read(p):
+    with open(os.path.join(ROOT, p), encoding="utf-8") as f:
+        return f.read()
+
+
+class StoreLint(unittest.TestCase):
+    def setUp(self):
+        self.cur = json.loads(read("data/store-curation.json"))
+        self.store = json.loads(read("data/store.json"))
+
+    def test_disclosure_present_on_both_pages(self):
+        for page in ("products.html", "index.html"):
+            html = read(page).lower()
+            self.assertIn("commission" if page == "products.html" else "affiliate", html, page)
+            self.assertRegex(html, r"1%", page)
+
+    def test_store_and_curation_agree(self):
+        handles = [i["handle"] for i in self.cur["items"]]
+        self.assertEqual(len(handles), len(set(handles)), "duplicate handle")
+        self.assertEqual(len(self.store["items"]), len(handles))
+        for item in self.store["items"]:
+            self.assertIn(item["category"], self.cur["categories"])
+            base = self.cur["store_base"] + "/products/"
+            self.assertTrue(item["url"].startswith(base), item["url"])
+
+    def test_no_invented_fields(self):
+        allowed = {"id", "title", "category", "desc", "features", "image", "url"}
+        for item in self.store["items"]:
+            self.assertEqual(set(item), allowed)
+            blob = json.dumps(item).lower()
+            for word in ("rating", "stars", "reviews", "bestseller", "best seller", "tested by", "guarantee"):
+                self.assertIsNone(re.search(r"\b" + re.escape(word) + r"\b", blob), (word, item["title"]))
+            self.assertTrue(item["image"].startswith(("assets/store/", "https://cdn.shopify.com/")), item["title"])
+            if item["image"].startswith("assets/"):
+                self.assertTrue(os.path.getsize(os.path.join(ROOT, item["image"])) > 1000, item["image"])
+
+    def test_no_off_niche_or_placeholder_products(self):
+        banned = ("example product", "antminer", "groot", "protein", "creatine", "hoodie")
+        for item in self.store["items"]:
+            for w in banned:
+                self.assertNotIn(w, item["title"].lower(), item["title"])
+
+    def test_every_card_has_image_and_text(self):
+        for item in self.store["items"]:
+            self.assertTrue(item["image"], item["title"])
+
+    def test_every_card_has_text(self):
+        for item in self.store["items"]:
+            self.assertTrue(item["desc"].strip(), item["title"])
+            self.assertLessEqual(len(item["desc"]), 125, item["title"])
+
+    def test_lidar_uses_labelled_concepts(self):
+        uses = json.loads(read("data/lidar.json"))
+        self.assertEqual(len(uses), 5)
+        for u in uses:
+            self.assertEqual(u["category"], "Concept idea")
+        self.assertRegex(read("index.html").lower(), r"concept")
+
+
+if __name__ == "__main__":
+    unittest.main()

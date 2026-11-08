@@ -1,0 +1,32 @@
+[
+  {
+    "id": "lidar-use-1",
+    "title": "Measure before you visit",
+    "desc": "Estimate wall width and height from a phone photo to prepare a rough quote before a site visit.",
+    "category": "Concept idea"
+  },
+  {
+    "id": "lidar-use-2",
+    "title": "Paint quantity estimate",
+    "desc": "Turn estimated wall areas into litres needed, feeding the existing quote estimator.",
+    "category": "Concept idea"
+  },
+  {
+    "id": "lidar-use-3",
+    "title": "Materials inventory on a job",
+    "desc": "Log lumber and sheet goods with estimated sizes and where they are stored, e.g. 2x4s in the basement.",
+    "category": "Concept idea"
+  },
+  {
+    "id": "lidar-use-4",
+    "title": "Drywall and trim take-off",
+    "desc": "Classify rectangles and boxes in a photo (sheets, baseboard runs) to help count materials.",
+    "category": "Concept idea"
+  },
+  {
+    "id": "lidar-use-5",
+    "title": "Consistent room records",
+    "desc": "Keep measured, labelled photos of rooms before and after work for the gallery and for client handover.",
+    "category": "Concept idea"
+  }
+]

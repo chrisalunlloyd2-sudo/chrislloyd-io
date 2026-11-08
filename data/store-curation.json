@@ -1,0 +1,116 @@
+{
+  "store_base": "https://jvtesw-cg.myshopify.com",
+  "categories": [
+    "Painting",
+    "After Painting",
+    "Home Tech",
+    "Home Decor"
+  ],
+  "items": [
+    {
+      "handle": "scotch-blue-painters-tape-0-94-in-x-60-yd-6-pack-original-multi-surface-paint-supplies",
+      "category": "Painting",
+      "title": "Scotch Blue Painter's Tape, 6-Pack"
+    },
+    {
+      "handle": "paint-roller-kit-27-piece-paint-supplies-94-paint-rollers-1-4ft-extension-pole-paint-brushes-for-walls-microfiber-roller-covers-for-professional-painting-orange",
+      "category": "Painting",
+      "title": "27-Piece Paint Roller Kit with Extension Pole"
+    },
+    {
+      "handle": "antibacterial-wall-paint-strong-repair-latex-paint-with-roller-brush-for-living-room-kitchen",
+      "category": "Painting",
+      "title": "Wall Repair Latex Paint with Roller"
+    },
+    {
+      "handle": "strong-magnetic-wristband-portable-tool-bag-for-holding-screws-nails-nuts-bolts-and-drill-bits",
+      "category": "Painting",
+      "title": "Magnetic Wristband Tool Holder"
+    },
+    {
+      "handle": "cv1000-clear-gloss-varnish-quart",
+      "category": "After Painting",
+      "title": "Clear Gloss Varnish, Quart"
+    },
+    {
+      "handle": "dimmable-candle-warmer-lamp-efficient-flame-free-fragrance",
+      "category": "After Painting",
+      "title": "Dimmable Flame-Free Candle Warmer Lamp"
+    },
+    {
+      "handle": "peppermint-candle-soy-wax-scented-candles-scented-candles-for-home-7oz",
+      "category": "After Painting",
+      "title": "Peppermint Soy Wax Candle, 7 oz"
+    },
+    {
+      "handle": "intelligent-human-body-induction-led-night-light-rechargeable-wall-light-for-corridor-cabinet-and-toilet",
+      "category": "Home Tech",
+      "title": "Motion-Sensor Rechargeable LED Night Light"
+    },
+    {
+      "handle": "retro-portable-wireless-bluetooth-speaker-high-quality-powerful-stereo-sound-box-vintage-fm-rechargeable-mp3-player",
+      "category": "Home Tech",
+      "title": "Retro Portable Bluetooth Speaker"
+    },
+    {
+      "handle": "modern-led-wall-lamp-minimalist-art-design-for-bedroom-living-room-and-bathroom-gold-black",
+      "category": "Home Decor",
+      "title": "Modern Minimalist LED Wall Lamp"
+    },
+    {
+      "handle": "star-projector-constellation-night-light",
+      "category": "Home Decor",
+      "title": "Star Projector Night Light"
+    },
+    {
+      "handle": "dali-melting-clock",
+      "category": "Home Decor",
+      "title": "Dali Melting Clock"
+    },
+    {
+      "handle": "paint-roller-kit-with-extension-pole-2-4ft-adjustable-pole-professional-27-piece-paint-kit-49-paint-rollers-paint-brushes-for-walls-works-with-all-latex-oil-based-paints-and-wood-finishes",
+      "category": "Painting",
+      "title": "Paint Roller Kit with Extension Pole, 2-4 ft"
+    },
+    {
+      "handle": "gamblin-gamvar-varnish-brush-50mm-gb01150",
+      "category": "Painting",
+      "title": "Gamblin Gamvar Varnish Brush, 50 mm"
+    },
+    {
+      "handle": "mini-wireless-laser-projection-keyboard-bluetooth-virtual-keyboard-mouse-function-for-laptop-smartphone-keyboard-projector",
+      "category": "Home Tech",
+      "title": "Mini Wireless Laser Projection Keyboard"
+    },
+    {
+      "handle": "s-k80-75-keyboard-with-color-oled-display-mechanical-gaming-keyboard-hot-swap-keyboard-gasket-mount-rgb-custom-keyboard",
+      "category": "Home Tech",
+      "title": "S-K80 75% Keyboard with Color OLED Display"
+    },
+    {
+      "handle": "x-41-usb-wired-rgb-gaming-mouse-24000-dpi-sg8960-10-buttons-programmable-game-optical-mice-for-computer-pc-laptop",
+      "category": "Home Tech",
+      "title": "X-41 USB Wired RGB Gaming Mouse"
+    },
+    {
+      "handle": "908s-80w-electric-digital-soldering-iron-station-220v-110v-temperature-adjustable-welding-soldering-tips-tools-accessories",
+      "category": "Home Tech",
+      "title": "908S 80W Digital Soldering Iron Station"
+    },
+    {
+      "handle": "d5-starry-moon-lamp-8cm-led-night-light-with-stand-perfect-for-bedroom-decor-and-gifts",
+      "category": "Home Decor",
+      "title": "D5 Starry Moon Lamp, 8 cm"
+    },
+    {
+      "handle": "high-heel-shoe-wine-bottle-holder",
+      "category": "Home Decor",
+      "title": "High Heel Shoe Wine Bottle Holder"
+    },
+    {
+      "handle": "5-pcs-shaggy-duvet-cover-bedding-set-long-faux-fur-luxury-ultra-soft-cozy-aqua-king-california-king",
+      "category": "Home Decor",
+      "title": "5-Piece Shaggy Duvet Cover Bedding Set"
+    }
+  ]
+}

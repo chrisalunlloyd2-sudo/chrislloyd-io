@@ -341,3 +341,18 @@ section[hidden] { display: none; }
 .wip { margin: 1.5rem 0 0; text-align: center; }
 .wip img { max-width: min(100%, 320px); height: auto; border-radius: 12px; }
 .wip figcaption { margin-top: .5rem; font-size: .9rem; opacity: .8; }
+
+/* --- store grid (3x4) + products page category panel ------------------------------ */
+.store-grid { grid-template-columns: repeat(3, 1fr); }
+@media (max-width: 760px) { .store-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 480px) { .store-grid { grid-template-columns: 1fr; } }
+.card.product img { width: 100%; height: auto; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 8px; margin: 0 0 10px; background: var(--ink); }
+.card .features { margin: 0 0 10px; padding-left: 18px; color: var(--ivory-muted); font-size: .88rem; }
+.card .features li { margin: 0 0 4px; }
+.cat-panel { background: var(--ink-alt); border: 1px solid var(--line); border-radius: var(--radius); padding: 12px 16px; margin: 0 0 22px; }
+.cat-panel .cat-title { margin: 0 0 8px; font-weight: 700; font-size: .9rem; }
+.cat-panel ul { display: flex; flex-wrap: wrap; gap: 8px; margin: 0; padding: 0; list-style: none; }
+.cat-panel a { display: inline-block; padding: 6px 12px; border: 1px solid var(--line); border-radius: 999px; text-decoration: none; font-size: .9rem; }
+.cat-panel a span { opacity: .7; margin-left: 4px; }
+.cat-panel a[aria-current="true"] { border-color: var(--terracotta); }
+section.cat[hidden] { display: none; }

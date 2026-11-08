@@ -132,6 +132,29 @@
       });
   }
 
+  // --- store: 3x4 featured grid from data/store.json -----------------------------
+  function storeCard(item) {
+    var c = el("article", "card product");
+    if (item.image) {
+      var im = el("img"); im.src = /^https?:/.test(item.image) ? item.image + (item.image.indexOf("?") < 0 ? "?" : "&") + "width=480" : item.image;
+      im.alt = item.title; im.loading = "lazy"; im.width = 240; im.height = 240; c.appendChild(im);
+    }
+    c.appendChild(el("h3", null, item.title));
+    if (item.desc) c.appendChild(el("p", null, item.desc));
+    var a = el("a", null, "Details and features");
+    a.href = "products.html#" + String(item.category || "all").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+    c.appendChild(a);
+    return c;
+  }
+  function renderStore() {
+    var grid = document.getElementById("store-grid");
+    if (!grid) return Promise.resolve();
+    return fetch("data/store.json")
+      .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+      .then(function (d) { (d.items || []).slice(0, 12).forEach(function (i) { grid.appendChild(storeCard(i)); }); })
+      .catch(function (e) { grid.appendChild(el("p", "section-note", "Store failed to load (" + e.message + ")."));});
+  }
+
   // --- services: split by category into two columns ---------------------------
   function renderServices() {
     return fetch("data/services.json")
@@ -729,6 +752,8 @@
   };
 
   renderJSON("data/shop.json", "shop-grid");
+  renderStore();
+  renderJSON("data/lidar.json", "lidar-grid");
   renderJSON("data/opensource.json", "opensource-grid");
   renderJSON("data/reviews.json", "reviews-grid", reviewCard);
   renderTestimonials();
