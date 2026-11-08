@@ -206,12 +206,14 @@ def render(page, is_draft):
 <footer class="wrap">
   <p>© <span id="year"></span> <span id="footer-name"></span> Chris Alun Lloyd Ltd. All rights reserved.</p>
   <p><a href="index.html">Edmonton painting &amp; renovation</a> · <a href="blog.html">Blog</a> · {city} service area</p>
+  <p class="section-note ping-note">This site sends me a simple notification when a page is opened: the page, the referring site, your time zone, language and device type. It does not include your name or IP address, and your browser&rsquo;s Do Not Track setting turns it off.</p>
 </footer>
 
 <script>
   document.getElementById("year").textContent = new Date().getFullYear();
   document.getElementById("footer-name").textContent = "Chris Alun Lloyd Ltd";
 </script>
+<script src="assets/visit-ping.js" defer></script>
 </body>
 </html>
 """

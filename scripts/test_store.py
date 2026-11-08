@@ -71,5 +71,21 @@ class VoiceLint(unittest.TestCase):
         self.assertIn("not released", read("index.html"))
 
 
+class PingLint(unittest.TestCase):
+    PAGES = ("index.html", "blog.html", "products.html", "leduc.html", "sherwood-park.html", "spruce-grove.html", "st-albert.html")
+
+    def test_every_page_has_script_and_disclosure(self):
+        for page in self.PAGES:
+            html = read(page)
+            self.assertIn("assets/visit-ping.js", html, page)
+            self.assertIn("notification when a page is opened", html, page)
+            self.assertIn("Do Not Track", html, page)
+
+    def test_config_url_is_https_and_script_asks_for_no_location(self):
+        url = json.loads(read("data/config.json")).get("visitPingUrl", "")
+        self.assertTrue(url == "" or url.startswith("https://"), url)
+        self.assertNotIn("geolocation", read("assets/visit-ping.js"))
+
+
 if __name__ == "__main__":
     unittest.main()

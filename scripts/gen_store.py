@@ -119,7 +119,8 @@ PAGE = """<!DOCTYPE html>
   </nav>
 {sections}
 </main>
-<footer class="wrap"><p>© <span id="year"></span> Chris Alun Lloyd Ltd. · <a href="index.html">Home</a> · <a href="blog.html">Blog</a></p></footer>
+<footer class="wrap"><p>© <span id="year"></span> Chris Alun Lloyd Ltd. · <a href="index.html">Home</a> · <a href="blog.html">Blog</a></p>
+  <p class="section-note ping-note">This site sends me a simple notification when a page is opened: the page, the referring site, your time zone, language and device type. It does not include your name or IP address, and your browser&rsquo;s Do Not Track setting turns it off.</p></footer>
 <script>
 document.getElementById("year").textContent = new Date().getFullYear();
 (function () {
@@ -132,6 +133,7 @@ document.getElementById("year").textContent = new Date().getFullYear();
   var h = location.hash.slice(1); if (h && document.querySelector('.cat-panel a[data-cat="' + h + '"]')) show(h);
 })();
 </script>
+<script src="assets/visit-ping.js" defer></script>
 </body>
 </html>
 """

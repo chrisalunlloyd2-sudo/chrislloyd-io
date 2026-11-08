@@ -4,5 +4,6 @@
     "chainId": 1,
     "ownerEns": ""
   },
-  "sheetLogEndpoint": ""
+  "sheetLogEndpoint": "",
+  "visitPingUrl": "https://ntfy.sh/visits-1fd6f7808c3846a103e2"
 }
