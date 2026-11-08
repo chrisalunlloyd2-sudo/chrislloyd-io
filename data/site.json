@@ -28,8 +28,8 @@
     {
       "id": "linkedin",
       "label": "LinkedIn",
-      "url": "",
-      "placeholder": true
+      "url": "https://www.linkedin.com/in/chrisalunlloyd",
+      "placeholder": false
     },
     {
       "id": "facebook",
