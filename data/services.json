@@ -3,21 +3,49 @@
     "id": "interior-painting",
     "title": "Interior Painting",
     "category": "painting",
-    "desc": "Interior painting for Edmonton homes — walls, ceilings, trim and cabinets-adjacent woodwork, with tidy prep and a clean finish.",
+    "desc": "Walls, ceilings, bedrooms, living spaces, hallways, and full home repaints. Full prep, patching, priming, and clean lines.",
     "icon": "brush"
   },
   {
     "id": "exterior-painting",
     "title": "Exterior Painting",
     "category": "painting",
-    "desc": "Exterior painting for Edmonton and area homes — fascias, soffits, doors and masonry, prepped for Alberta winters.",
+    "desc": "Siding, stucco, brick, trim, and doors. Weather-ready prep and coatings built for Edmonton winters and summers.",
     "icon": "home"
   },
   {
-    "id": "home-renovation",
-    "title": "Home Renovation",
+    "id": "cabinets-built-ins",
+    "title": "Cabinets and Built-ins",
+    "category": "painting",
+    "desc": "Kitchen cabinets, bathroom vanities, and built-ins. Sprayed finish for a smooth, durable, factory look.",
+    "icon": "cabinet"
+  },
+  {
+    "id": "trim-doors-detail",
+    "title": "Trim, Doors and Detail Work",
+    "category": "painting",
+    "desc": "Baseboards, casings, doors, crown, and railings. The details that make a paint job look professional.",
+    "icon": "trim"
+  },
+  {
+    "id": "decks-fences-wood",
+    "title": "Decks, Fences and Exterior Wood",
+    "category": "painting",
+    "desc": "Cleaning, sanding, staining, and sealing to protect wood and make it look new again.",
+    "icon": "deck"
+  },
+  {
+    "id": "drywall-prep-ceilings",
+    "title": "Drywall Repair, Prep and Ceilings",
     "category": "labour",
-    "desc": "Drywall repair and painting, small refreshes and touch-ups: minor repairs, prep and finishing work.",
+    "desc": "Patching, cracks, nail pops, texture matching, and ceiling repaints. We fix it before we paint it.",
     "icon": "tools"
+  },
+  {
+    "id": "small-renovations-touch-ups",
+    "title": "Small Renovations and After-Paint Touch-ups",
+    "category": "labour",
+    "desc": "Small reno work tied to your paint job, plus touch-ups and final walkthroughs so it is done right.",
+    "icon": "check"
   }
 ]

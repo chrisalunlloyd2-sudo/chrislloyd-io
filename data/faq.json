@@ -1,28 +1,48 @@
 {
   "faq": [
     {
-      "q": "Do you work in Edmonton's surrounding communities?",
-      "a": "Yes — I'm based in west-central Edmonton and regularly work in St. Albert, Sherwood Park, Spruce Grove, Stony Plain, Leduc, Beaumont and Fort Saskatchewan. Travel within the Edmonton metro is included in quotes."
+      "q": "How do I get a quote?",
+      "a": "Message me on Facebook, text, or use the quote form on this page. Send photos of the space, what you want painted, and your timeline. I follow up with a free quote and next steps. Quotes are in writing, so there's a record of exactly what's included."
+    },
+    {
+      "q": "How long does a job take?",
+      "a": "A single room is usually 1 to 2 days. A full interior is usually 3 to 7 days depending on size, prep, and drying time. You get a clear timeline before work starts."
+    },
+    {
+      "q": "Do you move furniture and protect my home?",
+      "a": "Yes. Furniture is moved and covered, floors are protected, trim is taped and masked, and drop cloths are used throughout. Cleanup is daily, with a final walkthrough with you."
+    },
+    {
+      "q": "What paint do you use?",
+      "a": "Quality, low-odor paints suited for the surface. Tell me if you have kids, pets, or sensitivities and I'll pick the right product. If you already have a color, send it and I'll match it. For low-odour interior work I'll suggest zero-VOC options, which is worth it in an Edmonton winter when windows stay shut."
     },
     {
       "q": "Do you supply the paint or do I?",
       "a": "Either works. I can price the job with materials included (I use trade-grade lines I trust) or work on labour-only with your paint. Supplies are a genuine choice, not an upsell."
     },
     {
-      "q": "How far ahead should I book?",
-      "a": "Interior work can often start within a couple of weeks. Exterior work in Edmonton is weather-dependent — May through September fills up first, so book exterior repaints ahead of the season."
+      "q": "Do you help with color?",
+      "a": "Yes. I can help you narrow down 2 to 3 colors that work with your lighting and flooring, and test swatches on the wall before we commit."
+    },
+    {
+      "q": "Do you clean up after?",
+      "a": "Yes. Daily cleanup, plus a full final cleanup. Paint cans, tape, and drop cloths are removed. You come home to a finished room, not a job site."
     },
     {
       "q": "Can you fix drywall before painting?",
       "a": "Yes — patching, filling nail pops, taping minor cracks and sanding are standard prep in my quotes. Larger drywall sections I'll flag honestly if a drywall specialist makes more sense."
     },
     {
-      "q": "How do you quote?",
-      "a": "Free quotes by text or email (photos of the space help). Phone tag is kept to a minimum — I quote in writing so there's a record of exactly what's included."
+      "q": "What areas do you serve?",
+      "a": "Yes — I'm based in west-central Edmonton and regularly work in St. Albert, Sherwood Park, Spruce Grove, Stony Plain, Leduc, Beaumont and Fort Saskatchewan. Travel within the Edmonton metro is included in quotes."
     },
     {
-      "q": "What paint brands do you use?",
-      "a": "Trade-grade lines from the major manufacturers rather than big-box contractor ranges. For low-odour interior work I'll suggest zero-VOC options — worth it in an Edmonton winter when windows stay shut."
+      "q": "How far ahead should I book?",
+      "a": "Interior work can often start within a couple of weeks. Exterior work in Edmonton is weather-dependent — May through September fills up first, so book exterior repaints ahead of the season."
+    },
+    {
+      "q": "How do I book?",
+      "a": "Message me to hold your dates. Scope, color, timeline, and quote are confirmed in writing before work starts."
     }
   ]
 }

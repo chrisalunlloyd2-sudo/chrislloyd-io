@@ -7,7 +7,7 @@ Asserts the JSON-LD contracts WITHOUT a browser:
   2. Index block carries url/image/logo/sameAs; placeholder socials are absent.
   3. Area pages (st-albert, sherwood-park, leduc, spruce-grove) each carry a
      JSON-LD block that parses and matches the same NAP.
-  4. data/faq.json: 6 entries, each with non-empty q and a (FAQPage contract
+  4. data/faq.json: at least 6 entries, each with non-empty q and a (FAQPage contract
      served by assets/main.js renderFAQ — no static duplicate in the HTML).
 
 Run: python3 scripts/check_schema_data.py   (exit 0 = pass, 1 = failures)
@@ -111,7 +111,7 @@ for slug in AREA_SLUGS:
         nap_ok(abiz, slug)
         check(f"[{slug}] url is the per-page Pages URL",
               abiz.get("url") == PAGES_BASE + slug + ".html", f"got {abiz.get('url')!r}")
-        check(f"[{slug}] sameAs is exactly the non-placeholder socials", asorted(biz.get("sameAs") or []) == sorted(EXPECTED_SAMEAS),
+        check(f"[{slug}] sameAs is exactly the non-placeholder socials", sorted(biz.get("sameAs") or []) == sorted(EXPECTED_SAMEAS),
               f"got {abiz.get('sameAs')!r}")
         city = AREA_CITY.get(slug, slug)
         check(f"[{slug}] description is the page's own meta copy",
@@ -123,7 +123,7 @@ for slug in AREA_SLUGS:
 
 # --- 4: FAQ data contract ------------------------------------------------------
 faq = json.loads(read("data/faq.json")).get("faq", [])
-check("faq.json has 6 entries", len(faq) == 6, f"got {len(faq)}")
+check("faq.json has at least 6 entries", len(faq) >= 6, f"got {len(faq)}")
 for i, item in enumerate(faq):
     check(f"faq[{i}] non-empty q/a",
           isinstance(item.get("q"), str) and item["q"].strip()
@@ -135,5 +135,62 @@ check("no static FAQPage JSON-LD duplicate in index.html",
 GEN = read("scripts/gen_area_pages.py")
 for field in ('"description"', '"image"', '"logo"', '"sameAs"'):
     check(f"gen_area_pages.py emits {field}", field in GEN)
+
+# --- 5: real HTML parse (regex checks cannot see a broken attribute quote) -----
+from html.parser import HTMLParser
+
+
+class HeadScan(HTMLParser):
+    def __init__(self):
+        super().__init__()
+        self.in_head = False
+        self.ld_in_head = 0
+        self.ld_in_body = 0
+        self.meta = set()
+        self.has_nav = False
+        self.has_mbar = False
+        self.fx = False
+        self.map_link = False
+
+    def handle_starttag(self, tag, attrs):
+        a = dict(attrs)
+        if tag == "head":
+            self.in_head = True
+        elif tag == "body":
+            self.in_head = False
+        elif tag == "script":
+            if a.get("type") == "application/ld+json":
+                if self.in_head:
+                    self.ld_in_head += 1
+                else:
+                    self.ld_in_body += 1
+            if (a.get("src") or "").endswith("fx.js"):
+                self.fx = True
+        elif tag == "meta" and a.get("name"):
+            self.meta.add(a["name"])
+        elif tag == "nav" and a.get("aria-label") == "Main":
+            self.has_nav = True
+        elif tag == "div" and "mbar" in (a.get("class") or "").split():
+            self.has_mbar = True
+        elif tag == "a" and "google.com/maps" in (a.get("href") or ""):
+            self.map_link = True
+
+
+for page in ["index"] + AREA_SLUGS + ["products", "blog"]:
+    hs = HeadScan()
+    hs.feed(read(page + ".html"))
+    if page != "products" and page != "blog":
+        check(f"[{page}] JSON-LD is a script inside <head> (parsed, not regex)",
+              hs.ld_in_head >= 1 and hs.ld_in_body == 0, f"head={hs.ld_in_head} body={hs.ld_in_body}")
+    check(f"[{page}] geo.region and geo.placename meta present",
+          {"geo.region", "geo.placename"} <= hs.meta or page in ("products", "blog"))
+    check(f"[{page}] shared nav, mobile bar and fx.js present",
+          hs.has_nav and hs.has_mbar and hs.fx)
+    check(f"[{page}] has a Google Maps link", hs.map_link)
+
+for page in ["index"] + AREA_SLUGS:
+    for b in jsonld_blocks(read(page + ".html")):
+        if b.get("@type") == "HomeAndConstructionBusiness":
+            check(f"[{page}] LocalBusiness has hasMap", str(b.get("hasMap", "")).startswith("https://www.google.com/maps"))
 
 sys.exit(1 if failures else 0)

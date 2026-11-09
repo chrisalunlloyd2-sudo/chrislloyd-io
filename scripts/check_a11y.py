@@ -86,6 +86,13 @@ def check_contrast():
     terra = resolve("var(--terracotta)", tokens)
     teal = resolve("var(--teal)", tokens)
     white = "#ffffff"
+    paper = resolve("var(--paper)", tokens)
+    paper_alt = resolve("var(--paper-alt)", tokens)
+    surface = resolve("var(--surface)", tokens)
+    text = resolve("var(--text)", tokens)
+    text_muted = resolve("var(--text-muted)", tokens)
+    terra_ink = resolve("var(--terra-ink)", tokens)
+    teal_ink = resolve("var(--teal-ink)", tokens)
 
     # (label, fg, bg, large_text?) — large = >=24px, or >=18.66px bold.
     pairs = [
@@ -116,6 +123,14 @@ def check_contrast():
         (".contact-form input::placeholder --ivory-muted on --ink-alt (task 031 fix)", muted, ink_alt, False),
         (".field-optional --ivory-muted on --ink (task 031 fix: no opacity)", muted, ink, False),
     ]
+    # Light page surfaces (revamp): body, muted copy, accent text and filled buttons.
+    for surf_name, surf in (("--paper", paper), ("--paper-alt", paper_alt), ("--surface", surface)):
+        pairs.append(("body --text on " + surf_name, text, surf, False))
+        pairs.append(("secondary --text-muted on " + surf_name, text_muted, surf, False))
+        pairs.append(("eyebrow/links --terra-ink on " + surf_name, terra_ink, surf, False))
+        pairs.append(("links --teal-ink on " + surf_name, teal_ink, surf, False))
+    pairs.append((".btn / .nav-cta white on --terra-ink", white, terra_ink, False))
+    pairs.append((".nav a --text on --paper", text, paper, False))
     findings = []
     for label, fg, bg, large in pairs:
         r = contrast_ratio(fg, bg)

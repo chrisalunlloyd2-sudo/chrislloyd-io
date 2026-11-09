@@ -6,6 +6,9 @@
 <title>Chris Lloyd Ltd — House Painters & Home Renovation, Edmonton AB</title>
 <meta name="description" content="Edmonton house painters for interior & exterior residential work — plus honest supply reviews and automation built from the trade.">
 <!-- Canonical: data-driven via data/site.json -> site.canonicalBase (set when the custom domain goes live; falls back to the GitHub Pages URL in assets/main.js). -->
+<meta name="theme-color" content="#14171c">
+<meta name="geo.region" content="CA-AB">
+<meta name="geo.placename" content="Edmonton">
 <link rel="canonical" href="https://chrisalunlloyd2-sudo.github.io/chrislloyd-io/index.html" id="canonical-link">
 <!-- Open Graph / Twitter: og:url is corrected client-side by assets/main.js from window.location + site.canonicalBase. -->
 <meta property="og:title" content="Chris Lloyd Ltd — House Painters & Home Renovation, Edmonton AB">
@@ -31,7 +34,7 @@
   "image": "https://chrisalunlloyd2-sudo.github.io/chrislloyd-io/assets/og-image.png",
   "logo": "https://chrisalunlloyd2-sudo.github.io/chrislloyd-io/assets/og-image.png",
   "name": "Chris Alun Lloyd Ltd",
-  "description": "Residential painting and home renovation contractor in Edmonton, Alberta. Hands-on interior and exterior work — plus the curated supplies and small business-automation tools built from actually running the trade.",
+  "description": "Hands-on interior and exterior work, done right. I prep properly, protect your home, paint clean lines and clean up like I was never there.",
   "email": "chrisalunlloyd2@gmail.com",
   "telephone": "+1-587-926-4323",
   "address": {
@@ -42,6 +45,7 @@
     "postalCode": "T6H 1V9",
     "addressCountry": "CA"
   },
+  "hasMap": "https://www.google.com/maps/search/?api=1&query=10412+66+Ave+NW+Edmonton+AB+T6H+1V9",
   "areaServed": ["Edmonton", "St. Albert", "Sherwood Park", "Spruce Grove", "Stony Plain", "Leduc", "Beaumont", "Fort Saskatchewan", "Alberta"],
   "knowsAbout": ["Interior painting", "Exterior painting", "Home renovation", "Wallpaper hanging"],
   "sameAs": ["https://github.com/chrisalunlloyd2-sudo", "https://www.facebook.com/profile.php?id=61596402479406", "https://www.threads.com/@christopheralunlloyd", "https://www.linkedin.com/in/chrisalunlloyd"]
@@ -49,64 +53,65 @@
 </script>
 </head>
 <body>
-<header class="hero">
+<nav class="nav" aria-label="Main">
+  <div class="wrap nav-in">
+    <a class="brand" href="#top">Chris Lloyd <span>Painting</span></a>
+    <div class="nav-links">
+      <a href="#services">Services</a><a href="#about">About</a><a href="products.html">Store</a><a href="blog.html">Blog</a><a href="#faq">FAQ</a><a href="#find">Find us</a>
+    </div>
+    <a class="btn btn-sm nav-cta" href="#contact">Free quote</a>
+  </div>
+</nav>
+<header class="hero" id="top">
   <div class="rosette rosette-hero" aria-hidden="true"></div>
-  <div class="wrap">
-    <p class="kicker" id="site-kicker">Chris Alun Lloyd Ltd</p>
-    <h1 id="site-tagline">Painting &amp; renovation by trade. Automation tooling by habit.</h1>
-    <p class="blurb" id="site-blurb"></p>
-    <p class="hero-links"><a class="btn" href="#services">Services</a> <a class="btn btn-outline" href="#contact">Contact</a></p>
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <p class="kicker" id="site-kicker">Chris Alun Lloyd Ltd</p>
+      <h1 id="site-tagline">House painting &amp; home renovation in Edmonton</h1>
+      <p class="blurb" id="site-blurb">Hands-on interior and exterior work, done right. I prep properly, protect your home, paint clean lines and clean up like I was never there.</p>
+      <p class="hero-links"><a class="btn btn-pulse" href="#contact">Get a free quote</a> <a class="btn btn-outline" href="#services">See services</a></p>
+      <ul class="trust"><li>Free written quotes</li><li>Floors &amp; furniture protected</li><li>Daily cleanup</li></ul>
+    </div>
+    <figure class="hero-photo">
+      <img src="assets/work-in-progress.jpg" alt="A room mid-paint: blue walls and ceiling, drop cloth and paint tray on the floor" width="720" height="1279" fetchpriority="high">
+      <figcaption>A real job in progress. More photos coming soon.</figcaption>
+    </figure>
   </div>
 </header>
 
-<nav class="nav wrap">
-  <a href="#about">About</a><a href="#services">Services</a><a href="#store">Store</a><a href="#voice">Voice</a><a href="#faq">FAQ</a><a href="#contact">Contact</a>
-</nav>
-
 <main>
+  <section id="services" class="wrap section">
+    <p class="eyebrow">What I do</p>
+    <h2>Services</h2>
+    <p class="section-lede">Tap any service to ask for a quote. Painting is the core; the labour work is there so the paint job is finished properly.</p>
+    <div class="svc-grid" id="services-grid"></div>
+  </section>
+
+  <section id="process" class="wrap section section-alt">
+    <p class="eyebrow">How it works</p>
+    <h2>From message to finished room</h2>
+    <ol class="steps">
+      <li><strong>Message me</strong><span>Send photos, what you want painted and your timeline.</span></li>
+      <li><strong>Free written quote</strong><span>Scope, colour, timeline and price confirmed in writing before work starts.</span></li>
+      <li><strong>Prep, protect, paint</strong><span>Furniture moved and covered, floors protected, trim taped, clean lines.</span></li>
+      <li><strong>Walkthrough &amp; cleanup</strong><span>Daily cleanup and a final walkthrough with you.</span></li>
+    </ol>
+  </section>
+
   <section id="about" class="wrap section">
-    <h2><svg class="glyph" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6" fill="none" stroke="currentColor" stroke-width="1.5"/></svg> About</h2>
+    <p class="eyebrow">Your painter</p>
+    <h2>About</h2>
     <div class="about" id="about-block">
-      <img class="about-mark" id="about-mark" src="assets/bio-photo.jpg" alt="Chris Lloyd">
+      <img class="about-mark" id="about-mark" src="assets/bio-photo.jpg" alt="Chris Lloyd" width="180" height="180">
       <div class="about-copy" id="about-copy"></div>
     </div>
-    <figure class="wip">
-      <img src="assets/work-in-progress.jpg" alt="A room mid-paint: blue walls and ceiling, drop cloth and paint tray on the floor" width="720" height="1279" loading="lazy">
-      <figcaption>Work in progress &mdash; more job photos coming soon.</figcaption>
-    </figure>
   </section>
 
-  <section id="services" class="wrap section section-alt">
-    <h2><svg class="glyph" viewBox="0 0 16 16" aria-hidden="true"><polygon points="8,2 14,5 14,11 8,14 2,11 2,5" fill="none" stroke="currentColor" stroke-width="1.5"/></svg> Services</h2>
-    <div class="services-cols">
-      <div class="services-col">
-        <h3 class="col-title">Painting Services</h3>
-        <div class="stack" id="services-painting"></div>
-      </div>
-      <div class="services-col">
-        <h3 class="col-title">Labour Services</h3>
-        <div class="stack" id="services-labour"></div>
-      </div>
-    </div>
-  </section>
-
-  <section id="store" class="wrap section">
-    <h2><svg class="glyph" viewBox="0 0 16 16" aria-hidden="true"><polygon points="8,3 13,8 8,13 3,8" fill="none" stroke="currentColor" stroke-width="1.5"/></svg> Store</h2>
-    <p class="section-note">Home painting, after-painting, home tech and decor. Affiliate links: I earn about 1% on purchases at no extra cost to you. Get inspired: <a href="products.html">see all products by category</a>.</p>
+  <section id="store" class="wrap section section-alt">
+    <p class="eyebrow">Store</p>
+    <h2>Supplies I use and recommend</h2>
+    <p class="section-note">Home painting, after-painting, home tech and decor. Affiliate links: I earn about 1% on purchases at no extra cost to you. Tap any picture to open it in the store, or <a href="products.html">see all products by category</a>.</p>
     <div class="grid store-grid" id="store-grid"></div>
-    <p><a class="btn" href="products.html">Get inspired: browse all products</a></p>
-  </section>
-
-  <section id="lidar" class="wrap section section-alt">
-    <h2><svg class="glyph" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6" fill="none" stroke="currentColor" stroke-width="1.5"/></svg> LiDar (in development)</h2>
-    <p class="section-note">My own software that turns a phone camera into an estimated depth and size tool. Concept ideas for painting and construction below; these are plans, not tested results, and accuracy has not been established.</p>
-    <div class="grid" id="lidar-grid"></div>
-  </section>
-
-  <section id="voice" class="wrap section">
-    <h2><svg class="glyph" viewBox="0 0 16 16" aria-hidden="true"><rect x="6" y="2" width="4" height="8" rx="2" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M3.5 8a4.5 4.5 0 0 0 9 0M8 12.5V14.5" fill="none" stroke="currentColor" stroke-width="1.5"/></svg> Voice assistant (in development)</h2>
-    <p class="section-note">My own voice assistant for hands-busy work, built to run on a phone. These are the ideas I am building toward; it is not released and has not been tested with customers.</p>
-    <div class="grid" id="voice-grid"></div>
   </section>
 
   <section id="shop" hidden class="wrap section">
@@ -178,12 +183,27 @@
     </div>
   </section>
 
+
+  <section id="lidar" class="wrap section section-alt">
+    <h2><svg class="glyph" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6" fill="none" stroke="currentColor" stroke-width="1.5"/></svg> LiDar (in development)</h2>
+    <p class="section-note">My own software that turns a phone camera into an estimated depth and size tool. Concept ideas for painting and construction below; these are plans, not tested results, and accuracy has not been established.</p>
+    <div class="grid" id="lidar-grid"></div>
+  </section>
+
+
+  <section id="voice" class="wrap section">
+    <h2><svg class="glyph" viewBox="0 0 16 16" aria-hidden="true"><rect x="6" y="2" width="4" height="8" rx="2" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M3.5 8a4.5 4.5 0 0 0 9 0M8 12.5V14.5" fill="none" stroke="currentColor" stroke-width="1.5"/></svg> Voice assistant (in development)</h2>
+    <p class="section-note">My own voice assistant for hands-busy work, built to run on a phone. These are the ideas I am building toward; it is not released and has not been tested with customers.</p>
+    <div class="grid" id="voice-grid"></div>
+  </section>
+
+
   <section id="faq" class="wrap section section-alt">
     <h2><svg class="glyph" viewBox="0 0 16 16" aria-hidden="true"><path d="M5.5 6a2.5 2.5 0 1 1 3.4 2.3c-.6.25-1.4.8-1.4 1.7v.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="7.5" cy="13" r="0.9" fill="currentColor"/></svg> FAQ</h2>
     <div class="faq-list" id="faq-list"></div>
   </section>
 
-  <section id="contact" class="wrap section section-alt">
+  <section id="contact" class="wrap section">
     <h2><svg class="glyph" viewBox="0 0 16 16" aria-hidden="true"><polygon points="2,4 14,4 14,12 2,12" fill="none" stroke="currentColor" stroke-width="1.5"/><polyline points="2,4 8,9 14,4" fill="none" stroke="currentColor" stroke-width="1.5"/></svg> Contact</h2>
     <div class="contact-cols">
       <form id="contact-form" class="contact-form" action="https://formspree.io/f/xgaoqjdj" method="POST" enctype="multipart/form-data">
@@ -248,28 +268,67 @@
         <p class="section-note" id="get-ready-note"></p>
       </div>
       <div class="contact-side">
-        <p id="contact-email"></p>
-        <p id="contact-phone"></p>
-        <p id="contact-address" class="contact-address"></p>
+        <a class="contact-tile" id="tile-text" href="#contact">
+          <svg class="glyph" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 3h12v8H7l-3 3v-3H2z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+          <span><small>Text me</small><strong id="contact-phone"></strong><small class="phone-note" id="contact-phone-note"></small></span>
+        </a>
+        <a class="contact-tile" id="tile-email" href="#contact">
+          <svg class="glyph" viewBox="0 0 16 16" aria-hidden="true"><polygon points="2,4 14,4 14,12 2,12" fill="none" stroke="currentColor" stroke-width="1.5"/><polyline points="2,4 8,9 14,4" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+          <span><small>Email</small><strong id="contact-email"></strong></span>
+        </a>
+        <a class="contact-tile" id="tile-map" href="#find">
+          <svg class="glyph" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 14s5-4.3 5-8a5 5 0 0 0-10 0c0 3.700 5 8 5 8z" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="8" cy="6" r="1.8" fill="currentColor"/></svg>
+          <span><small>Location</small><strong id="contact-address" class="contact-address"></strong></span>
+        </a>
+        <p class="eyebrow">Find me online</p>
         <ul class="socials" id="socials-list"></ul>
         <div class="social-slot">
           <svg class="glyph" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
-          <span id="instagram-slot">Instagram — placeholder slot (account not created yet)</span>
+          <span id="instagram-slot">Instagram: coming soon (account not created yet)</span>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="find" class="wrap section section-alt">
+    <p class="eyebrow">Find us</p>
+    <h2>Location</h2>
+    <div class="find-grid">
+      <div class="find-card">
+        <address id="find-address">Chris Alun Lloyd Ltd<br>10412 66 Ave NW<br>Edmonton, AB T6H 1V9<br>Canada</address>
+        <div class="find-actions">
+          <a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=10412+66+Ave+NW+Edmonton+AB+T6H+1V9" target="_blank" rel="noopener noreferrer" id="find-open">Open in Google Maps</a>
+          <a class="btn btn-outline" href="https://www.google.com/maps/dir/?api=1&amp;destination=10412+66+Ave+NW+Edmonton+AB+T6H+1V9" target="_blank" rel="noopener noreferrer">Get directions</a>
+        </div>
+        <p class="section-note">On a phone this opens your maps app. Message me first to book a quote.</p>
+        <p class="eyebrow">Areas I work in</p>
+        <ul class="find-areas">
+          <li>Edmonton</li><li><a href="st-albert.html">St. Albert</a></li><li><a href="sherwood-park.html">Sherwood Park</a></li><li><a href="spruce-grove.html">Spruce Grove</a></li><li>Stony Plain</li><li><a href="leduc.html">Leduc</a></li><li>Beaumont</li><li>Fort Saskatchewan</li>
+        </ul>
+      </div>
+      <div class="map-frame">
+        <iframe title="Map of Chris Lloyd Ltd, 10412 66 Ave NW, Edmonton" src="https://www.google.com/maps?q=10412+66+Ave+NW+Edmonton+AB+T6H+1V9&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
       </div>
     </div>
   </section>
 </main>
 
 <footer class="wrap">
-  <p>© <span id="year"></span> <span id="footer-name"></span>. All rights reserved.</p>
+  <p>© <span id="year"></span> <span id="footer-name"></span>. All rights reserved. · <a href="products.html">Store</a> · <a href="blog.html">Blog</a></p>
   <p class="section-note ping-note">This site sends me a simple notification when a page is opened: the page, the referring site, your time zone, language and device type. It does not include your name or IP address, and your browser&rsquo;s Do Not Track setting turns it off.</p>
   <p id="promo-strip" class="promo-strip" hidden></p>
   <p id="web3-owner-badge" class="web3-badge" hidden></p>
 </footer>
 
+<div class="mbar" aria-label="Quick contact">
+  <a href="#contact" class="primary" id="mbar-quote">Free quote</a>
+  <a href="sms:" id="mbar-text">Text</a>
+  <a href="https://www.google.com/maps/search/?api=1&amp;query=10412+66+Ave+NW+Edmonton+AB+T6H+1V9" target="_blank" rel="noopener noreferrer">Map</a>
+</div>
+
 <script src="assets/main.js"></script>
 <script src="assets/sheet-log.js"></script>
+<script src="assets/fx.js" defer></script>
 <script src="assets/visit-ping.js" defer></script>
 <script type="module" src="assets/web3.js"></script>
 </body>

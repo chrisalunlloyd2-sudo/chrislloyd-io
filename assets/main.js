@@ -136,14 +136,19 @@
   function storeCard(item) {
     var c = el("article", "card product");
     if (item.image) {
+      var wrapI = el("span", "pimg");
       var im = el("img"); im.src = /^https?:/.test(item.image) ? item.image + (item.image.indexOf("?") < 0 ? "?" : "&") + "width=480" : item.image;
-      im.alt = item.title; im.loading = "lazy"; im.width = 240; im.height = 240; c.appendChild(im);
+      im.alt = ""; im.loading = "lazy"; im.width = 240; im.height = 240; wrapI.appendChild(im); c.appendChild(wrapI);
     }
-    c.appendChild(el("h3", null, item.title));
-    if (item.desc) c.appendChild(el("p", null, item.desc));
-    var a = el("a", null, "Details and features");
-    a.href = "products.html#" + String(item.category || "all").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
-    c.appendChild(a);
+    var body = el("div", "pbody");
+    var h = el("h3");
+    var a = el("a", null, item.title);
+    a.href = item.url;
+    a.target = "_blank"; a.rel = "noopener noreferrer sponsored";
+    h.appendChild(a); body.appendChild(h);
+    if (item.desc) body.appendChild(el("p", null, item.desc));
+    body.appendChild(el("span", "pcta", "View in store"));
+    c.appendChild(body);
     return c;
   }
   function renderStore() {
@@ -151,27 +156,52 @@
     if (!grid) return Promise.resolve();
     return fetch("data/store.json")
       .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
-      .then(function (d) { (d.items || []).slice(0, 12).forEach(function (i) { grid.appendChild(storeCard(i)); }); })
+      .then(function (d) {
+        (d.items || []).slice(0, 5).forEach(function (i) { grid.appendChild(storeCard(i)); });
+        var more = el("a", "store-more");
+        more.href = "products.html";
+        more.appendChild(el("strong", null, "See the whole store"));
+        more.appendChild(el("span", null, (d.items || []).length + " products in " + (d.categories || []).length + " categories"));
+        more.appendChild(el("span", "btn", "Browse all products"));
+        grid.appendChild(more);
+      })
       .catch(function (e) { grid.appendChild(el("p", "section-note", "Store failed to load (" + e.message + ")."));});
   }
 
-  // --- services: split by category into two columns ---------------------------
+  // --- services: one visual card grid, whole card links to the quote form --------------------
+  var ICONS = {
+    brush: '<path d="M4 20c2 0 3-1 3-3 0-1.300-1-2-2-2s-2 1-2 2.500C3 18.500 3 20 4 20zM8 15l10-10 2 2-10 10z"/>',
+    home: '<path d="M3 11l9-7 9 7M5 10v10h14V10M10 20v-6h4v6"/>',
+    cabinet: '<path d="M4 4h16v16H4zM12 4v16M9 11v2M15 11v2"/>',
+    trim: '<path d="M3 17h18M3 21h18M5 17V7h14v10M9 7V3h6v4"/>',
+    deck: '<path d="M3 9h18M3 14h18M6 9v11M12 9v11M18 9v11M4 5h16"/>',
+    tools: '<path d="M14 6a4 4 0 0 0 5 5l-9 9-3-3 9-9a4 4 0 0 0-2-2zM4 20l3-3"/>',
+    check: '<path d="M4 12l5 5L20 6"/>'
+  };
+  function svcCard(item) {
+    var c = el("article", "svc-card" + (item.placeholder ? " placeholder" : ""));
+    var ic = el("span", "svc-icon");
+    ic.setAttribute("aria-hidden", "true");
+    ic.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">' + (ICONS[item.icon] || ICONS.brush) + "</svg>";
+    c.appendChild(ic);
+    var h = el("h3");
+    var a = el("a", null, item.title);
+    a.href = "#contact";
+    h.appendChild(a); c.appendChild(h);
+    c.appendChild(el("p", null, item.desc));
+    c.appendChild(el("span", "svc-go", "Ask for a quote"));
+    return c;
+  }
   function renderServices() {
     return fetch("data/services.json")
       .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
       .then(function (items) {
-        (items || []).forEach(function (item) {
-          var cat = (item.category || "painting").toLowerCase() === "labour" ? "services-labour" : "services-painting";
-          var grid = document.getElementById(cat);
-          if (!grid) return;
-          var c = el("article", "svc" + (item.placeholder ? " placeholder" : ""));
-          c.appendChild(el("h4", null, item.title));
-          c.appendChild(el("p", null, item.desc));
-          grid.appendChild(c);
-        });
+        var grid = document.getElementById("services-grid");
+        if (!grid) return;
+        (items || []).forEach(function (item) { grid.appendChild(svcCard(item)); });
       })
       .catch(function (e) {
-        var grid = document.getElementById("services-painting");
+        var grid = document.getElementById("services-grid");
         if (grid) grid.appendChild(el("p", "section-note", "Services failed to load (" + e.message + ")."));
       });
   }
@@ -223,22 +253,26 @@
     if (site.tagline) document.getElementById("site-tagline").textContent = site.tagline;
     if (site.blurb) document.getElementById("site-blurb").textContent = site.blurb;
     var em = document.getElementById("contact-email");
-    if (site.email && !/^placeholder/.test(site.email)) {
-      var a = el("a", null, site.email); a.href = "mailto:" + site.email;
-      em.textContent = "Email: "; em.appendChild(a);
-    } else {
-      em.textContent = "Email: coming soon (set 'email' in data/site.json).";
+    var tileEmail = document.getElementById("tile-email");
+    if (em) {
+      if (site.email && !/^placeholder/.test(site.email)) {
+        em.textContent = site.email;
+        if (tileEmail) tileEmail.href = "mailto:" + site.email;
+      } else {
+        em.textContent = "Coming soon";
+      }
     }
     var ph = document.getElementById("contact-phone");
     if (ph) {
       if (site.phone) {
-        var pa = el("a", null, site.phone);
-        pa.href = "tel:" + String(site.phone).replace(/[^+\\d]/g, "");
-        ph.textContent = ""; ph.appendChild(pa);
-        if (site.phoneNote) {
-          var note = el("span", "phone-note", "(" + site.phoneNote + ")");
-          ph.appendChild(note);
-        }
+        var digits = String(site.phone).replace(/[^+\d]/g, "");
+        ph.textContent = site.phone;
+        var tileText = document.getElementById("tile-text");
+        if (tileText) tileText.href = "sms:" + digits;
+        var mbarText = document.getElementById("mbar-text");
+        if (mbarText) mbarText.href = "sms:" + digits;
+        var pn = document.getElementById("contact-phone-note");
+        if (pn) pn.textContent = site.phoneNote || "";
       } else {
         ph.textContent = "";
       }
@@ -247,14 +281,13 @@
     if (ad) {
       if (site.address && site.address.street) {
         ad.textContent = site.address.street + ", " + site.address.city + ", "
-          + site.address.region + (site.address.postalCode ? " " + site.address.postalCode : "")
-          + ", " + site.address.country;
+          + site.address.region + (site.address.postalCode ? " " + site.address.postalCode : "");
       } else {
         ad.textContent = "";
       }
     }
     var ul = document.getElementById("socials-list");
-    (s.socials || []).forEach(function (soc) {
+    if (ul) (s.socials || []).forEach(function (soc) {
       var li = el("li");
       if (soc.url) {
         var link = el("a", null, soc.label);
