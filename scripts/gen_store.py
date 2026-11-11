@@ -28,7 +28,7 @@ class Strip(HTMLParser):
         if self._li is not None: self._li.append(d)
 
 EMOJI = re.compile("[\U0001F000-\U0001FAFF\u2600-\u27BF\uFE0F\u200d]")
-JUNK = re.compile(r"as shown in|variation|healthier|\bcures?\b|medical|1 x |^s: |^l: |warranty|in this link|\bfaq\b|is it possible|how about|please note|contact us|please order|love it|absolutely|highly recommend|great product|mission statement|five stars|5 stars|surprised with|obsessed with|exactly what i wanted|sleep at ease", re.I)
+JUNK = re.compile(r"guarantee|as shown in|variation|healthier|\bcures?\b|medical|1 x |^s: |^l: |warranty|in this link|\bfaq\b|is it possible|how about|please note|contact us|please order|love it|absolutely|highly recommend|great product|mission statement|five stars|5 stars|surprised with|obsessed with|exactly what i wanted|sleep at ease", re.I)
 LEAD = re.compile(r"^(product description|key features|features)\s*:?\s*", re.I)
 
 def clean(s):

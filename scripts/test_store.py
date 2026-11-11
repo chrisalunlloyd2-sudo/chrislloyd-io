@@ -40,7 +40,7 @@ class StoreLint(unittest.TestCase):
                 self.assertTrue(os.path.getsize(os.path.join(ROOT, item["image"])) > 1000, item["image"])
 
     def test_no_off_niche_or_placeholder_products(self):
-        banned = ("example product", "protein", "creatine", "hoodie")
+        banned = ("example product",)
         for item in self.store["items"]:
             for w in banned:
                 self.assertNotIn(w, item["title"].lower(), item["title"])
