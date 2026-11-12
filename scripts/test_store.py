@@ -11,6 +11,7 @@ def read(p):
 class StoreLint(unittest.TestCase):
     def setUp(self):
         self.cur = json.loads(read("data/store-curation.json"))
+        self.rules = json.loads(read("data/store-rules.json"))
         self.store = json.loads(read("data/store.json"))
 
     def test_disclosure_present_on_both_pages(self):
@@ -19,19 +20,21 @@ class StoreLint(unittest.TestCase):
             self.assertIn("commission" if page == "products.html" else "affiliate", html, page)
             self.assertRegex(html, r"1%", page)
 
-    def test_store_and_curation_agree(self):
-        handles = [i["handle"] for i in self.cur["items"]]
-        self.assertEqual(len(handles), len(set(handles)), "duplicate handle")
-        self.assertEqual(len(self.store["items"]), len([i for i in self.cur["items"] if not i.get("hidden")]))
+    def test_store_items_are_valid(self):
+        urls = [i["url"] for i in self.store["items"]]
+        self.assertEqual(len(urls), len(set(urls)), "duplicate product")
+        ids = [i["id"] for i in self.store["items"]]
+        self.assertEqual(len(ids), len(set(ids)), "duplicate image id")
+        cats = [c["name"] for c in self.rules["categories"]] + [self.rules["default"]]
+        self.assertEqual(self.store["categories"], cats)
         for item in self.store["items"]:
-            self.assertIn(item["category"], self.cur["categories"])
-            base = self.cur["store_base"] + "/products/"
-            self.assertTrue(item["url"].startswith(base), item["url"])
+            self.assertIn(item["category"], cats)
+            self.assertTrue(item["url"].startswith(self.cur["store_base"] + "/products/"), item["url"])
 
     def test_no_invented_fields(self):
         allowed = {"id", "title", "category", "desc", "features", "image", "url"}
         for item in self.store["items"]:
-            self.assertEqual(set(item), allowed)
+            self.assertEqual(set(item) - {"price", "price_from"}, allowed)
             blob = json.dumps(item).lower()
             for word in ("rating", "stars", "reviews", "bestseller", "best seller", "tested by", "guarantee"):
                 self.assertIsNone(re.search(r"\b" + re.escape(word) + r"\b", blob), (word, item["title"]))

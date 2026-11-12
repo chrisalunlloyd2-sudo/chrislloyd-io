@@ -1,0 +1,137 @@
+{
+  "_note": "Deterministic categories: the first category whose pattern matches the product title, type or tags wins. Edit this file to change how new products are sorted.",
+  "default": "More",
+  "categories": [
+    {
+      "name": "Painting",
+      "patterns": [
+        "\\bpaint(?!ing)\\w*",
+        "\\broller",
+        "masking tape",
+        "painter'?s? tape",
+        "respirator",
+        "\\bedger",
+        "drop cloth",
+        "caulk",
+        "varnish",
+        "sandpaper",
+        "\\bputty"
+      ]
+    },
+    {
+      "name": "After Painting",
+      "patterns": [
+        "candle",
+        "diffuser",
+        "incense",
+        "air freshener"
+      ]
+    },
+    {
+      "name": "Car Care",
+      "patterns": [
+        "\\bcar\\b",
+        "\\bcars\\b",
+        "automotive",
+        "vehicle"
+      ]
+    },
+    {
+      "name": "Home Tech",
+      "patterns": [
+        "keyboard",
+        "\\bmouse\\b",
+        "bluetooth",
+        "speaker",
+        "\\busb\\b",
+        "\\bddr\\d?",
+        "\\bram\\b",
+        "laptop",
+        "soldering",
+        "projector",
+        "wireless",
+        "antminer",
+        "miner",
+        "charger",
+        "\\bcable",
+        "adapter",
+        "airtag",
+        "\\bled strip"
+      ]
+    },
+    {
+      "name": "Fashion & Watches",
+      "patterns": [
+        "\\bwatch",
+        "wristwatch",
+        "\\bshorts\\b",
+        "hoodie",
+        "\\bshirt",
+        "jacket",
+        "sneaker",
+        "\\bhat\\b",
+        "clothing"
+      ]
+    },
+    {
+      "name": "Health & Fitness",
+      "patterns": [
+        "\\bwhey",
+        "protein",
+        "vitamin",
+        "creatine",
+        "pre-?workout",
+        "supplement",
+        "\\bgym\\b",
+        "workout",
+        "fitness"
+      ]
+    },
+    {
+      "name": "Kitchen & Bath",
+      "patterns": [
+        "kitchen",
+        "\\bbath",
+        "towel",
+        "shampoo",
+        "\\bcoffee",
+        "food storage",
+        "\\bmug\\b",
+        "shower",
+        "\\bsoap"
+      ]
+    },
+    {
+      "name": "Comfort & Storage",
+      "patterns": [
+        "storage",
+        "organizer",
+        "blanket",
+        "duvet",
+        "bedding",
+        "pillow",
+        "cushion",
+        "hanger"
+      ]
+    },
+    {
+      "name": "Home Decor",
+      "patterns": [
+        "tapestry",
+        "\\blamp",
+        "ceiling",
+        "\\blights?\\b",
+        "\\bdecor",
+        "\\bclock",
+        "\\brug\\b",
+        "carpet",
+        "\\bshelf",
+        "\\bshelves",
+        "planter",
+        "\\bvase",
+        "curtain",
+        "\\bwall\\b"
+      ]
+    }
+  ]
+}

@@ -5,5 +5,7 @@
     "ownerEns": ""
   },
   "sheetLogEndpoint": "",
-  "visitPingUrl": "https://ntfy.sh/visits-1fd6f7808c3846a103e2"
+  "visitPingUrl": "https://ntfy.sh/visits-1fd6f7808c3846a103e2",
+  "shopifyCountryParam": false,
+  "shopifyLocales": []
 }

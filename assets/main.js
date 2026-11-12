@@ -2,6 +2,18 @@
 (function () {
   "use strict";
 
+  // i18n.js (loaded in <head>) provides t() and siteMoney(); these fallbacks keep the page working without it.
+  var ready = window.i18nStrings || Promise.resolve();
+  function t(key, vars) {
+    if (window.t) return window.t(key, vars);
+    var s = key;
+    if (vars) for (var k in vars) s = s.split("{" + k + "}").join(vars[k]);
+    return s;
+  }
+  function failNote(box, key, e) {
+    ready.then(function () { box.appendChild(el("p", "section-note", t(key, { e: e.message }))); });
+  }
+
   function el(tag, cls, text) {
     var n = document.createElement(tag);
     if (cls) n.className = cls;
@@ -73,12 +85,12 @@
       c.appendChild(meta);
     }
     if (item.url) {
-      var a = el("a", null, item.url_label || "Visit");
+      var a = el("a", null, item.url_label || t("Visit"));
       a.href = item.url;
       if (/^https?:/.test(item.url)) { a.target = "_blank"; a.rel = "noopener noreferrer"; }
       c.appendChild(a);
     } else if (item.placeholder) {
-      c.appendChild(el("span", "meta", "Link to be added"));
+      c.appendChild(el("span", "meta", t("Link to be added")));
     }
     return c;
   }
@@ -109,7 +121,7 @@
       c.appendChild(q);
     }
     var footer = el("footer", null);
-    footer.appendChild(el("strong", null, item.author || "Customer"));
+    footer.appendChild(el("strong", null, item.author || t("Customer")));
     if (item.date) footer.appendChild(el("span", "meta-date", " — " + item.date));
     c.appendChild(footer);
     if (item.rating) {
@@ -128,7 +140,7 @@
         (items || []).forEach(function (item) { grid.appendChild((make || card)(item)); });
       })
       .catch(function (e) {
-        grid.appendChild(el("p", "section-note", "Content failed to load (" + e.message + ")."));
+        failNote(grid, "Content failed to load ({e}).", e);
       });
   }
 
@@ -146,8 +158,15 @@
     a.href = item.url;
     a.target = "_blank"; a.rel = "noopener noreferrer sponsored";
     h.appendChild(a); body.appendChild(h);
+    if (item.price) {
+      var pp = el("p", "pprice");
+      if (item.price_from) { pp.appendChild(el("span", "pfrom", t("From"))); pp.appendChild(document.createTextNode(" ")); }
+      var am = el("span", "amt", "US$" + item.price);
+      am.setAttribute("data-usd", item.price); am.setAttribute("data-no-i18n", "");
+      pp.appendChild(am); body.appendChild(pp);
+    }
     if (item.desc) body.appendChild(el("p", null, item.desc));
-    body.appendChild(el("span", "pcta", "View in store"));
+    body.appendChild(el("span", "pcta", t("View in store")));
     c.appendChild(body);
     return c;
   }
@@ -160,12 +179,16 @@
         (d.items || []).slice(0, 5).forEach(function (i) { grid.appendChild(storeCard(i)); });
         var more = el("a", "store-more");
         more.href = "products.html";
-        more.appendChild(el("strong", null, "See the whole store"));
-        more.appendChild(el("span", null, (d.items || []).length + " products in " + (d.categories || []).length + " categories"));
-        more.appendChild(el("span", "btn", "Browse all products"));
+        more.appendChild(el("strong", null, t("See the whole store")));
+        var count = el("span", null, "");
+        more.appendChild(count);
+        ready.then(function () {
+          count.textContent = t("{n} products in {m} categories", { n: (d.items || []).length, m: new Set((d.items || []).map(function (i) { return i.category; })).size });
+        });
+        more.appendChild(el("span", "btn", t("Browse all products")));
         grid.appendChild(more);
       })
-      .catch(function (e) { grid.appendChild(el("p", "section-note", "Store failed to load (" + e.message + ")."));});
+      .catch(function (e) { failNote(grid, "Store failed to load ({e}).", e);});
   }
 
   // --- services: one visual card grid, whole card links to the quote form --------------------
@@ -189,7 +212,7 @@
     a.href = "#contact";
     h.appendChild(a); c.appendChild(h);
     c.appendChild(el("p", null, item.desc));
-    c.appendChild(el("span", "svc-go", "Ask for a quote"));
+    c.appendChild(el("span", "svc-go", t("Ask for a quote")));
     return c;
   }
   function renderServices() {
@@ -202,7 +225,7 @@
       })
       .catch(function (e) {
         var grid = document.getElementById("services-grid");
-        if (grid) grid.appendChild(el("p", "section-note", "Services failed to load (" + e.message + ")."));
+        if (grid) failNote(grid, "Services failed to load ({e}).", e);
       });
   }
 
@@ -259,7 +282,7 @@
         em.textContent = site.email;
         if (tileEmail) tileEmail.href = "mailto:" + site.email;
       } else {
-        em.textContent = "Coming soon";
+        em.textContent = t("Coming soon");
       }
     }
     var ph = document.getElementById("contact-phone");
@@ -294,7 +317,7 @@
         link.href = soc.url; link.target = "_blank"; link.rel = "noopener noreferrer";
         li.appendChild(link);
       } else {
-        li.appendChild(el("span", null, soc.label + " — placeholder"));
+        li.appendChild(el("span", null, soc.label + " — " + t("placeholder")));
       }
       ul.appendChild(li);
     });
@@ -390,17 +413,17 @@
         }).then(function (r) {
           if (r.ok) {
             say(r.photosDropped
-              ? "Thanks — I got your message, but the photos did not upload. Please email them to me."
-              : "Thanks — I'll be in touch soon.");
+              ? t("Thanks — I got your message, but the photos did not upload. Please email them to me.")
+              : t("Thanks — I'll be in touch soon."));
             form.reset();
             return;
           }
           return r.json().catch(function () { return {}; }).then(function (j) {
             var errs = (j.errors || []).map(function (e) { return e.message; }).filter(Boolean);
-            say(errs.length ? errs.join(" ") : "Sending failed (" + r.status + ") — please email directly.");
+            say(errs.length ? errs.join(" ") : t("Sending failed ({status}) — please email directly.", { status: r.status }));
           });
         }).catch(function () {
-          say("Network error — please email directly.");
+          say(t("Network error — please email directly."));
         }).then(function () { if (btn) btn.disabled = false; });
       });
     }
@@ -482,7 +505,7 @@
         });
       })
       .catch(function (e) {
-        list.appendChild(el("p", "section-note", "Content failed to load (" + e.message + ")."));
+        failNote(list, "Content failed to load ({e}).", e);
       });
   }
 
@@ -523,7 +546,7 @@
         }
       })
       .catch(function (e) {
-        grid.appendChild(el("p", "section-note", "Testimonials failed to load (" + e.message + ")."));
+        failNote(grid, "Testimonials failed to load ({e}).", e);
       });
   }
 
@@ -557,7 +580,7 @@
         if (c.parentNode) c.parentNode.removeChild(c); // hide broken entry
       };
       fig.appendChild(img);
-      fig.appendChild(el("figcaption", "gallery-chip gallery-chip-" + which, which.toUpperCase()));
+      fig.appendChild(el("figcaption", "gallery-chip gallery-chip-" + which, (which === "before" ? t("Before") : t("After")).toUpperCase()));
       pair.appendChild(fig);
     });
     c.appendChild(pair);
@@ -588,7 +611,7 @@
           if (pending > 0) return;
           if (!grid.querySelectorAll(".gallery-card").length) {
             grid.appendChild(el("p", "section-note gallery-empty",
-              "Before & after photos coming soon — real job pairs will appear here."));
+              t("Before & after photos coming soon — real job pairs will appear here.")));
           }
         };
         if (!pending) { settled(); return; }
@@ -600,7 +623,7 @@
         });
       })
       .catch(function (e) {
-        grid.appendChild(el("p", "section-note", "Before & after failed to load (" + e.message + ")."));
+        failNote(grid, "Before & after failed to load ({e}).", e);
       });
   }
 
@@ -740,7 +763,8 @@
       radio.addEventListener("change", syncMode);
     });
 
-    function money(x) { return "$" + Math.round(x).toLocaleString("en-CA"); }
+    function num(x) { return Number(x).toLocaleString((window.i18n && window.i18n.locale) || "en-CA"); }
+    function money(x) { return window.siteMoney ? window.siteMoney(x, "CAD", 0) : "$" + Math.round(x).toLocaleString("en-CA"); }
     function run() {
       var inputs = readEstimatorInputs();
       var rates = null; // data/pricing.json is fetched once below and cached
@@ -751,8 +775,8 @@
         money(result.total_range[0]) + " – " + money(result.total_range[1])));
       var lines = document.getElementById("est-lines");
       lines.innerHTML = "";
-      [["Labour", result.labour_hours + " hrs · " + money(result.labour_cost)],
-       ["Paint", result.paint_gallons + " gal · " + money(result.paint_cost)]
+      [[t("Labour"), t("{n} hrs · {cost}", { n: num(result.labour_hours), cost: money(result.labour_cost) })],
+       [t("Paint"), t("{n} gal · {cost}", { n: num(result.paint_gallons), cost: money(result.paint_cost) })]
       ].forEach(function (pair) {
         var dt = document.createElement("dt"); dt.textContent = pair[0];
         var dd = document.createElement("dd"); dd.textContent = pair[1];
@@ -761,7 +785,7 @@
       var range = outBox.querySelector(".est-range");
       if (range) {
         var note = el("span", "est-range-note",
-          " labour + paint, typical range");
+          " " + t("labour + paint, typical range"));
         range.appendChild(note);
       }
       // hard guard: estimate language must always be present

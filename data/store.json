@@ -2,95 +2,73 @@
   "categories": [
     "Painting",
     "After Painting",
+    "Car Care",
     "Home Tech",
-    "Home Decor",
-    "Comfort & Storage",
-    "Kitchen & Bath",
     "Fashion & Watches",
-    "Health & Fitness"
+    "Health & Fitness",
+    "Kitchen & Bath",
+    "Comfort & Storage",
+    "Home Decor",
+    "More"
   ],
   "items": [
     {
-      "id": "scotch-blue-painters-tape-0-94-in-x-60-y",
-      "title": "Scotch Blue Painter's Tape, 6-Pack",
+      "id": "4pcs-paint-edger-tools-small-corner-pain",
+      "title": "4Pcs Paint Edger Tools Small Corner Painting Tool Edge Painter",
       "category": "Painting",
-      "desc": "ScotchBlue Original Multi-Surface Painters Tape offers a versatile solution for protecting your surfaces so you can…",
+      "desc": "Achieve perfect edges for your home interior with our Paint Edger Tool.",
       "features": [
-        "Ready. Set. Paint!: 6 rolls of 0.94 inch wide x 60 yards ScotchBlue Original Painters Tape, a multi-surface solution for preparing to paint…",
-        "Damage-Free Painting Prep: Scotch removable tape can stay on surfaces for up to 14 days, and it removes easily without leaving a sticky…",
-        "Conquer Most Surfaces: Specially designed art tape for smooth or lightly textured walls, trim, baseboards, tile and glass",
-        "Tackle Indoors And Outdoors: Resists UV rays, sunlight and moisture so you can use it as an indoor or outdoor tape",
-        "Sustainability: Solvent-free masking tape made from 45% renewable resources with a core made from 70% post-consumer waste",
-        "How To Use: Apply the blue painter's tape firmly onto a surface, and let the tape set for 30 to 60 minutes before you begin painting"
+        "Achieve perfect edges for your home interior with our Paint Edger Tool. Its comfortable grip allows for convenient use and no more messy…"
       ],
-      "image": "assets/store/scotch-blue-painters-tape-0-94-in-x-60-y.jpg",
-      "url": "https://jvtesw-cg.myshopify.com/products/scotch-blue-painters-tape-0-94-in-x-60-yd-6-pack-original-multi-surface-paint-supplies"
+      "image": "assets/store/4pcs-paint-edger-tools-small-corner-pain.jpg",
+      "url": "https://jvtesw-cg.myshopify.com/products/4pcs-paint-edger-tools-small-corner-painting-tool-edge-painter-with-touch-up-pad-practical-paint-cutting-edge-tool",
+      "price": "12.77",
+      "price_from": false
     },
     {
-      "id": "paint-roller-kit-27-piece-paint-supplies",
-      "title": "27-Piece Paint Roller Kit with Extension Pole",
+      "id": "green-high-viscosity-spray-masking-tape-",
+      "title": "Green High Viscosity Spray Masking Tape Car Door Windows Shadowing",
       "category": "Painting",
-      "desc": "This paint roller kit includes an adjustable paint roller extension pole ranging from 1 to 4 feet, 9-inch and 4-inch…",
-      "features": [
-        "Meeting diverse needs: This paint roller kit includes an adjustable paint roller extension pole ranging from 1 to 4 feet, 9-inch and 4-inch…",
-        "Efficient construction experience: The 9-inch and 4-inch paint rollers enhance large-area painting efficiency, while paint brushes for…",
-        "Durable quality materials: The paint roller frame is made of stainless steel, while the microfiber paint supplies for painting walls…",
-        "Adjustable extension pole design: The extension pole for painting in this kit is made of lightweight yet sturdy aluminum alloy and can be…",
-        "Multi-functional application: This paint roller kit is suitable for a variety of scenarios, including interior and exterior walls…"
-      ],
-      "image": "assets/store/paint-roller-kit-27-piece-paint-supplies.jpg",
-      "url": "https://jvtesw-cg.myshopify.com/products/paint-roller-kit-27-piece-paint-supplies-94-paint-rollers-1-4ft-extension-pole-paint-brushes-for-walls-microfiber-roller-covers-for-professional-painting-orange"
+      "desc": "Green High Viscosity Spray Masking Tape Car Door Windows Shadowing",
+      "features": [],
+      "image": "assets/store/green-high-viscosity-spray-masking-tape-.jpg",
+      "url": "https://jvtesw-cg.myshopify.com/products/green-high-viscosity-spray-masking-tape-car-door-windows-shadowing-cover-up-film-decoration-furniture-paint-protective-films",
+      "price": "4.19",
+      "price_from": true
     },
     {
-      "id": "antibacterial-wall-paint-strong-repair-l",
-      "title": "Wall Repair Latex Paint with Roller",
+      "id": "silicone-dustproof-half-mask-respirator-",
+      "title": "Silicone Dustproof Half Mask Respirator with Goggles Filter Cotton",
       "category": "Painting",
-      "desc": "Transform Your Space with Easy-to-Use Emulsion Paint!",
+      "desc": "Adopts soft rubber and more fit your face, more comfortable to wear and prevent dust come in effectively.",
       "features": [
-        "Material: Emulsion Paint",
-        "Content: 500g",
-        "Size: 21cm x 10.5cm"
+        "Excellent Airtightness Performance: Adopts soft rubber and more fit your face, more comfortable to wear and prevent dust come in…",
+        "5 layers thick protection cotton filters, provide better protection, easy to replace the filter.",
+        "Adjustable head belt, more comfortable and fit most people's head.",
+        "Can be used for Polishing, Smelting, Constuction, Mining, Factory, Mining, Lab, House Fitment, Daily Haze Protection."
       ],
-      "image": "assets/store/antibacterial-wall-paint-strong-repair-l.jpg",
-      "url": "https://jvtesw-cg.myshopify.com/products/antibacterial-wall-paint-strong-repair-latex-paint-with-roller-brush-for-living-room-kitchen"
+      "image": "assets/store/silicone-dustproof-half-mask-respirator-.jpg",
+      "url": "https://jvtesw-cg.myshopify.com/products/silicone-dustproof-half-mask-respirator-with-goggles-filter-cotton-suitable-for-spray-paint-carpentry-grinding-house-decoration",
+      "price": "7.01",
+      "price_from": true
     },
     {
-      "id": "strong-magnetic-wristband-portable-tool-",
-      "title": "Magnetic Wristband Tool Holder",
-      "category": "Painting",
-      "desc": "This adjustable wrist strap is embedded with powerful magnets, designed to securely hold screws, nails, nuts, bolts…",
-      "features": [
-        "Colors: Black, Red, Dark Blue",
-        "Material: 1680D Oxford Cloth + Magnet",
-        "Product Size: 33x9 cm (approx.)"
-      ],
-      "image": "assets/store/strong-magnetic-wristband-portable-tool-.jpg",
-      "url": "https://jvtesw-cg.myshopify.com/products/strong-magnetic-wristband-portable-tool-bag-for-holding-screws-nails-nuts-bolts-and-drill-bits"
-    },
-    {
-      "id": "cv1000-clear-gloss-varnish-quart",
-      "title": "Clear Gloss Varnish, Quart",
+      "id": "candle-warmer-lamp-with-timer-birthday-g",
+      "title": "Candle Warmer Lamp with Timer, Birthday Gifts for Women Home Decor",
       "category": "After Painting",
-      "desc": "Clear Gloss Varnish Quart High Gloss.",
+      "desc": "Our electric Candle+Warmer+Lamp utilizes a 50-watt halogen warming bulb (included), gently melting the candle from the…",
       "features": [
-        "Clear Gloss Varnish Quart High Gloss. Traditional varnish manufactured with tung oil, ultraviolet filters and phenolic resins for superior…"
+        "Safety and Environmental Friendliness: Our electric Candle+Warmer+Lamp utilizes a 50-watt halogen warming bulb (included), gently melting…",
+        "Fully Dimmable and 12-Hour Timing Function: Enjoy complete control over the ambiance with our dimmable knob, offering unrestricted dimming…",
+        "Sleek Design, Versatile Usage: Combining classical elegance with modern aesthetics, our lamp features a metal base and glass lampshade…",
+        "Height-Adjustable: Adapt our Candle+Warmer+Lamp to various jar candle sizes with its adjustable pole, ensuring a perfect fit for any decor.…",
+        "Gifts Idea: The wax melter will be the best gifts for mom choice to show your love to your families, lover, or friends on Valentine's Day…",
+        "PERFECT HOME DECOR. with elegant design and soft warm glow, the candle warmer lamp is a modern room decoration. Definitely an aesthetic…"
       ],
-      "image": "assets/store/cv1000-clear-gloss-varnish-quart.jpg",
-      "url": "https://jvtesw-cg.myshopify.com/products/cv1000-clear-gloss-varnish-quart"
-    },
-    {
-      "id": "dimmable-candle-warmer-lamp-efficient-fl",
-      "title": "Dimmable Flame-Free Candle Warmer Lamp",
-      "category": "After Painting",
-      "desc": "Enjoy a Safer, Cleaner, and Stylish Way to Scent Your Home",
-      "features": [
-        "Dimensions: 12.2” L x 11” W x 4.72” H",
-        "Weight: 3.23 lbs",
-        "Power Source: 50W GU10 halogen bulb",
-        "Controls: Dimmer for brightness adjustment, 2/4/8-hour timer"
-      ],
-      "image": "assets/store/dimmable-candle-warmer-lamp-efficient-fl.jpg",
-      "url": "https://jvtesw-cg.myshopify.com/products/dimmable-candle-warmer-lamp-efficient-flame-free-fragrance"
+      "image": "assets/store/candle-warmer-lamp-with-timer-birthday-g.jpg",
+      "url": "https://jvtesw-cg.myshopify.com/products/candle-warmer-lamp-with-timer-birthday-gifts-for-women-home-decor",
+      "price": "28.34",
+      "price_from": false
     },
     {
       "id": "peppermint-candle-soy-wax-scented-candle",
@@ -106,23 +84,65 @@
         "Subscribe & Save: Subscriptions available for easier delivery."
       ],
       "image": "assets/store/peppermint-candle-soy-wax-scented-candle.jpg",
-      "url": "https://jvtesw-cg.myshopify.com/products/peppermint-candle-soy-wax-scented-candles-scented-candles-for-home-7oz"
+      "url": "https://jvtesw-cg.myshopify.com/products/peppermint-candle-soy-wax-scented-candles-scented-candles-for-home-7oz",
+      "price": "16.33",
+      "price_from": false
     },
     {
-      "id": "intelligent-human-body-induction-led-nig",
-      "title": "Motion-Sensor Rechargeable LED Night Light",
-      "category": "Home Tech",
-      "desc": "Illuminate Your Home with the Intelligent Human Body Induction LED Night Light Experience the perfect blend of…",
+      "id": "wood-wick-soy-wax-scented-candle-breath-",
+      "title": "Wood Wick Soy Wax Scented Candle",
+      "category": "After Painting",
+      "desc": "WHAT'S SPECIAL ABOUT THIS PREMIUM WOOD WICK SOY WAX SCENTED CANDLE Made of luxurious soy wax and hand poured into…",
+      "features": [],
+      "image": "assets/store/wood-wick-soy-wax-scented-candle-breath-.jpg",
+      "url": "https://jvtesw-cg.myshopify.com/products/wood-wick-soy-wax-scented-candle-breath-of-nature-scented-iceland-tundra",
+      "price": "32.39",
+      "price_from": false
+    },
+    {
+      "id": "22pcs-car-wash-cleaning-tools-kit-car-de",
+      "title": "22Pcs Car Wash Cleaning Tools Kit Car Detailing Set with Blue Canvas",
+      "category": "Car Care",
+      "desc": "With super thick, ultra absorbent microfiber strands.",
       "features": [
-        "Material: Plastic",
-        "Style: Modern",
-        "Lighting Method: Downlight",
-        "Mounting Type: Wall Mount / Freestanding",
-        "Power Supply: Rechargeable Lithium Battery",
-        "Included Components: USB Cable for Recharging"
+        "22Pcs Car Wash Cleaning Kit: 1 portable collapsible bucket(20L/5 Gallon), 1 extra large chenille microfiber wash mitt(8'' x 11''), 1…",
+        "Premium Material: The car cleaning tools are made of soft material that is lint-free, scratch-free and swirl-free. Absoulately safe to…",
+        "Multi-Usage: Suit for both exterior and interior car cleaning, cleanness of automobile tyre, car polishing and waxing, cleanness of…",
+        "Most Comprehansive Kit: Including almost everything for the whole car washing and cleaness with some customized popular and useful items.…"
       ],
-      "image": "assets/store/intelligent-human-body-induction-led-nig.jpg",
-      "url": "https://jvtesw-cg.myshopify.com/products/intelligent-human-body-induction-led-night-light-rechargeable-wall-light-for-corridor-cabinet-and-toilet"
+      "image": "assets/store/22pcs-car-wash-cleaning-tools-kit-car-de.jpg",
+      "url": "https://jvtesw-cg.myshopify.com/products/22pcs-car-wash-cleaning-tools-kit-car-detailing-set-with-blue-canvas-bag-collapsible-bucket-wash-mitt-sponge-towels-tire-brush-window-scraper-duster-complete-interior-car-care-kit",
+      "price": "62.95",
+      "price_from": false
+    },
+    {
+      "id": "5-1pc-laptop-so-ddr5-ram-to-desktop-ddr5",
+      "title": "5-1PC Laptop so DDR5 RAM to Desktop DDR5 U-DIMM Adapter Laptop",
+      "category": "Home Tech",
+      "desc": "Laptop SO DDR5 RAM To Desktop DDR5 U-DIMM Adapter Overcurrent Protection DDR5 SO-DIMM Gaming Laptop RAM Memory Module…",
+      "features": [
+        "Laptop SO DDR5 RAM To Desktop DDR5 U-DIMM Adapter Overcurrent Protection DDR5 SO-DIMM Gaming Laptop RAM Memory Module Laptop To Desktop…",
+        "Versatile Compatibility: The laptop SO DDR5 RAM to desktop DDR5 U-DIMM adapter allows you to easily convert SO-DIMM memory from gaming…",
+        "High-Performance Memory Module: This DDR5 SO-DIMM gaming laptop RAM memory module supports frequencies exceeding 4800 MHz, ensuring fast…",
+        "Seamless Transition: With the laptop to desktop SO-DIMM to PC DIMM card, you can effortlessly upgrade your desktop's memory using your…",
+        "Reliable Memory Card Converter: Designed with a 6-layer PCB and low-noise technology, this memory card converter ensures stable performance…",
+        "Safe Design: T he DDR5 memory RAM adapter card features a lifespan of over 600 insertions and includes over-current protection…"
+      ],
+      "image": "assets/store/5-1pc-laptop-so-ddr5-ram-to-desktop-ddr5.jpg",
+      "url": "https://jvtesw-cg.myshopify.com/products/5-1pc-laptop-so-ddr5-ram-to-desktop-ddr5-u-dimm-adapter-laptop-to-desktop-so-dimm-to-pc-dimm-card-ddr5-memory-ram-adapter-card",
+      "price": "18.96",
+      "price_from": true
+    },
+    {
+      "id": "antminer-maquina-de-mineria-de-bitcoin-s",
+      "title": "Antminer S19 95T Bitcoin Miner",
+      "category": "Home Tech",
+      "desc": "Antminer S19 95T Bitcoin Miner",
+      "features": [],
+      "image": "assets/store/antminer-maquina-de-mineria-de-bitcoin-s.jpg",
+      "url": "https://jvtesw-cg.myshopify.com/products/antminer-maquina-de-mineria-de-bitcoin-s19-95t-95th-90t-bitmain-ant-mainer-asic-antmin-usado-nuevo-2024",
+      "price": "693.09",
+      "price_from": false
     },
     {
       "id": "retro-portable-wireless-bluetooth-speake",
@@ -137,96 +157,9 @@
         "Bluetooth-Compatible 5.1 Support: Connect wireless to any of your Bluetooth -Compatible devices, but you can also use the 3.5mm aux cable…"
       ],
       "image": "assets/store/retro-portable-wireless-bluetooth-speake.jpg",
-      "url": "https://jvtesw-cg.myshopify.com/products/retro-portable-wireless-bluetooth-speaker-high-quality-powerful-stereo-sound-box-vintage-fm-rechargeable-mp3-player"
-    },
-    {
-      "id": "modern-led-wall-lamp-minimalist-art-desi",
-      "title": "Modern Minimalist LED Wall Lamp",
-      "category": "Home Decor",
-      "desc": "Illuminate Your Home with the Modern LED Wall Lamp",
-      "features": [
-        "With its sleek, minimalist design and ambient lighting, this lamp is perfect for enhancing the atmosphere of your bedroom, living room…",
-        "Whether you're looking to make a design statement or simply add a cozy glow, this lamp provides both function and style.",
-        "Contemporary Crescent-Shaped Design : The unique crescent-shaped frame and sleek lines give this lamp a modern, stylish appeal that blends…",
-        "It’s the perfect balance between artistic design and practical lighting.",
-        "Bright & Energy-Efficient LED Lighting : Equipped with a powerful 20W LED light source, this lamp provides bright, soft illumination that…",
-        "Perfect for bedrooms, living rooms, bathrooms, and more, it delivers both light and warmth."
-      ],
-      "image": "assets/store/modern-led-wall-lamp-minimalist-art-desi.jpg",
-      "url": "https://jvtesw-cg.myshopify.com/products/modern-led-wall-lamp-minimalist-art-design-for-bedroom-living-room-and-bathroom-gold-black"
-    },
-    {
-      "id": "star-projector-constellation-night-light",
-      "title": "Star Projector Night Light",
-      "category": "Home Decor",
-      "desc": "Transform Your Room into a Star-Filled Galaxy",
-      "features": [
-        "Power: 1W",
-        "Material: ABS",
-        "Control Methods: Button + Remote Control",
-        "Battery Capacity: 1500mAh",
-        "Projection Height: 3 meters",
-        "Projection Area: 20 square meters"
-      ],
-      "image": "assets/store/star-projector-constellation-night-light.jpg",
-      "url": "https://jvtesw-cg.myshopify.com/products/star-projector-constellation-night-light"
-    },
-    {
-      "id": "dali-melting-clock",
-      "title": "Dali Melting Clock",
-      "category": "Home Decor",
-      "desc": "An Iconic Blend of Art and Function",
-      "features": [
-        "Materials: Plastic, aluminum, copper",
-        "Dimensions: 5.7” L x 4.5” W x 6.9” H",
-        "Weight: 0.7 lb",
-        "Power Source: 1 AA battery (not included)"
-      ],
-      "image": "assets/store/dali-melting-clock.jpg",
-      "url": "https://jvtesw-cg.myshopify.com/products/dali-melting-clock"
-    },
-    {
-      "id": "paint-roller-kit-with-extension-pole-2-4",
-      "title": "Paint Roller Kit with Extension Pole, 2-4 ft",
-      "category": "Painting",
-      "desc": "27-Piece Complete Set：This professional paint roller kit contains all essential wall painting supplies: 2-4 ft…",
-      "features": [
-        "27-Piece Complete Set：This professional paint roller kit contains all essential wall painting supplies: 2-4 ft extension pole, adapters…",
-        "Safe Extension Pole：The adjustable paint roller extension pole (2-4 ft) lets you safely paint ceilings and high walls from the ground.…",
-        "Versatile house painting supplies: This multi-purpose paint kit works two ways. Use the roller alone for precise edges and low walls, or…",
-        "Professional paint supplies for painting walls：Achieve crisp, clean lines with four specialized brushes for windows, doors, corners, and…",
-        "Reusable Paint Supplies：Maximize value with reusable components. Six premium roller covers (9\" & 4\") wash easily for repeated use. Three…"
-      ],
-      "image": "assets/store/paint-roller-kit-with-extension-pole-2-4.jpg",
-      "url": "https://jvtesw-cg.myshopify.com/products/paint-roller-kit-with-extension-pole-2-4ft-adjustable-pole-professional-27-piece-paint-kit-49-paint-rollers-paint-brushes-for-walls-works-with-all-latex-oil-based-paints-and-wood-finishes"
-    },
-    {
-      "id": "gamblin-gamvar-varnish-brush-50mm-gb0115",
-      "title": "Gamblin Gamvar Varnish Brush, 50 mm",
-      "category": "Painting",
-      "desc": "GB01150, GAMVAR VARNISH BRUSH 50MM.",
-      "features": [
-        "Model No : GB01150",
-        "Upc : 729911011508",
-        "Brand : Gamblin",
-        "Country of Origin : DE",
-        "GAMVAR VARNISH BRUSH 50MM"
-      ],
-      "image": "assets/store/gamblin-gamvar-varnish-brush-50mm-gb0115.jpg",
-      "url": "https://jvtesw-cg.myshopify.com/products/gamblin-gamvar-varnish-brush-50mm-gb01150"
-    },
-    {
-      "id": "mini-wireless-laser-projection-keyboard-",
-      "title": "Mini Wireless Laser Projection Keyboard",
-      "category": "Home Tech",
-      "desc": "English QWERTY keyboard layout.works with all smart phones.",
-      "features": [
-        "English QWERTY keyboard layout.works with all smart phones",
-        "Truly portable design:perfect for on-the-go.",
-        "Built-in Lithium-ion Polymer rechargeable battery for mobility and convenience"
-      ],
-      "image": "assets/store/mini-wireless-laser-projection-keyboard-.jpg",
-      "url": "https://jvtesw-cg.myshopify.com/products/mini-wireless-laser-projection-keyboard-bluetooth-virtual-keyboard-mouse-function-for-laptop-smartphone-keyboard-projector"
+      "url": "https://jvtesw-cg.myshopify.com/products/retro-portable-wireless-bluetooth-speaker-high-quality-powerful-stereo-sound-box-vintage-fm-rechargeable-mp3-player",
+      "price": "31.73",
+      "price_from": false
     },
     {
       "id": "s-k80-75-keyboard-with-color-oled-displa",
@@ -242,500 +175,91 @@
         "Mounting Style:Gasket Mounted"
       ],
       "image": "assets/store/s-k80-75-keyboard-with-color-oled-displa.jpg",
-      "url": "https://jvtesw-cg.myshopify.com/products/s-k80-75-keyboard-with-color-oled-display-mechanical-gaming-keyboard-hot-swap-keyboard-gasket-mount-rgb-custom-keyboard"
-    },
-    {
-      "id": "x-41-usb-wired-rgb-gaming-mouse-24000-dp",
-      "title": "X-41 USB Wired RGB Gaming Mouse",
-      "category": "Home Tech",
-      "desc": "『SENSITIVE DPI MMO MOUSE』Focus on MMO gamers: this professional MMO gaming mouse built-in up to 24000 DPI, 1000 Hz…",
-      "features": [
-        "It has an adjustable sensitivity level (range from 200 - 12400) built right into the gaming mouse.",
-        "You can easily adjust the mouse sensitivity using buttons on the mouse.Great micro switches provide crisp, firm clicks.",
-        "Lightning fast is not just to say-thanks to the improved optical SG8960 gaming sensor, the X-41 can instantly register every click/swipe…",
-        "Efficient, accurate and low latency are all included in the box.",
-        "『COMFORTABLE SHAPE & TEXTURED GRIP』 Ergonomic Right-Handed design with the frosted painting surface avoids hand sweat and slippery.",
-        "The shape and texture on the mouse are extremely comfortable in the hand and the size is suited for most."
-      ],
-      "image": "assets/store/x-41-usb-wired-rgb-gaming-mouse-24000-dp.jpg",
-      "url": "https://jvtesw-cg.myshopify.com/products/x-41-usb-wired-rgb-gaming-mouse-24000-dpi-sg8960-10-buttons-programmable-game-optical-mice-for-computer-pc-laptop"
-    },
-    {
-      "id": "908s-80w-electric-digital-soldering-iron",
-      "title": "908S 80W Digital Soldering Iron Station",
-      "category": "Home Tech",
-      "desc": "908S 80W Electric digital soldering iron station 220V 110V temperature adjustable welding soldering tips tools…",
-      "features": [
-        "908S 80W Electric digital soldering iron station 220V 110V temperature adjustable welding soldering tips tools accessories Electric…",
-        "Suitable tin wires should be selected during welding, which is conducive to welding and head maintenance.",
-        "The welding head should be kept clean during welding, which is beneficial to the welding and the appearance of the welding spot.",
-        "Tin is often coated on the tip of the soldering iron to facilitate soldering and prevent oxidation.",
-        "Rest should add tin and turn off the power supply, which is beneficial to life and prevent oxidation.",
-        "Soldering iron tip should be disposed of in time after oxidation, which is beneficial to welding and prevent scrapping"
-      ],
-      "image": "assets/store/908s-80w-electric-digital-soldering-iron.jpg",
-      "url": "https://jvtesw-cg.myshopify.com/products/908s-80w-electric-digital-soldering-iron-station-220v-110v-temperature-adjustable-welding-soldering-tips-tools-accessories"
-    },
-    {
-      "id": "d5-starry-moon-lamp-8cm-led-night-light-",
-      "title": "D5 Starry Moon Lamp, 8 cm",
-      "category": "Home Decor",
-      "desc": "Bring the Night Sky Indoors with the D5 Starry Moon Lamp!",
-      "features": [
-        "Create a serene, magical ambiance with the D5 Starry Moon Lamp .",
-        "Perfect for adding a celestial touch to any room, this enchanting LED night light features a realistic moon design with a twinkling starry…",
-        "Compact & Charming : At just 8cm in diameter, it fits perfectly into any space, providing a gentle glow without overwhelming your decor.",
-        "Battery-Powered Freedom : Place it anywhere without the hassle of cords—just insert batteries and enjoy the magic.",
-        "Starry Sky Projection : Casts a calming, starry glow ideal for relaxation, meditation, or bedtime.",
-        "Sleek Stand Included : Display it beautifully on any flat surface with the stylish stand."
-      ],
-      "image": "assets/store/d5-starry-moon-lamp-8cm-led-night-light-.jpg",
-      "url": "https://jvtesw-cg.myshopify.com/products/d5-starry-moon-lamp-8cm-led-night-light-with-stand-perfect-for-bedroom-decor-and-gifts"
-    },
-    {
-      "id": "high-heel-shoe-wine-bottle-holder",
-      "title": "High Heel Shoe Wine Bottle Holder",
-      "category": "Home Decor",
-      "desc": "Add a Touch of Elegance and Fun to Your Wine Collection Elevate your wine display with the High Heel Shoe Wine Bottle…",
-      "features": [
-        "Material: High-quality resin for a durable and elegant finish",
-        "Size: Fits standard-size wine bottles, including wine, champagne, and similar bottles",
-        "Versatility: Perfect for home decor, gifting, or special events"
-      ],
-      "image": "assets/store/high-heel-shoe-wine-bottle-holder.jpg",
-      "url": "https://jvtesw-cg.myshopify.com/products/high-heel-shoe-wine-bottle-holder"
-    },
-    {
-      "id": "5-pcs-shaggy-duvet-cover-bedding-set-lon",
-      "title": "5-Piece Shaggy Duvet Cover Bedding Set",
-      "category": "Comfort & Storage",
-      "desc": "MorroMorn provide you with luxury and comfortable bedding.",
-      "features": [
-        "PACKAGE INCLUDES 5 PCS! 1x duvet cover 104\"x90\", 1x sheet 106\"x98\", 2x shaggy pillow cases 20\"x37\", 1x bonus Love shaped throw pillow. (No…",
-        "Super Soft: Fluffy duvet cover and pillowcases featured with 2 different materials double-sided design - luxury 45mm high pile faux fur &…",
-        "Detailed Design: Hidden zipper design easy to separate and launder. This unique gorgeous bedset is a wonderful way to update your bedroom…",
-        "Gift Idea: Used as a blanket in summer and a quilt cover in winter. The furry beding set is a perfect warm gift for girls, boys, men, kids…",
-        "Washing Care: Turning it inside-out, Machine wash with cold water cycle. Avoid hang dry which will cause deformation. Do not bleach, Do not…"
-      ],
-      "image": "assets/store/5-pcs-shaggy-duvet-cover-bedding-set-lon.jpg",
-      "url": "https://jvtesw-cg.myshopify.com/products/5-pcs-shaggy-duvet-cover-bedding-set-long-faux-fur-luxury-ultra-soft-cozy-aqua-king-california-king"
-    },
-    {
-      "id": "paint-brush-2-5-inch-angled-synthetic-pa",
-      "title": "Angled Paint Brush, 2.5 Inch",
-      "category": "Painting",
-      "desc": "Our Mister Rui paint brush features a 2.5-inch angled design, ideal for precision cutting in walls and achieving smooth…",
-      "features": [
-        "Professional Quality Paint Brushes: Our Mister Rui paint brush features a 2.5-inch angled design, ideal for precision cutting in walls and…",
-        "Ergonomic Long Handle: Designed with comfort in mind, the ergonomic long handle of our paint brush provides excellent control, allowing…",
-        "Versatile for All Painting Supplies: This versatile paint brush set is perfect for use with both oil and latex paints, making it an…",
-        "Durable Synthetic Filament Blend: Made from a thick quality synthetic filament blend, these paint brushes hold more paint to save time…",
-        "Effective Home Improvement Tool: The Mister Rui paint brush offers high-quality performance, making it one of the best choices among paint…",
-        "Great Gift Choice for Friends: Ideal for gifting to family and friends for housewarming. It also makes a practical present for DIY…"
-      ],
-      "image": "assets/store/paint-brush-2-5-inch-angled-synthetic-pa.jpg",
-      "url": "https://jvtesw-cg.myshopify.com/products/paint-brush-2-5-inch-angled-synthetic-paint-brush-for-walls"
-    },
-    {
-      "id": "18-inch-microfiber-paint-roller-covers-6",
-      "title": "18 Inch Microfiber Paint Roller Covers, 6-Pack",
-      "category": "Painting",
-      "desc": "The 6 pack microfiber 18 inch paint roller is individually packaged, making it convenient for customers to store and…",
-      "features": [
-        "Individually Packaged Design: The 6 pack microfiber 18 inch paint roller is individually packaged, making it convenient for customers to…",
-        "Ideal Size: With a large 18 inch size, the paint roller covers a larger surface area, saving you time and effort while achieving optimal…",
-        "High-Quality Materials: The paint roller is made of high-density fine fiber material, providing excellent coverage, the combination of…",
-        "Washable and Reusable: The durable paint roller covers can be washed and re-used for long-lasting performance, from one painting project to…",
-        "Wide Range of Uses: Suitable for various indoor and outdoor painting projects, including walls, ceilings, and the whole house, inside and…"
-      ],
-      "image": "assets/store/18-inch-microfiber-paint-roller-covers-6.jpg",
-      "url": "https://jvtesw-cg.myshopify.com/products/18-inch-microfiber-paint-roller-covers-6-pack-3-8-nap"
-    },
-    {
-      "id": "3folding-keyboard-mini-wireless-keyboard",
-      "title": "Foldable Mini Wireless Bluetooth Keyboard",
-      "category": "Home Tech",
-      "desc": "Parameter： Number of buttons: 63 Bluetooth 5.1 wireless keyboard System requirements: Windows, IOS, Android Working…",
-      "features": [
-        "Unfolded size 11.96x3.86x0.39 inch.",
-        "With 2 Bluetooth 5.1 channels 【Dual Bluetooth 5.1 Folding Keyboard】 【Fold Wireless Keyboard with Big Touchpad】 【TYPE C RECHARGEABLE & POWER…",
-        "【DURABLE CONSTRUCTION & HIGH QUALITY】 Metal connections and wear-resistant PU leather back shell for long-time use.",
-        "Textured cover shows elegance.",
-        "Simple contemporary appearance makes it perfect for your phone, tablet, or laptop.",
-        "【UNIVERSAL COMPATIBILITY】 【FOLDING BLUETOOTH KEYBOARD】 Folded size 5.98x3.86x0.78 inch."
-      ],
-      "image": "assets/store/3folding-keyboard-mini-wireless-keyboard.jpg",
-      "url": "https://jvtesw-cg.myshopify.com/products/3folding-keyboard-mini-wireless-keyboard-foldable-dual-bluetooth-keyboard-with-touchpad-for-windows-android-ios-ipad-phone"
-    },
-    {
-      "id": "2-pcs-for-airtag-wallet-holder-card-case",
-      "title": "AirTag Wallet Holder Card Case, 2-Pack",
-      "category": "Home Tech",
-      "desc": "【Flexible & Thin Design】The length and width of the credit card size fits most wallet slots, the minimum thickness is…",
-      "features": [
-        "【Flexible & Thin Design】The length and width of the credit card size fits most wallet slots, the minimum thickness is 0.1 inch. Can…",
-        "【Airtag Wallet Case- Hardness Upgrade】 Made of premium ABS material, durable and sturdy. You don't have to worry about it being deformed or…",
-        "【Compatible with AirTag】This airtag wallet card case cover is specially designed for Airtag, the product size is compatible with Airtag and…",
-        "【Safe, and Effective Locating】Our card for airtag design can make your tracker not so easy to be exposed, while it will not affect its…"
-      ],
-      "image": "assets/store/2-pcs-for-airtag-wallet-holder-card-case.jpg",
-      "url": "https://jvtesw-cg.myshopify.com/products/2-pcs-for-airtag-wallet-holder-card-case-for-airtags-credit-card-size-with-keychain-slim-safety-anti-lost-for-purse-backpack-handbag-clutch-black"
-    },
-    {
-      "id": "shelf-without-drilling-shampoo-holder-ba",
-      "title": "No-Drill Floating Shelf and Shampoo Holder",
-      "category": "Comfort & Storage",
-      "desc": "No drilling bathroom shelf space aluminum wall hanging integrated toilet toile tries storage wall mirror front tray",
-      "features": [],
-      "image": "assets/store/shelf-without-drilling-shampoo-holder-ba.jpg",
-      "url": "https://jvtesw-cg.myshopify.com/products/shelf-without-drilling-shampoo-holder-bathroom-wall-floating-white-black-shelves-stick-bath-organizer-for-kitchen-accessories"
-    },
-    {
-      "id": "macrame-hanging-shelf-boho-wall-decor-be",
-      "title": "Macrame Hanging Shelf, Boho Wall Decor",
-      "category": "Home Decor",
-      "desc": "Place your favorite plants and other objects, and use our macrame wall hanging shelf.",
-      "features": [
-        "You can enjoy the rustic look throughout the home.",
-        "When you fill the blank space with plants, books, etc.it will add a beautiful touch to any wall in your home.",
-        "Application：These hanging wall shelves can be hung on the wall, also used as a plant hanger.",
-        "They are the perfect addition to your living room, bathroom, bedroom, kitchen,nursery, apartment and office.",
-        "Great for any room decor.",
-        "Great Gift: The hanging shelf is very suitable for people who love boho style."
-      ],
-      "image": "assets/store/macrame-hanging-shelf-boho-wall-decor-be.jpg",
-      "url": "https://jvtesw-cg.myshopify.com/products/macrame-hanging-shelf-boho-wall-decor-bedroom-1-pc-rustic-wood-floating-shelves-for-room-nursery-bathroom-living-room-college"
-    },
-    {
-      "id": "punch-free-floating-shelves-for-wall-sto",
-      "title": "Punch-Free Self-Adhesive Floating Shelves",
-      "category": "Comfort & Storage",
-      "desc": "Made of space aluminum, is rust-proof and anti-corrosion, ensuring durability, stability and toughness,always keep your…",
-      "features": [
-        "No-drilling installation avoids wall damage and powerful adhesion and waterproof performance of glue help the rack attach to the wall…",
-        "Maximizing the used of space in bathroom, keeping neat and organized.",
-        "A great rack for holding lotion, shampoo, facial cream, makeup and all that stuff.",
-        "Specifications: Item name: Bathroom Shelves Material: Space aluminum Color: Black Size: 20/30/40/50cm Note: - There might be little error…",
-        "The colors deviation might differ due to different monitor settings, please kindly understand.",
-        "Packing list Package includes: 1*Bathroom Shelves 1*A set of installation accessories"
-      ],
-      "image": "assets/store/punch-free-floating-shelves-for-wall-sto.jpg",
-      "url": "https://jvtesw-cg.myshopify.com/products/punch-free-floating-shelves-for-wall-storage-self-adhesive-rack-20-50cm-kitchen-home-decor-bathroom-accessorie-modern-matt-black"
-    },
-    {
-      "id": "imitation-animal-skin-carpet-non-slip-co",
-      "title": "Non-Slip Animal Skin Pattern Area Rug",
-      "category": "Home Decor",
-      "desc": "large tiger size 175x210cm",
-      "features": [],
-      "image": "assets/store/imitation-animal-skin-carpet-non-slip-co.jpg",
-      "url": "https://jvtesw-cg.myshopify.com/products/imitation-animal-skin-carpet-non-slip-cow-zebra-striped-area-rugs-and-carpets-for-home-living-room-bedroom-floor-mat"
-    },
-    {
-      "id": "kitchen-floor-mat-large-home-living-room",
-      "title": "Large Home Floor Mat",
-      "category": "Home Decor",
-      "desc": "Kitchen Area Rugs Large Home Living Room Bedroom Bathroom Carpet Decoration Print Stone Bamboo Lotus Pray Floor Mat…",
-      "features": [
-        "2) Size maybe 1-3 cm error due to hand measure.",
-        "3) Folding packaging, there may be creases, placed for a few days will slowly disappear 4) We will ship within 2-7 business days after the…",
-        "Make sure your address and phone number are correct before you buy.",
-        "The thickness approx 8mm."
-      ],
-      "image": "assets/store/kitchen-floor-mat-large-home-living-room.jpg",
-      "url": "https://jvtesw-cg.myshopify.com/products/kitchen-floor-mat-large-home-living-room-bedroom-bathroom-carpet-decoration-print-stone-bamboo-lotus-pray-area-rugs"
-    },
-    {
-      "id": "4x5-9-fluffy-soft-area-rugs-for-bedrooms",
-      "title": "Fluffy Soft Washable Area Rug, Grey",
-      "category": "Comfort & Storage",
-      "desc": "To ensure safe shipping, this product is vacuum-packed.",
-      "features": [
-        "[Super Soft and Comfortable] This shaggy rug is made of soft high fluff and memory foam, which makes the carpet soft to the touch, warm and…",
-        "[Reliable Non-Slip Backing] Safety is paramount with OLANLY Bedroom Rugs. Our rug uses non-woven fabric and a point plastic anti-slip base…",
-        "[Ideal Option for Home Decor] The plush rug is made of soft, skin-friendly polyester and comes in a variety of colors and sizes, ideal for…",
-        "[Warm Tips on Care] For daily use, we suggest using a low-power vacuum cleaner to vacuum the rug for quick cleaning or wiping the rugs with…",
-        "[Usage Instructions] OLANLY rugs are vacuum-compressed and packaged for transportation convenience. They may appear less fluffy and have…"
-      ],
-      "image": "assets/store/4x5-9-fluffy-soft-area-rugs-for-bedrooms.jpg",
-      "url": "https://jvtesw-cg.myshopify.com/products/4x5-9-fluffy-soft-area-rugs-for-bedrooms-grey-washable-rug"
-    },
-    {
-      "id": "solar-garden-lights-outdoor-decor-moon-f",
-      "title": "Solar Garden Moon Fairy Crackle Glass Lights",
-      "category": "Home Decor",
-      "desc": "Solar Garden Moon Fairy Crackle Glass Lights",
-      "features": [],
-      "image": "assets/store/solar-garden-lights-outdoor-decor-moon-f.jpg",
-      "url": "https://jvtesw-cg.myshopify.com/products/solar-garden-lights-outdoor-decor-moon-fairy-crackle-glass-lights-warm-white-led-metal-stake-ornament-unique-gift-for-gardening"
-    },
-    {
-      "id": "4-pcs-solar-deck-lights-led-outdoor-ligh",
-      "title": "4-Piece Solar Deck Lights, Outdoor",
-      "category": "Home Decor",
-      "desc": "【Waterproof & Durable】 Solar powered lights outdoor is made of high-strength PC material and IP68 waterproof design…",
-      "features": [
-        "【Waterproof & Durable】 Solar powered lights outdoor is made of high-strength PC material and IP68 waterproof design, can withstand all…",
-        "【Easy Installation】 NO NEED SCREWS.The solar lights outdoor for steps includes super-strong nano adhesive,can be easily installed anywhere…",
-        "【Automatic On/Off】 Features light sensor technology,The solar step lights absorb sun throughout the day and turn on automatically at night…"
-      ],
-      "image": "assets/store/4-pcs-solar-deck-lights-led-outdoor-ligh.jpg",
-      "url": "https://jvtesw-cg.myshopify.com/products/4-pcs-solar-deck-lights-led-outdoor-lighting-garden-step-waterproof-for-stairs-patio-pathway-yard-fence-wall-lamp"
-    },
-    {
-      "id": "antminer-maquina-de-mineria-de-bitcoin-s",
-      "title": "Antminer S19 95T Bitcoin Miner",
-      "category": "Home Tech",
-      "desc": "Antminer S19 95T Bitcoin Miner",
-      "features": [],
-      "image": "assets/store/antminer-maquina-de-mineria-de-bitcoin-s.jpg",
-      "url": "https://jvtesw-cg.myshopify.com/products/antminer-maquina-de-mineria-de-bitcoin-s19-95t-95th-90t-bitmain-ant-mainer-asic-antmin-usado-nuevo-2024"
-    },
-    {
-      "id": "baby-groot-pens-holder-or-groot-planter-",
-      "title": "Baby Groot Pen Holder / Planter Pot",
-      "category": "Home Decor",
-      "desc": "Decorate Baby Groot's Hair Style By Your Own Imagination!",
-      "features": [
-        "Groot Action Figures Flower Pot: Best Christmas gift idea for your friends featuring the beloved character design",
-        "Product Specifications: Made from PVC material with a height of 6 inches and weight of 12.76 ounces",
-        "Living Environment Enhancement: Grow succulents and flowers to make your living space more vibrant and lively",
-        "Versatile Pen Holder Function: Groot action figures design can be placed on your desk to organize pens or small items as cute collectibles",
-        "Thoughtful Design Details: Features a hollow bottom for stability and includes a small drainage hole at the base to allow excess water to…",
-        "Multi-Purpose Functionality: Works as a flowerpot, pen holder, or decorative piece for home, garden, patio, office, or car"
-      ],
-      "image": "assets/store/baby-groot-pens-holder-or-groot-planter-.jpg",
-      "url": "https://jvtesw-cg.myshopify.com/products/baby-groot-pens-holder-or-groot-planter-pot-perfect-for-tiny-succulents-6"
-    },
-    {
-      "id": "wooden-wall-floating-shelves-2-sets-shel",
-      "title": "Wooden Wall Floating Shelves, 2 Sets Shelves for Wall Décor, Bathroom",
-      "category": "Home Decor",
-      "desc": "Place your favorite plants and other objects, and use our macrame wall hanging shelf.",
-      "features": [
-        "You can enjoy the rustic look throughout the home.",
-        "When you fill the blank space with plants, books, etc.it will add a beautiful touch to any wall in your home.",
-        "Application：These hanging wall shelves can be hung on the wall, also used as a plant hanger.",
-        "They are the perfect addition to your living room, bathroom, bedroom, kitchen,nursery, apartment and office.",
-        "Great for any room decor.",
-        "Great Gift: The hanging shelf is very suitable for people who love boho style."
-      ],
-      "image": "assets/store/wooden-wall-floating-shelves-2-sets-shel.jpg",
-      "url": "https://jvtesw-cg.myshopify.com/products/wooden-wall-floating-shelves-2-sets-shelves-for-wall-decor-bathroom-storage-bedroom-living-room"
-    },
-    {
-      "id": "54pcs-emoji-fridge-magnets-cute-locker-m",
-      "title": "54PCS Emoji Fridge Magnets Cute Locker Magnets with 24 Stickers",
-      "category": "Home Decor",
-      "desc": "Get 54 round emoji fridge magnets and 24 matching stickers in one storage-ready gift box, giving you plenty of…",
-      "features": [
-        "54 EMOJI MAGNETS + 24 STICKERS: Get 54 round emoji fridge magnets and 24 matching stickers in one storage-ready gift box, giving you plenty…",
-        "Holds Notes And Photos: The soft magnetic backing keeps reminders, lists and photos on compatible metal surfaces. Under ideal test…",
-        "Glossy, Flexible Design: A gloss film helps protect the printed surface from everyday handling, while the soft backing sits flat against…",
-        "Make Messages More Expressive: Pair different expressions with schedules, chores, classroom activities or family photos to turn ordinary…",
-        "Easy Storage And Gifting: The reusable box makes storage easy and helps keep the magnets organized between uses. With 54 emoji magnets and…"
-      ],
-      "image": "assets/store/54pcs-emoji-fridge-magnets-cute-locker-m.jpg",
-      "url": "https://jvtesw-cg.myshopify.com/products/54pcs-emoji-fridge-magnets-cute-locker-magnets-with-24-stickers"
-    },
-    {
-      "id": "multipurpose-food-storage-containers-set",
-      "title": "Multipurpose Food Storage Containers Set - Clear Jars with Lids for",
-      "category": "Kitchen & Bath",
-      "desc": "Keep Your Kitchen Neat and Your Food Fresh with the Food Storage Containers Set!",
-      "features": [
-        "Material: Durable PP Plastic",
-        "Sizes Available: 460ml, 600ml, 900ml, 1300ml, 1900ml",
-        "Clear design, seal-tight lids, moisture-proof",
-        "Style 1: 11.5cm x 10.2cm x 6.5cm (460ml)",
-        "Style 2: 11.5cm x 10.5cm x 9cm (600ml)",
-        "Style 3: 11.5cm x 10.2cm x 12cm (900ml)"
-      ],
-      "image": "assets/store/multipurpose-food-storage-containers-set.jpg",
-      "url": "https://jvtesw-cg.myshopify.com/products/multipurpose-food-storage-containers-set-clear-jars-with-lids-for-cereal-candy-and-dry-goods"
-    },
-    {
-      "id": "household-pure-cotton-towel-towel-bath-t",
-      "title": "Household Pure Cotton Towel Towel Bath Towel",
-      "category": "Kitchen & Bath",
-      "desc": "Skin-friendly cotton yarn cut towel.",
-      "features": [
-        "Skin-friendly cotton yarn cut towel",
-        "Multi-color optional",
-        "Soft towel, care for your skin",
-        "Cotton yarn-dyed fabric Product information: Material: Cotton Yarn technology: yarn Yarn specification: 32 strands Production process…",
-        "Allow manual measurement error of 1-4cm.",
-        "Different monitors display different colors, so the colors may be slightly different from the actual colors."
-      ],
-      "image": "assets/store/household-pure-cotton-towel-towel-bath-t.jpg",
-      "url": "https://jvtesw-cg.myshopify.com/products/household-pure-cotton-towel-towel-bath-towel"
-    },
-    {
-      "id": "400ml-heat-resistant-manual-coffee-pot-p",
-      "title": "400Ml Heat Resistant Manual Coffee Pot Practical Coffee Maker",
-      "category": "Kitchen & Bath",
-      "desc": "Coffee Pot Material : Glass Size : As show in the picture Weight : 229g/276g Color : As show in the picture Package…",
-      "features": [],
-      "image": "assets/store/400ml-heat-resistant-manual-coffee-pot-p.jpg",
-      "url": "https://jvtesw-cg.myshopify.com/products/400ml-heat-resistant-manual-coffee-pot-practical-coffee-maker-paperless-reusable-stainless-steel-filter-glass-coffee-pot"
-    },
-    {
-      "id": "tokyo-ghoul-mouse-pad-90x30mm-pad-to-mou",
-      "title": "Tokyo Ghoul Mouse Pad 90X30Mm Pad to Mouse Notbook Computer Mousepad",
-      "category": "Home Tech",
-      "desc": "All products are manual measurement, please allow 1-2cm deviation.",
-      "features": [
-        "warning: All products are manual measurement, please allow 1-2cm deviation. Lock edge Suture place like this is normal,Do not buy if you…",
-        "Item will be shipped within 2-3 working days after we received clear payment.",
-        "Please make sure your shipping address before purchase, item will send to the order address.",
-        "All items will check carefully before sending out.",
-        "Our prices do NOT include any custom duty or tax.",
-        "Item ship on weekdays only and we cannot offer Saturday, Sunday or holiday delivery. 6 Delivery Tiem -. Note that delivery times may vary."
-      ],
-      "image": "assets/store/tokyo-ghoul-mouse-pad-90x30mm-pad-to-mou.jpg",
-      "url": "https://jvtesw-cg.myshopify.com/products/tokyo-ghoul-mouse-pad-90x30mm-pad-to-mouse-notbook-computer-mousepad-cool-gaming-padmouse-gamer-keyboard-mouse-mats"
-    },
-    {
-      "id": "new-sport-shorts-men-sportswear-2-in-1-s",
-      "title": "NEW Sport Shorts Men Sportswear 2 in 1 Short Pants Double-Deck Beach",
-      "category": "Fashion & Watches",
-      "desc": "NEW Sport Shorts Men Sportswear 2 in 1 Short Pants Double-Deck Beach",
-      "features": [],
-      "image": "assets/store/new-sport-shorts-men-sportswear-2-in-1-s.jpg",
-      "url": "https://jvtesw-cg.myshopify.com/products/new-sport-shorts-men-sportswear-2-in-1-short-pants-double-deck-beach-bottoms-summer-gym-fitness-training-jogging-running-shorts"
-    },
-    {
-      "id": "fashion-man-watch-waterproof-luminous-da",
-      "title": "Fashion Man Watch Waterproof Luminous Date Week Business Men Watch",
-      "category": "Fashion & Watches",
-      "desc": "Package Included: 1 x POEDAGAR Clock 1 x POEDAGAR Box 1 x Watch wipe 1 x Warranty card After-Sales Service: If you have…",
-      "features": [],
-      "image": "assets/store/fashion-man-watch-waterproof-luminous-da.jpg",
-      "url": "https://jvtesw-cg.myshopify.com/products/fashion-man-watch-waterproof-luminous-date-week-business-men-watch-high-quality-leather-mens-quartz-wristwatches-reloj"
+      "url": "https://jvtesw-cg.myshopify.com/products/s-k80-75-keyboard-with-color-oled-display-mechanical-gaming-keyboard-hot-swap-keyboard-gasket-mount-rgb-custom-keyboard",
+      "price": "60.53",
+      "price_from": true
     },
     {
       "id": "poedagar-top-vintage-men-clcok-fashion-q",
       "title": "POEDAGAR Top Vintage Men Clcok Fashion Quartz Leather Men'S Watches",
       "category": "Fashion & Watches",
-      "desc": "SPECIFICATIONS Band Length : 24 Band Material Type : Leather Band Width : 20 to 24 mm Battery Included : Yes Boxes &…",
+      "desc": "POEDAGAR Top Vintage Men Clcok Fashion Quartz Leather Men'S Watches",
       "features": [],
       "image": "assets/store/poedagar-top-vintage-men-clcok-fashion-q.jpg",
-      "url": "https://jvtesw-cg.myshopify.com/products/poedagar-top-vintage-men-clcok-fashion-quartz-leather-mens-watches-date-chronograph-waterproof-luminous-business-man-wristwatch"
+      "url": "https://jvtesw-cg.myshopify.com/products/poedagar-top-vintage-men-clcok-fashion-quartz-leather-mens-watches-date-chronograph-waterproof-luminous-business-man-wristwatch",
+      "price": "42.25",
+      "price_from": false
     },
     {
-      "id": "optimum-nutrition-opti-men-supplement-15",
-      "title": "Optimum Nutrition Opti-Men Supplement, 150 Count",
-      "category": "Health & Fitness",
-      "desc": "About this item Reformulated with 1,500 IU of vitamin D New easy to swallow tablets Take 3 times daily, 1 tablet with…",
+      "id": "ocean-avalanche-blue-ikat-luxury-outdoor",
+      "title": "Ocean Avalanche Blue Ikat Luxury Outdoor/Indoor Throw Pillow",
+      "category": "Comfort & Storage",
+      "desc": "The perfect complement to your outdoor furniture, this bold luxury pillow is made from durable Sunbrella-an…",
       "features": [
-        "Reformulated with 1,500 IU of vitamin D",
-        "New easy to swallow tablets",
-        "Take 3 times daily, 1 tablet with morning, noon and evening meals"
+        "Insert included.plutus ocean avalanche blue ikat luxury throw pillow.",
+        "The fabric of this luxury pillow is a blend of Sunbrella Acrylic.",
+        "Colors: Blue *Fabric Origin: United States.",
+        "Pillows are Handmade in USA *Double Sided pillow *Invisible zipper enclosure for a tailored look *All seams are over-locked and stitched…"
       ],
-      "image": "assets/store/optimum-nutrition-opti-men-supplement-15.jpg",
-      "url": "https://jvtesw-cg.myshopify.com/products/optimum-nutrition-opti-men-supplement-150-count"
+      "image": "assets/store/ocean-avalanche-blue-ikat-luxury-outdoor.jpg",
+      "url": "https://jvtesw-cg.myshopify.com/products/ocean-avalanche-blue-ikat-luxury-outdoor-indoor-throw-pillow",
+      "price": "260.72",
+      "price_from": true
     },
     {
-      "id": "optimum-nutrition-opti-women-vitamin-c-z",
-      "title": "Optimum Nutrition Opti-Women, Vitamin C, Zinc and Vitamin D for",
-      "category": "Health & Fitness",
-      "desc": "About this item One 120 tablet container (60 day supply) of Optimum Nutrition Opti-Women Daily Multivitamin for Women…",
-      "features": [
-        "One 120 tablet container (60 day supply) of Optimum Nutrition Opti-Women Daily Multivitamin for Women",
-        "Each 2-tablet serving of Optimum Nutrition Opti-Women daily multivitamin can be taken all at one meal or spread across meals throughout the…",
-        "Contains vitamins C, D and zinc for immune support, and B vitamins to support cellular energy and metabolism; B vitamins support the…",
-        "Immune support supplement contains iron and folate",
-        "This formula includes botanical extracts that can be built on through consumption of a healthy, balanced diet"
-      ],
-      "image": "assets/store/optimum-nutrition-opti-women-vitamin-c-z.jpg",
-      "url": "https://jvtesw-cg.myshopify.com/products/optimum-nutrition-opti-women-vitamin-c-zinc-and-vitamin-d-for-immune-support-womens-daily-multivitamin-supplement-with-iron-capsules-120-count"
-    },
-    {
-      "id": "optimum-nutrition-100-pure-micronized-25",
-      "title": "Optimum Nutrition 100% Pure Micronized 2500Mg Creatine Monohydrate",
-      "category": "Health & Fitness",
-      "desc": "eBay 2.5g pure creatine monohydrate per serving (2,500mg per serving is the same as 2.5g) 300 Capsules per container…",
-      "features": [
-        "2.5g pure creatine monohydrate per serving (2,500mg per serving is the same as 2.5g)",
-        "300 Capsules per container",
-        "Supports muscle size, strength, and power when combined with high intensity activities",
-        "Convenient capsules 2 cap serving size makes taking creatine quick and easy without the need to mix a powder into a liquid",
-        "Optimum Nutrition is the World's #1 Sports Nutrition Brand. Banned substance tested - Highest quality control measures so you feel…"
-      ],
-      "image": "assets/store/optimum-nutrition-100-pure-micronized-25.jpg",
-      "url": "https://jvtesw-cg.myshopify.com/products/optimum-nutrition-100-pure-micronized-2500mg-creatine-monohydrate-300-capsules"
-    },
-    {
-      "id": "syntha-6-premium-protein-powder-6g-fiber",
-      "title": "SYNTHA-6 Premium Protein Powder, 6G Fiber, Whey Isolate, 48 Servings",
-      "category": "Health & Fitness",
-      "desc": "SYNTHA-6 is an ultra-premium protein powder with 22g protein per serving and is BSN's best-tasting protein on the…",
-      "features": [
-        "Ridiculously Delicious : BSN broke through the whey protein flavor barrier once and for all with the introduction of SYNTHA-6",
-        "22G Protein Matrix : consisting of whey protein concentrate, whey protein isolate, calcium caseinate, micellar casein, milk protein…",
-        "2-3G Sugar : while the taste is mind blowing, Syntha-6 contains 2-3g of sugar per serving depending on flavor",
-        "Use Any Time Of Day : post workout, between meals, as a snack, or as a treat, it doesn’t matter. BSN Syntha-6 was formulated to be your any…",
-        "Protein Supplementation : Promotes muscle protein synthesis and recovery support"
-      ],
-      "image": "assets/store/syntha-6-premium-protein-powder-6g-fiber.jpg",
-      "url": "https://jvtesw-cg.myshopify.com/products/syntha-6-premium-protein-powder-6g-fiber-whey-isolate-48-servings"
-    },
-    {
-      "id": "mother-bucker-pre-workout",
-      "title": "Mother Bucker Pre-Workout",
-      "category": "Health & Fitness",
-      "desc": "Experience a wave of extreme, explosive energy surge through your veins, fueling the body for maximum intensity on…",
-      "features": [
-        "relentless stamina and endurance allowing for peak performance throughout the whole workout...maximizeblood flow and hypertrophy for…",
-        "unbreakable focus and acrystal clear mindset so you can push boundaries and hit every rep with peak intensity...",
-        "extreme muscle fullness, where every fiber expands and swells with Herculean power...",
-        "That massive surge of energy and motivation that made you feel like a demigod that could lift the entire gym.",
-        "The feeling of immense focus that had you fully dialed in and ready to decimate the whole workout.",
-        "The incredibly exciting feeling of mass amounts of fresh blood and oxygen coursing through your veins as you blow up your arms, shoulders…"
-      ],
-      "image": "assets/store/mother-bucker-pre-workout.jpg",
-      "url": "https://jvtesw-cg.myshopify.com/products/mother-bucker-pre-workout"
-    },
-    {
-      "id": "vaite-mens-face-skin-moisturizer-with-co",
-      "title": "VAITE Mens Face Skin Moisturizer with Collagen, Retinol Ant-Aging",
-      "category": "Health & Fitness",
-      "desc": "VAITE Mens Face Skin Moisturizer with Collagen, Retinol Ant-Aging",
+      "id": "burning-sun-tapestry-wall-hanging-flower",
+      "title": "Burning Sun Tapestry Wall Hanging",
+      "category": "Home Decor",
+      "desc": "Burning Sun Tapestry Wall Hanging",
       "features": [],
-      "image": "assets/store/vaite-mens-face-skin-moisturizer-with-co.jpg",
-      "url": "https://jvtesw-cg.myshopify.com/products/vaite-mens-face-skin-moisturizer-with-collagen-retinol-ant-aging-anti-wrinkle-under-the-eyes-mens-cream-care-for-face-with-hi"
+      "image": "assets/store/burning-sun-tapestry-wall-hanging-flower.jpg",
+      "url": "https://jvtesw-cg.myshopify.com/products/burning-sun-tapestry-wall-hanging-flower-vine-retro-mysterious-hippie-bohemian-witchcraft-home-decor",
+      "price": "4.63",
+      "price_from": true
     },
     {
-      "id": "king-queen-matching-couple-hoodie-set-hi",
-      "title": "King Queen Matching Couple Hoodie Set His Hers Valentine'S Day",
-      "category": "Fashion & Watches",
-      "desc": "Express your royal connection with the Tstars King & Queen Matching Couple Hoodie Set.",
-      "features": [
-        "Crafted for couples who take pride in their partnership, these hoodies feature bold \"King\" and \"Queen\" prints that stand out.",
-        "Made from a comfortable cotton-polyester blend, they provide warmth without compromising on breathability.",
-        "Whether you're out on a casual date or relaxing at home, these hooded sweatshirts are designed to keep you cozy and stylish.",
-        "The unisex design ensures a relaxed fit for both him and her, making it a versatile addition to any couple's wardrobe.",
-        "The durable print maintains its quality through regular wear and washing, allowing you to showcase your bond time and again.",
-        "These pullover hoodies are ideal for everyday wear, couple photoshoots, or gifting to boyfriends, girlfriends, husbands, and wives who…"
-      ],
-      "image": "assets/store/king-queen-matching-couple-hoodie-set-hi.jpg",
-      "url": "https://jvtesw-cg.myshopify.com/products/king-queen-matching-couple-hoodie-set-his-hers-valentines-day"
+      "id": "fairytale-dreamy-mushroom-tapestry-psych",
+      "title": "Fairytale Mushroom Tapestry",
+      "category": "Home Decor",
+      "desc": "Fairytale Mushroom Tapestry",
+      "features": [],
+      "image": "assets/store/fairytale-dreamy-mushroom-tapestry-psych.jpg",
+      "url": "https://jvtesw-cg.myshopify.com/products/fairytale-dreamy-mushroom-tapestry-psychedelic-carpet-bohemian-home-decor-witchcraft-hippie-kids-room-decor-wall-tapestries",
+      "price": "4.54",
+      "price_from": true
     },
     {
-      "id": "turmeric-soap-lemon-soap-acid-soap-ginge",
-      "title": "Turmeric Soap, Lemon Soap, Acid Soap, Ginger Hand Made Cold Shower",
-      "category": "Kitchen & Bath",
-      "desc": "welcome to our store:.",
-      "features": [
-        "Before purchasing, please become a follower, receive the coupon and purchase again, 2, 1 day -2 days delivery, if you still have not…",
-        "The product will be packed with a air bag/yellow bubble plastic envelope to avoid damage during transportion.",
-        "About Product: All products are 100% brand new, workable and checked carefully before sending out.",
-        "Please clean it and dry it naturally, the smell will disappear soon.) About Shipment: We will send out order within 2 workdays.",
-        "The delivery time will vary according to different countries and will be affected by weather,pubilc holidays and so on.",
-        "Please use the product according to the product manual first, if you still cannot use it, please contact customer service in time, please…"
-      ],
-      "image": "assets/store/turmeric-soap-lemon-soap-acid-soap-ginge.jpg",
-      "url": "https://jvtesw-cg.myshopify.com/products/turmeric-soap-lemon-soap-acid-soap-ginger-hand-made-cold-shower-and-facial"
+      "id": "meditators-tapestry-wall-hanging-viking-",
+      "title": "Meditator's Tapestry Wall Hanging",
+      "category": "Home Decor",
+      "desc": "Meditator's Tapestry Wall Hanging",
+      "features": [],
+      "image": "assets/store/meditators-tapestry-wall-hanging-viking-.jpg",
+      "url": "https://jvtesw-cg.myshopify.com/products/meditators-tapestry-wall-hanging-viking-hippie-bohemian-psychedelic-mystical-witchcraft-art-home-decor",
+      "price": "4.63",
+      "price_from": true
+    },
+    {
+      "id": "modern-led-ceiling-lamp-living-room-dini",
+      "title": "Modern LED Ceiling Lamp Living Room Dining Bedroom Ceiling Chandelier",
+      "category": "Home Decor",
+      "desc": "Modern Creative Black Or Gold LED Chandelier Light Material: Iron + Acrylic + Aluminum Light source: LED ( including…",
+      "features": [],
+      "image": "assets/store/modern-led-ceiling-lamp-living-room-dini.jpg",
+      "url": "https://jvtesw-cg.myshopify.com/products/modern-led-ceiling-lamp-living-room-dining-bedroom-ceiling-chandelier-lights-nordic-design-home-decor-indoor-lighting",
+      "price": "59.28",
+      "price_from": true
+    },
+    {
+      "id": "modern-led-ceiling-lights-nodic-home-dec",
+      "title": "Modern LED Ceiling Lights Nodic Home Decor Accessories for Bedroom",
+      "category": "Home Decor",
+      "desc": "Modern LED Ceiling Lights Nodic Home Decor Accessories for Bedroom",
+      "features": [],
+      "image": "assets/store/modern-led-ceiling-lights-nodic-home-dec.jpg",
+      "url": "https://jvtesw-cg.myshopify.com/products/modern-led-ceiling-lights-nodic-home-decor-accessories-for-bedroom-living-dining-room-corridor-lamps-round-copper-decor-fixture",
+      "price": "19.67",
+      "price_from": true
     }
   ]
 }

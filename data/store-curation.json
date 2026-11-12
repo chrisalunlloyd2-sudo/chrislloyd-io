@@ -1,281 +1,40 @@
 {
   "store_base": "https://jvtesw-cg.myshopify.com",
-  "categories": [
-    "Painting",
-    "After Painting",
-    "Home Tech",
-    "Home Decor",
-    "Comfort & Storage",
-    "Kitchen & Bath",
-    "Fashion & Watches",
-    "Health & Fitness"
-  ],
-  "items": [
-    {
-      "handle": "scotch-blue-painters-tape-0-94-in-x-60-yd-6-pack-original-multi-surface-paint-supplies",
-      "category": "Painting",
-      "title": "Scotch Blue Painter's Tape, 6-Pack"
-    },
-    {
-      "handle": "paint-roller-kit-27-piece-paint-supplies-94-paint-rollers-1-4ft-extension-pole-paint-brushes-for-walls-microfiber-roller-covers-for-professional-painting-orange",
-      "category": "Painting",
-      "title": "27-Piece Paint Roller Kit with Extension Pole"
-    },
-    {
-      "handle": "antibacterial-wall-paint-strong-repair-latex-paint-with-roller-brush-for-living-room-kitchen",
-      "category": "Painting",
-      "title": "Wall Repair Latex Paint with Roller"
-    },
-    {
-      "handle": "strong-magnetic-wristband-portable-tool-bag-for-holding-screws-nails-nuts-bolts-and-drill-bits",
-      "category": "Painting",
-      "title": "Magnetic Wristband Tool Holder"
-    },
-    {
-      "handle": "cv1000-clear-gloss-varnish-quart",
-      "category": "After Painting",
-      "title": "Clear Gloss Varnish, Quart"
-    },
-    {
-      "handle": "dimmable-candle-warmer-lamp-efficient-flame-free-fragrance",
-      "category": "After Painting",
-      "title": "Dimmable Flame-Free Candle Warmer Lamp"
-    },
-    {
-      "handle": "peppermint-candle-soy-wax-scented-candles-scented-candles-for-home-7oz",
+  "overrides": {
+    "peppermint-candle-soy-wax-scented-candles-scented-candles-for-home-7oz": {
       "category": "After Painting",
       "title": "Peppermint Soy Wax Candle, 7 oz"
     },
-    {
-      "handle": "intelligent-human-body-induction-led-night-light-rechargeable-wall-light-for-corridor-cabinet-and-toilet",
-      "category": "Home Tech",
-      "title": "Motion-Sensor Rechargeable LED Night Light"
-    },
-    {
-      "handle": "retro-portable-wireless-bluetooth-speaker-high-quality-powerful-stereo-sound-box-vintage-fm-rechargeable-mp3-player",
+    "retro-portable-wireless-bluetooth-speaker-high-quality-powerful-stereo-sound-box-vintage-fm-rechargeable-mp3-player": {
       "category": "Home Tech",
       "title": "Retro Portable Bluetooth Speaker"
     },
-    {
-      "handle": "modern-led-wall-lamp-minimalist-art-design-for-bedroom-living-room-and-bathroom-gold-black",
-      "category": "Home Decor",
-      "title": "Modern Minimalist LED Wall Lamp"
-    },
-    {
-      "handle": "star-projector-constellation-night-light",
-      "category": "Home Decor",
-      "title": "Star Projector Night Light"
-    },
-    {
-      "handle": "dali-melting-clock",
-      "category": "Home Decor",
-      "title": "Dali Melting Clock"
-    },
-    {
-      "handle": "paint-roller-kit-with-extension-pole-2-4ft-adjustable-pole-professional-27-piece-paint-kit-49-paint-rollers-paint-brushes-for-walls-works-with-all-latex-oil-based-paints-and-wood-finishes",
-      "category": "Painting",
-      "title": "Paint Roller Kit with Extension Pole, 2-4 ft"
-    },
-    {
-      "handle": "gamblin-gamvar-varnish-brush-50mm-gb01150",
-      "category": "Painting",
-      "title": "Gamblin Gamvar Varnish Brush, 50 mm"
-    },
-    {
-      "handle": "mini-wireless-laser-projection-keyboard-bluetooth-virtual-keyboard-mouse-function-for-laptop-smartphone-keyboard-projector",
-      "category": "Home Tech",
-      "title": "Mini Wireless Laser Projection Keyboard"
-    },
-    {
-      "handle": "s-k80-75-keyboard-with-color-oled-display-mechanical-gaming-keyboard-hot-swap-keyboard-gasket-mount-rgb-custom-keyboard",
+    "s-k80-75-keyboard-with-color-oled-display-mechanical-gaming-keyboard-hot-swap-keyboard-gasket-mount-rgb-custom-keyboard": {
       "category": "Home Tech",
       "title": "S-K80 75% Keyboard with Color OLED Display"
     },
-    {
-      "handle": "x-41-usb-wired-rgb-gaming-mouse-24000-dpi-sg8960-10-buttons-programmable-game-optical-mice-for-computer-pc-laptop",
-      "category": "Home Tech",
-      "title": "X-41 USB Wired RGB Gaming Mouse"
-    },
-    {
-      "handle": "908s-80w-electric-digital-soldering-iron-station-220v-110v-temperature-adjustable-welding-soldering-tips-tools-accessories",
-      "category": "Home Tech",
-      "title": "908S 80W Digital Soldering Iron Station"
-    },
-    {
-      "handle": "d5-starry-moon-lamp-8cm-led-night-light-with-stand-perfect-for-bedroom-decor-and-gifts",
-      "category": "Home Decor",
-      "title": "D5 Starry Moon Lamp, 8 cm"
-    },
-    {
-      "handle": "high-heel-shoe-wine-bottle-holder",
-      "category": "Home Decor",
-      "title": "High Heel Shoe Wine Bottle Holder"
-    },
-    {
-      "handle": "5-pcs-shaggy-duvet-cover-bedding-set-long-faux-fur-luxury-ultra-soft-cozy-aqua-king-california-king",
-      "category": "Comfort & Storage",
-      "title": "5-Piece Shaggy Duvet Cover Bedding Set"
-    },
-    {
-      "handle": "paint-brush-2-5-inch-angled-synthetic-paint-brush-for-walls",
-      "category": "Painting",
-      "title": "Angled Paint Brush, 2.5 Inch"
-    },
-    {
-      "handle": "18-inch-microfiber-paint-roller-covers-6-pack-3-8-nap",
-      "category": "Painting",
-      "title": "18 Inch Microfiber Paint Roller Covers, 6-Pack"
-    },
-    {
-      "handle": "3folding-keyboard-mini-wireless-keyboard-foldable-dual-bluetooth-keyboard-with-touchpad-for-windows-android-ios-ipad-phone",
-      "category": "Home Tech",
-      "title": "Foldable Mini Wireless Bluetooth Keyboard"
-    },
-    {
-      "handle": "2-pcs-for-airtag-wallet-holder-card-case-for-airtags-credit-card-size-with-keychain-slim-safety-anti-lost-for-purse-backpack-handbag-clutch-black",
-      "category": "Home Tech",
-      "title": "AirTag Wallet Holder Card Case, 2-Pack"
-    },
-    {
-      "handle": "shelf-without-drilling-shampoo-holder-bathroom-wall-floating-white-black-shelves-stick-bath-organizer-for-kitchen-accessories",
-      "category": "Comfort & Storage",
-      "title": "No-Drill Floating Shelf and Shampoo Holder"
-    },
-    {
-      "handle": "macrame-hanging-shelf-boho-wall-decor-bedroom-1-pc-rustic-wood-floating-shelves-for-room-nursery-bathroom-living-room-college",
-      "category": "Home Decor",
-      "title": "Macrame Hanging Shelf, Boho Wall Decor"
-    },
-    {
-      "handle": "punch-free-floating-shelves-for-wall-storage-self-adhesive-rack-20-50cm-kitchen-home-decor-bathroom-accessorie-modern-matt-black",
-      "category": "Comfort & Storage",
-      "title": "Punch-Free Self-Adhesive Floating Shelves"
-    },
-    {
-      "handle": "imitation-animal-skin-carpet-non-slip-cow-zebra-striped-area-rugs-and-carpets-for-home-living-room-bedroom-floor-mat",
-      "category": "Home Decor",
-      "title": "Non-Slip Animal Skin Pattern Area Rug"
-    },
-    {
-      "handle": "kitchen-floor-mat-large-home-living-room-bedroom-bathroom-carpet-decoration-print-stone-bamboo-lotus-pray-area-rugs",
-      "category": "Home Decor",
-      "title": "Large Home Floor Mat"
-    },
-    {
-      "handle": "4x5-9-fluffy-soft-area-rugs-for-bedrooms-grey-washable-rug",
-      "category": "Comfort & Storage",
-      "title": "Fluffy Soft Washable Area Rug, Grey"
-    },
-    {
-      "handle": "solar-garden-lights-outdoor-decor-moon-fairy-crackle-glass-lights-warm-white-led-metal-stake-ornament-unique-gift-for-gardening",
-      "category": "Home Decor",
-      "title": "Solar Garden Moon Fairy Crackle Glass Lights"
-    },
-    {
-      "handle": "4-pcs-solar-deck-lights-led-outdoor-lighting-garden-step-waterproof-for-stairs-patio-pathway-yard-fence-wall-lamp",
-      "category": "Home Decor",
-      "title": "4-Piece Solar Deck Lights, Outdoor"
-    },
-    {
-      "handle": "antminer-maquina-de-mineria-de-bitcoin-s19-95t-95th-90t-bitmain-ant-mainer-asic-antmin-usado-nuevo-2024",
+    "antminer-maquina-de-mineria-de-bitcoin-s19-95t-95th-90t-bitmain-ant-mainer-asic-antmin-usado-nuevo-2024": {
       "category": "Home Tech",
       "title": "Antminer S19 95T Bitcoin Miner"
     },
-    {
-      "handle": "baby-groot-pens-holder-or-groot-planter-pot-perfect-for-tiny-succulents-6",
-      "category": "Home Decor",
-      "title": "Baby Groot Pen Holder / Planter Pot"
-    },
-    {
-      "handle": "wooden-wall-floating-shelves-2-sets-shelves-for-wall-decor-bathroom-storage-bedroom-living-room",
-      "category": "Home Decor",
-      "title": "Wooden Wall Floating Shelves, 2 Sets Shelves for Wall Décor, Bathroom"
-    },
-    {
-      "handle": "54pcs-emoji-fridge-magnets-cute-locker-magnets-with-24-stickers",
-      "category": "Home Decor",
-      "title": "54PCS Emoji Fridge Magnets Cute Locker Magnets with 24 Stickers"
-    },
-    {
-      "handle": "multipurpose-food-storage-containers-set-clear-jars-with-lids-for-cereal-candy-and-dry-goods",
-      "category": "Kitchen & Bath",
-      "title": "Multipurpose Food Storage Containers Set - Clear Jars with Lids for"
-    },
-    {
-      "handle": "household-pure-cotton-towel-towel-bath-towel",
-      "category": "Kitchen & Bath",
-      "title": "Household Pure Cotton Towel Towel Bath Towel"
-    },
-    {
-      "handle": "400ml-heat-resistant-manual-coffee-pot-practical-coffee-maker-paperless-reusable-stainless-steel-filter-glass-coffee-pot",
-      "category": "Kitchen & Bath",
-      "title": "400Ml Heat Resistant Manual Coffee Pot Practical Coffee Maker"
-    },
-    {
-      "handle": "tokyo-ghoul-mouse-pad-90x30mm-pad-to-mouse-notbook-computer-mousepad-cool-gaming-padmouse-gamer-keyboard-mouse-mats",
-      "category": "Home Tech",
-      "title": "Tokyo Ghoul Mouse Pad 90X30Mm Pad to Mouse Notbook Computer Mousepad"
-    },
-    {
-      "handle": "new-sport-shorts-men-sportswear-2-in-1-short-pants-double-deck-beach-bottoms-summer-gym-fitness-training-jogging-running-shorts",
-      "category": "Fashion & Watches",
-      "title": "NEW Sport Shorts Men Sportswear 2 in 1 Short Pants Double-Deck Beach"
-    },
-    {
-      "handle": "fashion-man-watch-waterproof-luminous-date-week-business-men-watch-high-quality-leather-mens-quartz-wristwatches-reloj",
-      "category": "Fashion & Watches",
-      "title": "Fashion Man Watch Waterproof Luminous Date Week Business Men Watch"
-    },
-    {
-      "handle": "poedagar-top-vintage-men-clcok-fashion-quartz-leather-mens-watches-date-chronograph-waterproof-luminous-business-man-wristwatch",
+    "poedagar-top-vintage-men-clcok-fashion-quartz-leather-mens-watches-date-chronograph-waterproof-luminous-business-man-wristwatch": {
       "category": "Fashion & Watches",
       "title": "POEDAGAR Top Vintage Men Clcok Fashion Quartz Leather Men'S Watches"
     },
-    {
-      "handle": "optimum-nutrition-opti-men-supplement-150-count",
-      "category": "Health & Fitness",
-      "title": "Optimum Nutrition Opti-Men Supplement, 150 Count"
+    "fairytale-dreamy-mushroom-tapestry-psychedelic-carpet-bohemian-home-decor-witchcraft-hippie-kids-room-decor-wall-tapestries": {
+      "category": "Home Decor",
+      "title": "Fairytale Mushroom Tapestry",
+      "title_only": true
     },
-    {
-      "handle": "optimum-nutrition-gold-standard-100-whey-protein-powder-extreme-milk-chocolate-5-64-lbs",
-      "category": "Health & Fitness",
-      "title": "Optimum Nutrition Gold Standard 100% Whey Protein Powder, Extreme",
-      "hidden": true
+    "meditators-tapestry-wall-hanging-viking-hippie-bohemian-psychedelic-mystical-witchcraft-art-home-decor": {
+      "category": "Home Decor",
+      "title": "Meditator's Tapestry Wall Hanging",
+      "title_only": true
     },
-    {
-      "handle": "optimum-nutrition-opti-women-vitamin-c-zinc-and-vitamin-d-for-immune-support-womens-daily-multivitamin-supplement-with-iron-capsules-120-count",
-      "category": "Health & Fitness",
-      "title": "Optimum Nutrition Opti-Women, Vitamin C, Zinc and Vitamin D for"
-    },
-    {
-      "handle": "optimum-nutrition-100-pure-micronized-2500mg-creatine-monohydrate-300-capsules",
-      "category": "Health & Fitness",
-      "title": "Optimum Nutrition 100% Pure Micronized 2500Mg Creatine Monohydrate"
-    },
-    {
-      "handle": "syntha-6-premium-protein-powder-6g-fiber-whey-isolate-48-servings",
-      "category": "Health & Fitness",
-      "title": "SYNTHA-6 Premium Protein Powder, 6G Fiber, Whey Isolate, 48 Servings"
-    },
-    {
-      "handle": "mother-bucker-pre-workout",
-      "category": "Health & Fitness",
-      "title": "Mother Bucker Pre-Workout"
-    },
-    {
-      "handle": "vaite-mens-face-skin-moisturizer-with-collagen-retinol-ant-aging-anti-wrinkle-under-the-eyes-mens-cream-care-for-face-with-hi",
-      "category": "Health & Fitness",
-      "title": "VAITE Mens Face Skin Moisturizer with Collagen, Retinol Ant-Aging"
-    },
-    {
-      "handle": "king-queen-matching-couple-hoodie-set-his-hers-valentines-day",
-      "category": "Fashion & Watches",
-      "title": "King Queen Matching Couple Hoodie Set His Hers Valentine'S Day"
-    },
-    {
-      "handle": "turmeric-soap-lemon-soap-acid-soap-ginger-hand-made-cold-shower-and-facial",
-      "category": "Kitchen & Bath",
-      "title": "Turmeric Soap, Lemon Soap, Acid Soap, Ginger Hand Made Cold Shower"
+    "burning-sun-tapestry-wall-hanging-flower-vine-retro-mysterious-hippie-bohemian-witchcraft-home-decor": {
+      "category": "Home Decor",
+      "title": "Burning Sun Tapestry Wall Hanging",
+      "title_only": true
     }
-  ]
+  }
 }

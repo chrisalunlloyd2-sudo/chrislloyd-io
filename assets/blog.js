@@ -2,6 +2,14 @@
 (function () {
   "use strict";
 
+  var ready = window.i18nStrings || Promise.resolve();
+  function t(key, vars) {
+    if (window.t) return window.t(key, vars);
+    var s = key;
+    if (vars) for (var k in vars) s = s.split("{" + k + "}").join(vars[k]);
+    return s;
+  }
+
   function el(tag, cls, text) {
     var n = document.createElement(tag);
     if (cls) n.className = cls;
@@ -41,13 +49,13 @@
 
   function fmtDate(iso) {
     var d = new Date(iso + "T00:00:00");
-    return isNaN(d) ? iso : d.toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" });
+    return isNaN(d) ? iso : d.toLocaleDateString(window.i18n && window.i18n.lang === "fr" ? "fr-CA" : "en-GB", { day: "numeric", month: "long", year: "numeric" });
   }
 
   function renderIndex(posts) {
     var list = document.getElementById("post-list");
     if (!posts.length) {
-      list.appendChild(el("p", "section-note", "No posts yet."));
+      list.appendChild(el("p", "section-note", t("No posts yet.")));
       return;
     }
     posts.forEach(function (p) {
@@ -55,7 +63,7 @@
       art.appendChild(el("p", "blog-date", fmtDate(p.date)));
       art.appendChild(el("h3", null, p.title));
       art.appendChild(el("p", null, p.excerpt));
-      var a = el("a", null, "Read post →");
+      var a = el("a", null, t("Read post →"));
       a.href = "?post=" + encodeURIComponent(p.id);
       art.appendChild(a);
       list.appendChild(art);
@@ -101,7 +109,7 @@
     view.appendChild(el("p", "blog-date", fmtDate(p.date)));
     var paras = typeof p.body === "string" ? [p.body] : (p.body || []);
     paras.forEach(function (t) { view.appendChild(el("p", null, t)); });
-    var back = el("a", "back-link", "← All posts");
+    var back = el("a", "back-link", t("← All posts"));
     back.href = "blog.html";
     view.appendChild(back);
     applyPostSeo(p);
@@ -121,7 +129,7 @@
     })
     .catch(function (e) {
       var list = document.getElementById("post-list");
-      if (list) list.appendChild(el("p", "section-note", "Posts failed to load (" + e.message + ")."));
+      if (list) ready.then(function () { list.appendChild(el("p", "section-note", t("Posts failed to load ({e}).", { e: e.message }))); });
     });
 
   fetch("data/site.json").then(function (r) { return r.json(); }).then(function (s) {
