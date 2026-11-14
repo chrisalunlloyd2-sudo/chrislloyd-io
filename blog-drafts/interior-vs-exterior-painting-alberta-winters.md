@@ -8,16 +8,19 @@
     "alberta",
     "planning"
   ],
-  "seo_title": "Interior vs Exterior Painting in Alberta Winters \u2014 What Works, What Waits"
+  "seo_title": "Interior vs Exterior Painting in Alberta Winters — What Works, What Waits"
 }
 
 ---
 
 Exterior paint needs both surface and air temperatures inside the manufacturer's window, and in Edmonton that window shuts hard in October. The paint can surviving 5°C does not mean the surface does — north-facing siding can be a frost degree colder than the air.
 
-What exterior work still counts in late season: doors and storm doors (taken off and painted warm indoors), fascia on the sunny side during a dry afternoon stretch, and any masonry priming under a heat tent for a day-plus window. Everything else waits.
+What still counts in late season: doors and storm doors (taken off and painted warm indoors), fascia on the sunny side during a dry afternoon stretch, and masonry priming under a heat tent on a day-plus window. Everything else genuinely waits for spring.
 
-Interior winter work is the opposite story. Heating season means low humidity and fast, even curing — which is good for paint films but hard on patches, so plan two fill passes. And nobody wants windows open in January: pick low- or zero-VOC lines and run HRV/fan on continuous.
+Interior work is the opposite story, and this is the part most Edmonton homeowners miss: heating season is the best interior painting season. Air is low-humidity and dry, so paint films cure faster and more evenly than they do in a muggy July.
 
-Booking note: winter interior projects book out faster than summer ones — January and February repainting is when most people get quotes but the good slots go early. If you are planning a spring exterior repaint, the quote list opens around now too.
+The trade-off to plan around: fast curing is hard on patches. Spackle and drywall repairs can skin over before they're ready, so winter jobs plan for two fill passes instead of one — small patience, much better finish.
 
+And with windows shut until April, paint choice matters. Low- and zero-VOC lines exist for closed houses, and running the HRV or bath fans continuously during the job keeps air moving. That is a conversation worth having with whoever quotes the job.
+
+Bottom line: winter is for interiors, spring is for exteriors, and both get better results when scheduled for their season rather than forced against it. Winter interior slots book out early — January and February quotes pile up, but the good dates go to whoever asked first. If interior work is on your list, an early quote beats the January rush.

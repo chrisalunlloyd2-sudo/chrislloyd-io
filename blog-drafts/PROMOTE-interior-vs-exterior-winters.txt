@@ -1,0 +1,10 @@
+PROMOTION COMMAND for blog-drafts/interior-vs-exterior-painting-alberta-winters.md
+Run ONLY on explicit owner approval (task 022 blog doctrine). Then:
+  cd /root/chrislloyd-io
+  python3 scripts/add_post.py \
+    --title "Interior vs exterior painting through Alberta winters" \
+    --date <OWNERS-CHOSEN-DATE> \
+    --excerpt "Edmonton's shoulder seasons are short. What can realistically be painted outside in October, what should wait for spring, and why winter is actually the best time for interior work." \
+    --body-file blog-drafts/interior-vs-exterior-painting-alberta-winters-body.txt
+(body file = only the 6 body paragraphs AFTER the '---' divider; strip the front
+matter, excerpt and seo_title are read from the .md front matter by hand here.)
