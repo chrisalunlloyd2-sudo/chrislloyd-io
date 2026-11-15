@@ -123,3 +123,6 @@ library fails to load the rest of the site is unaffected.
   `data/site.json` as accounts get set up.
 - No credentials, payments, or analytics in this repo. Amazon links are
   affiliate links added via `data/shop.json`.
+## Roadmap
+`docs/PLAN-SITE-100.md` (2026-11-15): 30 improvements and a 100-step plan in 10 phases, local-SEO first.
+Owner-gated items (domain, Google Business Profile, photos, reviews) are marked; nothing is fabricated.
