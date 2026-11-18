@@ -75,9 +75,12 @@ Conversion and leads
 ## 100 steps in 10 phases (local-first; tick with a date)
 
 ### Phase 1: baseline (1-10)
-1. [ ] Run every scripts/test_*.py and test_*.js; record counts in docs/STATUS.md.
-2. [ ] docs/STATUS.md (dated: pages, languages, products, tests, sizes).
-3. [ ] Delete the stray pip wheels from the repo root.
+1. [x] 2026-11-18 Ran every scripts/test_*.py and test_*.js (69 Python + 7 JS suites). One
+   real failure found and fixed: test_i18n.py's source was stale after the daily store
+   sync; ran `i18n_extract.py --sync`, now green. 155/637 strings still have no French.
+2. [x] 2026-11-18 docs/STATUS.md written (dated, real measured counts, not targets).
+3. [x] 2026-11-18 Deleted 8 stray pip wheels/tarballs from the repo root (already
+   gitignored, untracked, unused by any script).
 4. [ ] perf_budget.py: page size table + thresholds; wired into test_site_scripts.py.
 5. [ ] crawl_links.py (stdlib HTMLParser) with a failing mode for orphans and dead internal links.
 6. [ ] img_budget.py: alt text + size/dimension from file headers.
