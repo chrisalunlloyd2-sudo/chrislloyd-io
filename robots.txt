@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /blog-drafts/
 
 Sitemap: https://chrisalunlloyd2-sudo.github.io/chrislloyd-io/sitemap.xml

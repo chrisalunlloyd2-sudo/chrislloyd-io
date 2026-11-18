@@ -45,6 +45,37 @@ re-verified against `crawl_links.py`, which doesn't exist yet; step 5 of this pl
 gitignored, untracked, unreferenced by any script — leftover pip downloads, not a
 dependency of anything here). PLAN-SITE-100 step 3.
 
-**Not yet built from this plan:** `perf_budget.py`, `crawl_links.py`, `img_budget.py`,
-`provenance.py`, `robots.txt` blog-drafts test (steps 4, 5, 6, 7, 9). Say this plainly —
-phase 1 baseline is partially done (1, 2, 3 this run), not complete.
+**Update 2026-11-18 (later same day) — phase 1 complete:**
+
+- **Found and fixed a real gap**: `products.html` (49 real items, the site's biggest
+  page, linked from every nav) was missing from `sitemap.xml` entirely — `gen_sitemap.py`
+  never listed it. Fixed; sitemap now has 10 URLs, not 9.
+- `crawl_links.py` built: internal link graph, dead-link + orphan detection. Current
+  site: clean, 0 dead links, 0 orphans (7 pages).
+- `perf_budget.py` built: per-page weight (HTML + local assets). `products.html` is
+  genuinely over a 1MB total-weight budget (2.27MB, almost all 49 product images at
+  ~45KB each) — real finding, not hidden behind a test that would just be red for the
+  wrong reason. Every other page is well under budget. Note: product images already use
+  `loading="lazy"`, so this is total page weight, not what loads on first paint.
+- `img_budget.py` built: dimension/size audit from raw PNG/JPEG headers, no Pillow.
+  Alt-text is already check_a11y.py's job, not duplicated here. One false positive
+  caught and fixed before shipping: several product photos are taller than square and
+  got flagged as "oversized" by a naive width/height compare — they're intentionally
+  cropped via `object-fit: cover` (confirmed in `assets/style.css`), so comparing the
+  shorter native dimension against the shorter declared one was the right fix. Site is
+  clean under the corrected check.
+- `provenance.py` built (skeleton, as planned): maps every `data/*.json` file to the
+  `assets/*.js` that fetches it, and counts hand-authored text nodes per page. Several
+  data files (`lidar.json`, `voice.json`, `opensource.json`, `reviews.json`, `shop.json`,
+  `fx.json`, `area-pages.json` is actually build-time-only, etc.) show no client-side
+  fetcher — checked, not alarming: they back currently-hidden sections
+  (open-source showcase, old shop/reviews) or are consumed by Python generator scripts
+  at build time, not runtime JS.
+- `robots.txt` now disallows `/blog-drafts/` (raw unpublished `.md`/`.txt` draft files
+  were previously crawlable with no exclusion). Tested against both robots.txt and
+  sitemap.xml.
+- Full suite: 69 Python test functions in `test_site_scripts.py` alone (was ~9 covering
+  this area before today), 7 JS suites, all green. `test_i18n.py` and `test_store.py`
+  still green too.
+
+Tagged `site-baseline-2026-11` — PLAN-SITE-100 phase 1 (steps 1-10) is done.

@@ -97,6 +97,155 @@ class TestSitemap(unittest.TestCase):
         posts = gen_sitemap.load_posts()
         self.assertIsInstance(posts, list)
 
+    def test_products_page_is_listed(self):
+        # Regression: products.html (49 real items, linked from every page's nav) was
+        # missing from the sitemap entirely until 2026-11-18 — found while auditing the
+        # site baseline, not by this test originally.
+        with open(os.path.join(ROOT, "scripts", "gen_sitemap.py")) as fh:
+            src = fh.read()
+        self.assertIn('"products.html"', src)
+
+    def test_generated_sitemap_includes_every_url_source(self):
+        import gen_sitemap
+        with open(os.path.join(ROOT, "sitemap.xml"), encoding="utf-8") as fh:
+            content = fh.read()
+        self.assertIn("index.html", content)
+        self.assertIn("products.html", content)
+        self.assertIn("blog.html", content)
+        for slug_file in gen_sitemap.load_area_pages():
+            self.assertIn(slug_file, content)
+
+
+class TestProvenance(unittest.TestCase):
+    """PLAN-SITE-100 phase 1 step 7 (skeleton, not a full per-string tracer)."""
+
+    def test_data_sources_covers_every_json_file_in_data_dir(self):
+        import provenance as pv
+        sources = pv.data_sources()
+        real_files = {f for f in os.listdir(os.path.join(ROOT, "data")) if f.endswith(".json")}
+        self.assertEqual(set(sources.keys()), real_files)
+
+    def test_known_fetched_files_are_attributed_correctly(self):
+        import provenance as pv
+        sources = pv.data_sources()
+        self.assertIn("main.js", sources["site.json"])
+        self.assertIn("main.js", sources["store.json"])
+
+    def test_page_text_counts_are_positive_for_every_real_page(self):
+        import provenance as pv
+        counts = pv.page_text_counts()
+        for page in (f for f in os.listdir(ROOT) if f.endswith(".html")):
+            self.assertGreater(counts[page], 0, f"{page} has no visible text nodes?")
+
+
+class TestImgBudget(unittest.TestCase):
+    """PLAN-SITE-100 phase 1 step 6. Alt-text is check_a11y.py's job, not duplicated here."""
+
+    def test_jpeg_dims_matches_a_real_store_image(self):
+        import img_budget as ib
+        path = os.path.join(ROOT, "assets", "store",
+                             "16pcs-mini-paint-stands-tool-triangle-pa.jpg")
+        if not os.path.isfile(path):
+            self.skipTest("fixture image not present")
+        self.assertEqual(ib.image_dims(path), (480, 480))
+
+    def test_is_oversized_true_for_a_genuinely_bigger_same_ratio_image(self):
+        import img_budget as ib
+        self.assertTrue(ib.is_oversized(2000, 2000, 240, 240))
+
+    def test_is_oversized_false_for_a_cropped_object_fit_cover_image(self):
+        # Regression: a taller-than-square source cropped into a square box via
+        # object-fit:cover is not waste - caught and fixed 2026-11-18 before shipping.
+        import img_budget as ib
+        self.assertFalse(ib.is_oversized(480, 756, 240, 240))
+
+    def test_real_site_images_are_within_budget(self):
+        import img_budget as ib
+        findings = ib.audit()
+        self.assertEqual(findings, [], f"image budget findings: {findings}")
+
+
+class TestRobots(unittest.TestCase):
+    """PLAN-SITE-100 phase 1 step 9. blog-drafts/ holds unpublished raw .md/.txt draft
+    files, not rendered pages - crawlers shouldn't index or scrape them."""
+
+    def test_robots_excludes_blog_drafts(self):
+        with open(os.path.join(ROOT, "robots.txt"), encoding="utf-8") as fh:
+            text = fh.read()
+        self.assertIn("Disallow: /blog-drafts/", text)
+
+    def test_sitemap_never_lists_a_blog_drafts_url(self):
+        with open(os.path.join(ROOT, "sitemap.xml"), encoding="utf-8") as fh:
+            text = fh.read()
+        self.assertNotIn("blog-drafts", text)
+
+
+class TestPerfBudget(unittest.TestCase):
+    """PLAN-SITE-100 phase 1 step 4. Tests the measurement tool's correctness, not that
+    every page currently passes its own budget — products.html genuinely doesn't (2.2MB
+    of product images), tracked honestly in docs/STATUS.md, not hidden behind a test that
+    would otherwise just be red for a reason unrelated to the tool itself being broken."""
+
+    def test_page_weight_matches_real_file_sizes(self):
+        import perf_budget as pb
+        html_b, asset_b, missing = pb.page_weight("index.html")
+        self.assertEqual(html_b, os.path.getsize(os.path.join(ROOT, "index.html")))
+        self.assertGreater(asset_b, 0)
+        self.assertEqual(missing, [])
+
+    def test_every_referenced_local_asset_exists(self):
+        import perf_budget as pb
+        for page, _html_b, _asset_b, _total, missing in pb.budget_table():
+            self.assertEqual(missing, [], f"{page} references a missing local asset: {missing}")
+
+    def test_products_page_is_the_one_known_over_budget_page(self):
+        # Documents the real 2026-11-18 finding so a future fix (image optimization,
+        # PLAN-SITE-100 phase 8 step 79, owner-gated) is noticed when it lands, rather
+        # than this test silently staying green for the wrong reason forever.
+        import perf_budget as pb
+        html_b, asset_b, _missing = pb.page_weight("products.html")
+        self.assertGreater(html_b + asset_b, pb.TOTAL_BUDGET)
+        for page, _h, _a, pg_total, _m in pb.budget_table():
+            if page != "products.html":
+                self.assertLessEqual(pg_total, pb.TOTAL_BUDGET, f"{page} unexpectedly over budget")
+
+
+class TestCrawlLinks(unittest.TestCase):
+    """PLAN-SITE-100 phase 1 step 5."""
+
+    def test_internal_target_classifies_correctly(self):
+        import crawl_links as cl
+        self.assertEqual(cl.internal_target("products.html"), "products.html")
+        self.assertEqual(cl.internal_target("blog.html?post=foo"), "blog.html")
+        self.assertEqual(cl.internal_target("/products.html"), "products.html")
+        self.assertIsNone(cl.internal_target("https://example.com/x.html"))
+        self.assertIsNone(cl.internal_target("mailto:x@example.com"))
+        self.assertIsNone(cl.internal_target("tel:+15551234567"))
+        self.assertIsNone(cl.internal_target("#section"))
+        self.assertIsNone(cl.internal_target("assets/style.css"))
+
+    def test_the_real_site_has_no_dead_links_or_orphans(self):
+        import crawl_links as cl
+        dead, orphans = cl.crawl()
+        self.assertEqual(dead, [], f"dead internal links: {dead}")
+        self.assertEqual(orphans, [], f"orphan pages: {orphans}")
+
+    def test_detects_dead_link_and_orphan_in_a_synthetic_site(self):
+        import crawl_links as cl
+        with tempfile.TemporaryDirectory() as d:
+            with open(os.path.join(d, "index.html"), "w", encoding="utf-8") as f:
+                f.write('<a href="real.html">ok</a><a href="missing.html">dead</a>')
+            open(os.path.join(d, "real.html"), "w", encoding="utf-8").close()
+            open(os.path.join(d, "unreachable.html"), "w", encoding="utf-8").close()
+            old_root = cl.ROOT
+            cl.ROOT = d
+            try:
+                dead, orphans = cl.crawl()
+            finally:
+                cl.ROOT = old_root
+        self.assertEqual(dead, [("index.html", "missing.html")])
+        self.assertEqual(orphans, ["unreachable.html"])
+
 
 class TestAddPost(unittest.TestCase):
     def test_slug_and_dedupe_helpers(self):

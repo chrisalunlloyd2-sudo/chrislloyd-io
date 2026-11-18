@@ -81,13 +81,26 @@ Conversion and leads
 2. [x] 2026-11-18 docs/STATUS.md written (dated, real measured counts, not targets).
 3. [x] 2026-11-18 Deleted 8 stray pip wheels/tarballs from the repo root (already
    gitignored, untracked, unused by any script).
-4. [ ] perf_budget.py: page size table + thresholds; wired into test_site_scripts.py.
-5. [ ] crawl_links.py (stdlib HTMLParser) with a failing mode for orphans and dead internal links.
-6. [ ] img_budget.py: alt text + size/dimension from file headers.
-7. [ ] provenance.py skeleton: list every rendered string and its data source.
-8. [ ] gen_sitemap.py verified against crawl_links.
-9. [ ] robots.txt excludes blog-drafts; test.
-10. [ ] Tag site-baseline-2026-11.
+4. [x] 2026-11-18 scripts/perf_budget.py: per-page HTML+local-asset weight table, 1MB
+   total budget. Wired into test_site_scripts.py (TestPerfBudget, 3 tests). Real finding:
+   products.html is 2.27MB (49 product images at ~45KB each, already `loading="lazy"`)
+   — genuinely over budget; every other page is well under.
+5. [x] 2026-11-18 scripts/crawl_links.py: internal link graph, dead-link + orphan
+   detection (TestCrawlLinks, 3 tests). Site is currently clean (0 dead, 0 orphans).
+6. [x] 2026-11-18 scripts/img_budget.py: size/dimension from raw PNG/JPEG headers (no
+   Pillow). Alt-text stays check_a11y.py's job, not duplicated. Caught and fixed a false
+   positive in my own first draft before shipping: `object-fit: cover` product photos
+   were flagged as "oversized" by a naive dimension compare; fixed to compare the
+   shorter native vs shorter declared dimension (TestImgBudget, 4 tests incl. a
+   regression test for that exact bug).
+7. [x] 2026-11-18 scripts/provenance.py (skeleton, as scoped): data/*.json -> fetching
+   assets/*.js map + hand-authored text-node counts per page (TestProvenance, 3 tests).
+8. [x] 2026-11-18 gen_sitemap.py verified against crawl_links — and a real bug found in
+   the process: products.html (the site's biggest page) was missing from sitemap.xml
+   entirely. Fixed; sitemap now has 10 URLs. Regression tests added (TestSitemap).
+9. [x] 2026-11-18 robots.txt now disallows /blog-drafts/ (raw unpublished draft files
+   were crawlable with no exclusion before this). Tested against robots.txt + sitemap.xml.
+10. [x] 2026-11-18 Tagged site-baseline-2026-11.
 
 ### Phase 2: FAQ and speakable (11-20)
 11. [ ] data/faq.json schema (question, answer, area, service, language, source).
