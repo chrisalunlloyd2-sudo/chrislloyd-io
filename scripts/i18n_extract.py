@@ -19,8 +19,7 @@ import json
 import os
 import re
 import sys
-
-from bs4 import BeautifulSoup, Comment, NavigableString, Tag
+from html.parser import HTMLParser
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUT = os.path.join(ROOT, "data", "i18n", "source.json")
@@ -30,6 +29,128 @@ ATTRS = ("placeholder", "aria-label", "title", "alt")
 META_KEYS = {("name", "description"), ("property", "og:title"), ("property", "og:description"),
              ("name", "twitter:title"), ("name", "twitter:description")}
 LETTER = re.compile(r"[A-Za-zÀ-ÿ]")
+
+# Minimal HTML5 tree builder (stdlib html.parser only, no bs4/html5lib). Replaces an
+# external-dependency DOM with just enough structure for walk()/is_rich() below: an
+# element node (tag, ordered attrs, children) and plain str for text. Comments are
+# dropped by never overriding handle_comment (same effect as bs4's Comment filtering).
+VOID_TAGS = {"area", "base", "br", "col", "embed", "hr", "img", "input",
+             "link", "meta", "param", "source", "track", "wbr"}
+
+
+class _El:
+    __slots__ = ("name", "attrs", "attr_order", "children")
+
+    def __init__(self, name, attrs):
+        self.name = name
+        self.attrs = dict(attrs)
+        self.attr_order = attrs
+        self.children = []
+
+    def has_attr(self, key):
+        return key in self.attrs
+
+    def get(self, key, default=None):
+        return self.attrs.get(key, default)
+
+    def __getitem__(self, key):
+        return self.attrs[key]
+
+
+class _DomBuilder(HTMLParser):
+    """Builds an _El tree; unmatched/misnested close tags are recovered like a browser would
+    (pop up to the nearest matching open ancestor; a stray close tag with no open match is
+    ignored), since these are hand-authored static pages, not an adversarial input."""
+
+    def __init__(self):
+        super().__init__(convert_charrefs=True)
+        self.root = _El("#root", [])
+        self.stack = [self.root]
+
+    def handle_starttag(self, tag, attrs):
+        el = _El(tag, attrs)
+        self.stack[-1].children.append(el)
+        if tag not in VOID_TAGS:
+            self.stack.append(el)
+
+    def handle_startendtag(self, tag, attrs):
+        self.stack[-1].children.append(_El(tag, attrs))
+
+    def handle_endtag(self, tag):
+        for i in range(len(self.stack) - 1, 0, -1):
+            if self.stack[i].name == tag:
+                del self.stack[i:]
+                return
+
+    def handle_data(self, data):
+        self.stack[-1].children.append(data)
+
+
+def _iter_descendants(el):
+    for c in el.children:
+        if isinstance(c, _El):
+            yield c
+            for d in _iter_descendants(c):
+                yield d
+
+
+def _esc_text(s):
+    return s.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
+
+
+def _esc_attr(s):
+    return s.replace("&", "&amp;").replace('"', "&quot;").replace("<", "&lt;").replace(">", "&gt;")
+
+
+def _serialize_children(children):
+    out = []
+    for c in children:
+        if isinstance(c, str):
+            out.append(_esc_text(c))
+        else:
+            out.append(_serialize_el(c))
+    return "".join(out)
+
+
+def _serialize_el(el):
+    attrs = "".join(
+        ' {}="{}"'.format(k, _esc_attr(v)) if v is not None else " " + k
+        for k, v in el.attr_order
+    )
+    if el.name in VOID_TAGS:
+        # self-closed to match the exact byte output the old bs4/html5lib stack produced
+        # (data/i18n/fr.json's existing rich entries were translated against that form).
+        return "<{}{}/>".format(el.name, attrs)
+    return "<{0}{1}>{2}</{0}>".format(el.name, attrs, _serialize_children(el.children))
+
+
+def get_text(el):
+    """bs4 Tag.get_text() equivalent: all descendant text, no separator."""
+    out = []
+
+    def rec(node):
+        for c in node.children:
+            if isinstance(c, str):
+                out.append(c)
+            else:
+                rec(c)
+
+    rec(el)
+    return "".join(out)
+
+
+def decode_contents(el):
+    return _serialize_children(el.children)
+
+
+def parse_html(text):
+    b = _DomBuilder()
+    b.feed(text)
+    b.close()
+    for c in b.root.children:
+        if isinstance(c, _El) and c.name == "html":
+            return c
+    return b.root
 
 
 def norm(s):
@@ -62,25 +183,23 @@ UNSAFE = {"input", "select", "textarea", "button"}
 
 
 def direct_words(tag):
-    text = " ".join(str(c) for c in tag.children if isinstance(c, NavigableString) and not isinstance(c, Comment))
+    text = " ".join(c for c in tag.children if isinstance(c, str))
     return len(WORD.findall(text))
 
 
 def is_rich(tag):
     if direct_words(tag) < 3:
         return False
-    if not any(isinstance(c, Tag) and c.name != "svg" for c in tag.children):
+    if not any(isinstance(c, _El) and c.name != "svg" for c in tag.children):
         return False
-    return not tag.find(lambda t: t.name in UNSAFE or t.has_attr("id"))
+    return not any(d.name in UNSAFE or d.has_attr("id") for d in _iter_descendants(tag))
 
 
 def walk(node, src, col):
-    if isinstance(node, Comment):
+    if isinstance(node, str):
+        col.add(node, src)
         return
-    if isinstance(node, NavigableString):
-        col.add(str(node), src)
-        return
-    if not isinstance(node, Tag):
+    if not isinstance(node, _El):
         return
     if node.name in SKIP_TAGS or node.has_attr("data-no-i18n"):
         return
@@ -94,7 +213,7 @@ def walk(node, src, col):
             if node.has_attr(k) and (k, node[k]) in META_KEYS:
                 col.add(node["content"], src + " @meta")
     if is_rich(node):
-        col.add(node.get_text(), src, rich=True, html=node.decode_contents())
+        col.add(get_text(node), src, rich=True, html=decode_contents(node))
         return
     for c in list(node.children):
         walk(c, src, col)
@@ -102,8 +221,9 @@ def walk(node, src, col):
 
 def from_html(col):
     for path in sorted(glob.glob(os.path.join(ROOT, "*.html"))):
-        soup = BeautifulSoup(open(path, encoding="utf-8").read(), "html5lib")
-        walk(soup.html, os.path.basename(path), col)
+        with open(path, encoding="utf-8") as f:
+            root = parse_html(f.read())
+        walk(root, os.path.basename(path), col)
 
 
 def load(name):
