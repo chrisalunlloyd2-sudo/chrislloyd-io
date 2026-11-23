@@ -1,0 +1,29 @@
+{
+  "machine": "blog-backlog (roadmap-51 #31, task 081, 2026-11-23)",
+  "what": "Month-by-month blog candidate queue for chrislloyd-io. The hourly worker drafts 1 candidate per month into blog-drafts/ following the conventions below. Promotion is NEVER automatic.",
+  "cadence": {
+    "drafts_per_month": 1,
+    "next_draft_due": "2026-12",
+    "drafting_owner": "blackboard hourly worker (picks from this backlog)",
+    "delivery_shape": "draft .md (front matter: excerpt + seo_title) + <slug>-body.txt (paragraphs after the --- divider) + PROMOTE-<slug>.txt verbatim-runnable sidecar"
+  },
+  "conventions": {
+    "promotion": "OWNER-APPROVED ONLY (roadmap-51 #20 doctrine): promotion is one 'python3 scripts/add_post.py' call on explicit owner approval. Never auto-promoted.",
+    "no_stats": "Never invent statistics, counts, or survey-like claims. Trade-cycle/seasonal reasoning only, matching data/promo-calendar.json.",
+    "cta": "Soft CTA tail: one gentle closing line toward the target page. No hard sell, no fake urgency.",
+    "titles": "Long-tail, question-style (scripts/add_post.py SEO note / task 017). Avoid generic transactional titles ('buy paint online').",
+    "current_position_note": "blog-drafts/how-to-prep-walls-before-painting-edmonton.md is an untracked leftover matching an already-published post; keep or clean at owner discretion, not a backlog hole."
+  },
+  "entries": [
+    { "id": "when-best-time-exterior-alberta", "title": "When is the best time to paint a house exterior in Alberta?", "season": "summer-exterior", "months": [5, 6, 7, 8], "target_page": "index.html", "status": "published", "date": "2026-10-01" },
+    { "id": "home-renovation-checklist-order", "title": "Home renovation checklist: what order should the work be done?", "season": "fall-catchup", "months": [9, 10], "target_page": "index.html", "status": "published", "date": "2026-10-01" },
+    { "id": "how-prep-walls-edmonton", "title": "How to prep walls before painting: Edmonton interior checklist", "season": "winter-interior", "months": [11, 12, 1, 2], "target_page": "index.html", "status": "published", "date": "2026-10-01" },
+    { "id": "interior-vs-exterior-alberta-winters", "title": "Interior vs exterior painting through Alberta winters", "season": "winter-interior", "months": [11, 12, 1, 2], "target_page": "index.html", "status": "draft-ready", "note": "PROMOTE-*.txt sidecar in place; waiting on owner approval (since 2026-11-13)." },
+    { "id": "how-much-cost-paint-house-edmonton", "title": "How much does it cost to paint a house in Edmonton?", "season": "winter-interior", "months": [11, 12, 1, 2], "target_page": "index.html", "status": "draft-unpolished", "note": "Draft exists, no PROMOTE sidecar yet; price topic must defer to data/pricing.json facts only." },
+    { "id": "how-often-repaint-interior", "title": "How often should you repaint your home's interior?", "season": "winter-interior", "months": [11, 12, 1, 2], "due": "2026-12", "target_page": "index.html", "status": "candidate" },
+    { "id": "cabinets-refresh-or-repaint", "title": "Should you refresh kitchen cabinets, or repaint them in place?", "season": "winter-interior", "months": [11, 12, 1, 2], "due": "2027-01", "target_page": "st-albert.html", "status": "candidate" },
+    { "id": "book-exterior-painter-advance", "title": "How far in advance should you book an Edmonton exterior painter?", "season": "spring-exterior-booking", "months": [3, 4], "due": "2027-03", "target_page": "index.html", "status": "candidate" },
+    { "id": "deck-fence-prep-summer", "title": "Getting a deck or fence ready for summer paint and stain", "season": "summer-exterior", "months": [5, 6, 7, 8], "due": "2027-05", "target_page": "spruce-grove.html", "status": "candidate" },
+    { "id": "interior-before-holidays", "title": "Which paint jobs to prioritize before the holidays?", "season": "fall-catchup", "months": [9, 10], "due": "2027-09", "target_page": "leduc.html", "status": "candidate" }
+  ]
+}
