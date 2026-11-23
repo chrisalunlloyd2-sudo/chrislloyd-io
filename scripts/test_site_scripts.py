@@ -488,6 +488,53 @@ class TestGallery(unittest.TestCase):
         self.assertEqual(rc.returncode, 0, "node gallery-logic tests failed:\n" + rc.stdout + rc.stderr)
 
 
+class TestFAQ(unittest.TestCase):
+    """PLAN-SITE-100 phase 2 (steps 11-16): data/faq.json + FAQPage/speakable JSON-LD
+    rendered client-side by assets/main.js (schema data contract itself is already
+    covered by scripts/check_schema_data.py)."""
+
+    def setUp(self):
+        with open(os.path.join(ROOT, "data", "faq.json"), encoding="utf-8") as fh:
+            self.faq = json.load(fh)["faq"]
+        self.index_html = open(os.path.join(ROOT, "index.html"), encoding="utf-8").read()
+        self.main_js = open(os.path.join(ROOT, "assets", "main.js"), encoding="utf-8").read()
+
+    def test_at_least_six_real_entries(self):
+        # mirrors check_schema_data.py's own floor; kept here too so this file's
+        # suite alone still catches a regression without running that script.
+        self.assertGreaterEqual(len(self.faq), 6)
+        for item in self.faq:
+            self.assertTrue(item.get("q", "").strip())
+            self.assertTrue(item.get("a", "").strip())
+
+    def test_section_present_and_positioned_after_gallery(self):
+        self.assertIn('id="faq-list"', self.index_html)
+        g_i = self.index_html.find('<section id="gallery"')
+        f_i = self.index_html.find('<section id="faq"')
+        self.assertTrue(0 < g_i < f_i, "faq must sit after gallery")
+
+    def test_renderer_wiring_in_main_js(self):
+        self.assertIn('fetch("data/faq.json")', self.main_js)
+        self.assertIn('"faq-list"', self.main_js)
+        self.assertIn("FAQPage", self.main_js)
+
+    def test_speakable_schema_present_in_main_js(self):
+        # PLAN-SITE-100 step 15 / PLAN-VOICE-100 step 70: the voice assistant's own
+        # spoken-FAQ feature reads this same selector convention.
+        self.assertIn("SpeakableSpecification", self.main_js)
+        self.assertIn('"#faq-list .faq-item"', self.main_js)
+
+    def test_no_static_jsonld_duplicate_in_index_html(self):
+        # mirrors check_schema_data.py's own check; the JSON-LD is generated once,
+        # client-side, never hand-duplicated into the HTML.
+        self.assertFalse('"@type"' in self.index_html and "FAQPage" in self.index_html)
+
+    def test_schema_logic_in_node(self):
+        script = os.path.join(ROOT, "scripts", "test_faq_schema.js")
+        rc = subprocess.run(["node", script], capture_output=True, text=True)
+        self.assertEqual(rc.returncode, 0, "node faq-schema tests failed:\n" + rc.stdout + rc.stderr)
+
+
 class TestEstimator(unittest.TestCase):
     """Task 034 (roadmap 25): customer-facing estimator widget — wiring,
     pricing.json drift alarm vs quote_estimator.DEFAULTS, node logic tests."""

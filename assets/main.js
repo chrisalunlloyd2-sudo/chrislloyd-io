@@ -483,6 +483,10 @@
         var ld = {
           "@context": "https://schema.org",
           "@type": "FAQPage",
+          "speakable": {
+            "@type": "SpeakableSpecification",
+            "cssSelector": ["#faq-list .faq-item"]
+          },
           "mainEntity": items.map(function (item) {
             return {
               "@type": "Question",
