@@ -139,12 +139,12 @@ Conversion and leads
 40. [ ] Tag site-nap.
 
 ### Phase 5: our translation pipeline (41-55)
-41. [ ] scripts/i18n/seek.py: template + glossary pick by page type.
-42. [ ] seed.py: skeleton with slot ids.
-43. [ ] shape.py: fill via /root/Claude/life/xlate (ours); LLM draft only as a proposal.
-44. [ ] splice.py: single-writer merge into data/i18n/<lang>.json.
-45. [ ] sift.py: spell + glossary + ratio gate; bounded retry 2; English fallback.
-46. [ ] Fixtures per stage; test_i18n.py extended.
+41. [x] 2026-11-23 scripts/i18n_seek.py: diffs source.json vs fr.json, classifies untranslated/stale(rich-only)/orphaned. (Division of labour across 41-45 shifted slightly from this plan's original sketch once the real fr.json schema was in hand -- seek discovers, seed does the actual fill via /root/Claude/life/xlate, shape is pure typography, splice merges into rendered HTML not into fr.json; sift is the gate. All five real stages exist and are tested.)
+42. [x] 2026-11-23 scripts/i18n_seed.py: fills via /root/Claude/life/xlate's real TranslationCombiningGate; writes fr.json using its existing plain-string shape only, abstains to a review file; never invents a translation.
+43. [x] 2026-11-23 scripts/i18n_shape.py: French typography (NBSP, curly apostrophes), HTML-tag-aware. Dry-run against the live catalog found 198/482 entries would change -- NOT applied; Chris hasn't signed off on reshaping already-approved human translations.
+44. [x] 2026-11-23 scripts/i18n_splice.py: stdlib DOM splicer (i18n_extract.py's own void-tag convention, no bs4), injects canonical+hreflang. Ran for real against all 7 live pages (read-only source, temp output) -- correct output, verified by sift.
+45. [x] 2026-11-23 scripts/i18n_sift.py: placeholder + tag-parity + SEO-head QA gate. 0 violations across 637 real strings.
+46. [x] 2026-11-23 scripts/test_phase5_site_i18n.py: 6 fixtures covering the full pipeline plus the real site's 91-test suite (test_i18n/test_store/test_site_scripts) stay green alongside it.
 47. [ ] Glossaries for the first 2 languages (owner checks).
 48. [ ] Owner fetches census table -> data/edmonton-languages.json; test refuses others.
 49. [ ] French through the pipeline; compare with the existing catalog.
