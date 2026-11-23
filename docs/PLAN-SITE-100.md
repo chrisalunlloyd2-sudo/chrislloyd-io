@@ -103,13 +103,13 @@ Conversion and leads
 10. [x] 2026-11-18 Tagged site-baseline-2026-11.
 
 ### Phase 2: FAQ and speakable (11-20)
-11. [ ] data/faq.json schema (question, answer, area, service, language, source).
-12. [ ] Owner supplies 10 real questions.
-13. [ ] gen_faq.py: FAQ page.
-14. [ ] FAQPage JSON-LD.
-15. [ ] speakable JSON-LD per answer.
-16. [ ] check_schema_data.py extended for FAQ.
-17. [ ] Top-3 FAQ block on home.
+11. [x] 2026-11-23 data/faq.json schema -- discovered already built & shipped (simpler than the area/service/language/source sketch here: {q, a} pairs, since no area/service dimension is used anywhere yet). No area/service/language fields added -- would be speculative with no consumer; add when something actually reads them.
+12. [x] 2026-11-23 Owner supplies 10 real questions -- discovered already done: 11 real owner-written Q&As live in data/faq.json.
+13. [x] 2026-11-23 "FAQ page" -- discovered already done, as a section not a separate page: assets/main.js renderFAQ() renders #faq-list on index.html from data/faq.json (same client-JS-render pattern as testimonials/gallery, not a gen_faq.py static generator).
+14. [x] 2026-11-23 FAQPage JSON-LD -- discovered already generated client-side by renderFAQ(); scripts/check_schema_data.py already bans a static duplicate in index.html.
+15. [x] 2026-11-23 speakable JSON-LD per answer -- built for real: SpeakableSpecification block added to the existing FAQPage JSON-LD, cssSelector targets the real #faq-list .faq-item container. 6 new tests (TestFAQ, test_site_scripts.py).
+16. [x] 2026-11-23 check_schema_data.py extended for FAQ -- discovered already done (>=6 entries, non-empty q/a, no static JSON-LD duplicate); 96/96 PASS confirmed.
+17. [ ] Top-3 FAQ block on home. (Currently renders ALL entries, not top-3 -- open question whether that's actually wanted given there are only 11.)
 18. [ ] Area-filtered FAQ blocks on area pages.
 19. [ ] Daily local mirror of data/*.json into ~/.life for the voice (voice step 67).
 20. [ ] Test: voice answer text == faq.json text.
