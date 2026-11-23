@@ -149,8 +149,8 @@ Conversion and leads
 48. [ ] Owner fetches census table -> data/edmonton-languages.json; test refuses others.
 49. [ ] French through the pipeline; compare with the existing catalog.
 50. [ ] Language 2 through the pipeline.
-51. [ ] hreflang tags.
-52. [ ] Language sitemap.
+51. [x] 2026-11-23 hreflang tags -- i18n_splice.py injects them per page (steps 44 above); scripts/seo_lint.py verifies cross-page reciprocity (never a false failure against today's un-localized live pages, since it only checks pages that already declare one).
+52. [x] 2026-11-23 Language sitemap -- scripts/gen_sitemap.py --langs en,fr (opt-in, off by default; today's live sitemap.xml unchanged until localized pages actually ship).
 53. [ ] Language selector (localStorage).
 54. [ ] Gate pass rate per language in STATUS.md; translated pages noindex until approved.
 55. [ ] Tag site-i18n-2.
