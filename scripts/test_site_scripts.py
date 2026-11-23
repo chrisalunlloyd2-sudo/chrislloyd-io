@@ -115,6 +115,39 @@ class TestSitemap(unittest.TestCase):
         for slug_file in gen_sitemap.load_area_pages():
             self.assertIn(slug_file, content)
 
+    def test_default_run_never_emits_hreflang_or_changes_url_count(self):
+        """--langs is opt-in (PLAN-SITE-100 step 51/52); the live site has no localized
+        pages deployed yet, so default behavior (what every other test here checks)
+        must stay byte-for-byte what it was before that flag existed."""
+        import gen_sitemap
+        sitemap_path = os.path.join(ROOT, "sitemap.xml")
+        before = open(sitemap_path, encoding="utf-8").read()
+        try:
+            gen_sitemap.main([])
+            after = open(sitemap_path, encoding="utf-8").read()
+        finally:
+            with open(sitemap_path, "w", encoding="utf-8") as fh:
+                fh.write(before)
+        self.assertNotIn("xhtml:link", after)
+        self.assertNotIn("xmlns:xhtml", after)
+
+    def test_langs_flag_adds_reciprocal_hreflang_and_locale_urls(self):
+        import gen_sitemap
+        sitemap_path = os.path.join(ROOT, "sitemap.xml")
+        before = open(sitemap_path, encoding="utf-8").read()
+        try:
+            gen_sitemap.main(["--langs", "en,fr"])
+            after = open(sitemap_path, encoding="utf-8").read()
+        finally:
+            with open(sitemap_path, "w", encoding="utf-8") as fh:
+                fh.write(before)
+        self.assertIn('xmlns:xhtml="http://www.w3.org/1999/xhtml"', after)
+        self.assertIn('hreflang="fr"', after)
+        self.assertIn('hreflang="x-default"', after)
+        self.assertIn("/fr/products.html", after)
+        # blog.html?post=... is dynamic (client-side), never gets a locale URL/hreflang
+        self.assertNotIn("fr/blog.html?post=", after)
+
 
 class TestProvenance(unittest.TestCase):
     """PLAN-SITE-100 phase 1 step 7 (skeleton, not a full per-string tracer)."""

@@ -13,7 +13,13 @@ add_item.py, or just before you push; idempotent.
 Canonical base URL is taken from data/site.json -> site.canonicalBase
 (falls back to the GitHub Pages URL). Update that field when the custom
 domain goes live.
+
+--langs en,fr (optional): also emits <xhtml:link rel="alternate" hreflang="...">
+entries per URL (PLAN-SITE-100 phase 5 step 51/52). Off by default -- today's
+live site has no localized pages deployed, so default output (and every
+existing test of it) is byte-for-byte unchanged unless you pass --langs.
 """
+import argparse
 import json, os, sys, tempfile
 from datetime import datetime, timezone
 from xml.sax.saxutils import escape
@@ -86,9 +92,35 @@ def write(path, content):
         raise
 
 
-def main():
+def hreflang_block_for(static_rel_paths, base, langs):
+    """static_rel_paths: e.g. ["index.html", "products.html", ...] -- the pages that
+    actually go through i18n_splice.py (never the dynamic blog.html?post=... anchors,
+    which have no separate per-locale page to point to). Matches i18n_splice.py's own
+    index.html -> trailing-slash convention exactly, so this lines up with whatever
+    hreflang hrefs splice.py actually writes into those pages."""
+    block = {}
+    for rel in static_rel_paths:
+        hreflangs = {}
+        for lang in langs:
+            prefix = "" if lang == "en" else lang + "/"
+            hreflangs[lang] = base + prefix + ("" if rel == "index.html" else rel)
+        hreflangs["x-default"] = base + ("" if rel == "index.html" else rel)
+        for lang in langs:
+            prefix = "" if lang == "en" else lang + "/"
+            loc = base + prefix + ("" if rel == "index.html" else rel)
+            block[loc] = hreflangs
+    return block
+
+
+def main(argv=None):
+    ap = argparse.ArgumentParser(description=__doc__)
+    ap.add_argument("--langs", default="", help="comma-separated, e.g. en,fr (default: off, unchanged output)")
+    args = ap.parse_args(argv)
+    langs = [l.strip() for l in args.langs.split(",") if l.strip()]
+
     base = base_url()
     today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+    static_pages = ["index.html", "products.html", "blog.html"] + load_area_pages()
     urls = [
         (base + "index.html", "1.0"),
         (base + "products.html", "0.9"),
@@ -102,9 +134,26 @@ def main():
             continue
         urls.append((base + "blog.html?post=" + p["id"], "0.6"))
 
+    hreflang_by_loc = {}
+    if langs:
+        hreflang_by_loc = hreflang_block_for(static_pages, base, langs)
+        # add the non-en locale variants of each static page as their own <url> entries,
+        # same priority as the English original
+        static_prio = {base + rel: prio for rel, prio in zip(
+            ["index.html", "products.html", "blog.html"] + load_area_pages(),
+            ["1.0", "0.9", "0.8"] + ["0.7"] * len(load_area_pages()),
+        )}
+        for rel in static_pages:
+            for lang in langs:
+                if lang == "en":
+                    continue
+                loc = base + lang + "/" + ("" if rel == "index.html" else rel)
+                urls.append((loc, static_prio.get(base + rel, "0.7")))
+
+    xhtml_ns = ' xmlns:xhtml="http://www.w3.org/1999/xhtml"' if langs else ""
     lines = [
         '<?xml version="1.0" encoding="UTF-8"?>',
-        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
+        f'<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"{xhtml_ns}>',
     ]
     for loc, prio in urls:
         lines += [
@@ -113,11 +162,13 @@ def main():
             f"    <lastmod>{today}</lastmod>",
             "    <changefreq>monthly</changefreq>",
             f"    <priority>{prio}</priority>",
-            "  </url>",
         ]
+        for hl, href in sorted(hreflang_by_loc.get(loc, {}).items()):
+            lines.append(f'    <xhtml:link rel="alternate" hreflang="{escape(hl)}" href="{escape(href)}"/>')
+        lines.append("  </url>")
     lines.append("</urlset>")
     write(SITEMAP, "\n".join(lines) + "\n")
-    print(f"sitemap.xml: {len(urls)} URLs (base {base})")
+    print(f"sitemap.xml: {len(urls)} URLs (base {base})" + (f" + hreflang for {langs}" if langs else ""))
 
 
 if __name__ == "__main__":
