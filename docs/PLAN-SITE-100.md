@@ -111,8 +111,8 @@ Conversion and leads
 16. [x] 2026-11-23 check_schema_data.py extended for FAQ -- discovered already done (>=6 entries, non-empty q/a, no static JSON-LD duplicate); 96/96 PASS confirmed.
 17. [ ] Top-3 FAQ block on home. (Currently renders ALL entries, not top-3 -- open question whether that's actually wanted given there are only 11.)
 18. [ ] Area-filtered FAQ blocks on area pages.
-19. [ ] Daily local mirror of data/*.json into ~/.life for the voice (voice step 67).
-20. [ ] Test: voice answer text == faq.json text.
+19. [x] 2026-11-24 Daily local mirror of data/*.json into ~/.life for the voice (voice step 67) -- scripts/mirror_voice_data.py copies data/faq.json + data/area-pages.json VERBATIM into ~/.life/voice-data/ (mkdirs, overwrite-in-place, never appends) plus a manifest.json (sha256 + UTC); idempotent for daily cron/manual runs. NOT voice_facts.py itself (task 084 / voice step 67 consumes this output).
+20. [x] 2026-11-24 Test: voice answer text == faq.json text -- scripts/test_mirror_voice_data.py (4 unittest cases): mirror faq.json byte-identical to data/faq.json, every q/a string present verbatim, overwrite-stable across re-runs (never appends), manifest source hash/sizes recorded. All pass; existing test_site_scripts.py still green.
 
 ### Phase 3: local pages that earn their place (21-30)
 21. [ ] Owner picks 3 services for the matrix.
