@@ -9,6 +9,10 @@ Asserts the JSON-LD contracts WITHOUT a browser:
      JSON-LD block that parses and matches the same NAP.
   4. data/faq.json: at least 6 entries, each with non-empty q and a (FAQPage contract
      served by assets/main.js renderFAQ — no static duplicate in the HTML).
+     Entries may also carry "areas": [page slugs or "all"] — every generated area
+     page then shows a static FAQ section plus a matching FAQPage JSON-LD for
+     exactly the tagged entries (task 106; the no-static-duplicate ban is scoped
+     to index.html only).
 
 Run: python3 scripts/check_schema_data.py   (exit 0 = pass, 1 = failures)
 """
@@ -130,6 +134,56 @@ for i, item in enumerate(faq):
           and isinstance(item.get("a"), str) and item["a"].strip())
 check("no static FAQPage JSON-LD duplicate in index.html",
       '"@type"' not in index_html or "FAQPage" not in index_html)
+
+# --- 4b: per-area FAQ tags + static FAQPage blocks on area pages (task 106) ----
+# Re-derives the shown-entry filter here (not imported from gen_area_pages) so
+# the validator stays an independent check of what the generator renders.
+area_slugs = set(AREA_CITY)
+valid_area_tags = area_slugs | {"all"}
+area_tag_problems = []
+for i, item in enumerate(faq):
+    areas = item.get("areas")
+    if areas is None:
+        continue
+    if not isinstance(areas, list) or not areas:
+        area_tag_problems.append(f"faq[{i}] areas must be a non-empty list, got {areas!r}")
+        continue
+    for tag in areas:
+        if tag not in valid_area_tags:
+            area_tag_problems.append(
+                f"faq[{i}] area tag {tag!r} is not an area-pages.json slug or \"all\" "
+                f"(valid: {', '.join(sorted(valid_area_tags))})")
+check("faq.json areas reference real page slugs or \"all\"",
+      not area_tag_problems, "; ".join(area_tag_problems))
+
+
+def shown_area_faq(slug):
+    """(q, a) pairs of the entries gen_area_pages would show for this slug."""
+    return [(f.get("q"), f.get("a")) for f in faq
+            if isinstance(f.get("areas"), list)
+            and (slug in f["areas"] or "all" in f["areas"])]
+
+
+faqpage_problems = []
+for slug in AREA_SLUGS:
+    area_html = read(slug + ".html")
+    shown = shown_area_faq(slug)
+    has_section = '<section id="faq"' in area_html
+    faqpages = [b for b in jsonld_blocks(area_html) if b.get("@type") == "FAQPage"]
+    if shown:
+        if not has_section:
+            faqpage_problems.append(f"[{slug}] tagged entries exist but no FAQ section rendered")
+        if len(faqpages) != 1:
+            faqpage_problems.append(f"[{slug}] expected exactly 1 FAQPage JSON-LD, got {len(faqpages)}")
+        else:
+            got = [(q.get("name"), (q.get("acceptedAnswer") or {}).get("text"))
+                   for q in faqpages[0].get("mainEntity", [])]
+            if got != shown:
+                faqpage_problems.append(f"[{slug}] FAQPage mainEntity {got!r} != shown entries {shown!r}")
+    elif has_section or faqpages:
+        faqpage_problems.append(f"[{slug}] no tagged entries but FAQ section/FAQPage JSON-LD present")
+check("area pages: static FAQPage JSON-LD matches shown entries",
+      not faqpage_problems, "; ".join(faqpage_problems))
 
 # --- generator parity guard ----------------------------------------------------
 GEN = read("scripts/gen_area_pages.py")

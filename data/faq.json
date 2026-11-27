@@ -2,7 +2,8 @@
   "faq": [
     {
       "q": "How do I get a quote?",
-      "a": "Message me on Facebook, text, or use the quote form on this page. Send photos of the space, what you want painted, and your timeline. I follow up with a free quote and next steps. Quotes are in writing, so there's a record of exactly what's included."
+      "a": "Message me on Facebook, text, or use the quote form on this page. Send photos of the space, what you want painted, and your timeline. I follow up with a free quote and next steps. Quotes are in writing, so there's a record of exactly what's included.",
+      "areas": ["all"]
     },
     {
       "q": "How long does a job take?",
@@ -10,7 +11,8 @@
     },
     {
       "q": "Do you move furniture and protect my home?",
-      "a": "Yes. Furniture is moved and covered, floors are protected, trim is taped and masked, and drop cloths are used throughout. Cleanup is daily, with a final walkthrough with you."
+      "a": "Yes. Furniture is moved and covered, floors are protected, trim is taped and masked, and drop cloths are used throughout. Cleanup is daily, with a final walkthrough with you.",
+      "areas": ["all"]
     },
     {
       "q": "What paint do you use?",
@@ -34,11 +36,13 @@
     },
     {
       "q": "What areas do you serve?",
-      "a": "Yes — I'm based in west-central Edmonton and regularly work in St. Albert, Sherwood Park, Spruce Grove, Stony Plain, Leduc, Beaumont and Fort Saskatchewan. Travel within the Edmonton metro is included in quotes."
+      "a": "Yes — I'm based in west-central Edmonton and regularly work in St. Albert, Sherwood Park, Spruce Grove, Stony Plain, Leduc, Beaumont and Fort Saskatchewan. Travel within the Edmonton metro is included in quotes.",
+      "areas": ["all"]
     },
     {
       "q": "How far ahead should I book?",
-      "a": "Interior work can often start within a couple of weeks. Exterior work in Edmonton is weather-dependent — May through September fills up first, so book exterior repaints ahead of the season."
+      "a": "Interior work can often start within a couple of weeks. Exterior work in Edmonton is weather-dependent — May through September fills up first, so book exterior repaints ahead of the season.",
+      "areas": ["all"]
     },
     {
       "q": "How do I book?",

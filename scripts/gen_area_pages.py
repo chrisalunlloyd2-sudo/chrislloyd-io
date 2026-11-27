@@ -11,6 +11,12 @@ in the repo root. Pages are fully static (no JS deps), reuse assets/style.css,
 carry per-page canonical/OG/Twitter meta plus LocalBusiness JSON-LD with
 areaServed limited to that city, and link to the main site's contact section.
 
+Each page also renders a static, no-JS FAQ section — pure <details>/<summary>
+markup reusing the home page's .faq-list/.faq-item styles — built from
+data/faq.json entries tagged "areas": [page slugs or "all"], plus a matching
+static FAQPage JSON-LD block in <head> (only when at least one tagged entry
+matches; zero matches -> no section, no FAQPage JSON-LD).
+
 Copy in data/area-pages.json is marked \"draft\": true — the pages therefore
 include a visible draft note until the owner flips the top-level flag to false.
 Idempotent: re-running rewrites the same files. Run scripts/gen_sitemap.py
@@ -27,6 +33,7 @@ import sitechrome
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA = os.path.join(ROOT, "data", "area-pages.json")
 SITE = os.path.join(ROOT, "data", "site.json")
+FAQ = os.path.join(ROOT, "data", "faq.json")
 
 DEFAULT_BASE = "https://chrisalunlloyd2-sudo.github.io/chrislloyd-io/"
 
@@ -67,6 +74,54 @@ def load_data():
         return json.load(f)
 
 
+def load_faq():
+    with open(FAQ, encoding="utf-8") as f:
+        return json.load(f).get("faq", [])
+
+
+def faq_for(slug, faq_entries):
+    """FAQ entries whose "areas" list contains slug or "all" (entries without "areas" never match)."""
+    return [e for e in faq_entries
+            if isinstance(e.get("areas"), list) and (slug in e["areas"] or "all" in e["areas"])]
+
+
+def faq_section_html(entries):
+    """Static no-JS FAQ <section> for one area page ("" when nothing to show).
+
+    Uses the home page's .faq-list/.faq-item classes so assets/style.css styles
+    it unchanged; the only structural difference is details/summary instead of
+    h3, so each answer collapses without any JavaScript.
+    """
+    if not entries:
+        return ""
+    items = "\n".join(
+        f'      <details class="faq-item"><summary>{e["q"]}</summary>'
+        f'<p>{e["a"]}</p></details>'
+        for e in entries)
+    return (
+        '  <section id="faq" class="wrap section section-alt area-faq">\n'
+        '    <h2>FAQ</h2>\n'
+        '    <div class="faq-list">\n'
+        f'{items}\n'
+        '    </div>\n'
+        '  </section>\n'
+    )
+
+
+def faq_jsonld(entries):
+    """Static FAQPage JSON-LD mirroring exactly the entries faq_section_html shows."""
+    data = {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {"@type": "Question", "name": e["q"],
+             "acceptedAnswer": {"@type": "Answer", "text": e["a"]}}
+            for e in entries
+        ],
+    }
+    return json.dumps(data, indent=2, ensure_ascii=False)
+
+
 def jsonld_for(page):
     city = page["city"]
     biz = {
@@ -99,10 +154,14 @@ def jsonld_for(page):
     return json.dumps(biz, indent=2, ensure_ascii=False)
 
 
-def render(page, is_draft):
+def render(page, is_draft, faq_entries=None):
     city = page["city"]
     base = base_url()
     page_url = base + page["slug"] + ".html"
+    matches = faq_for(page["slug"], load_faq() if faq_entries is None else faq_entries)
+    faq_html = faq_section_html(matches)
+    faq_ld_block = "" if not matches else (
+        f'<script type="application/ld+json">\n{faq_jsonld(matches)}\n</script>\n')
     title = f"House Painters &amp; Renovation — {city}, AB | Chris Lloyd Ltd"
     desc = (f"Interior &amp; exterior house painting in {city}, Alberta, "
             f"plus drywall repair and small renovation work. "
@@ -161,7 +220,7 @@ def render(page, is_draft):
 <script type="application/ld+json">
 {jsonld}
 </script>
-</head>
+{faq_ld_block}</head>
 <body>
 {nav_html}<header class="hero hero-slim">
   <div class="rosette rosette-hero" aria-hidden="true"></div>
@@ -191,6 +250,7 @@ def render(page, is_draft):
     </div>
   </section>
 
+{faq_html}
   <section id="contact" class="wrap section">
     <h2>Get a quote for work in {city}</h2>
     <p class="section-note">Quotes and scheduling are handled centrally from the main site — the contact form below is one click away.</p>
@@ -233,10 +293,11 @@ def write(path, content):
 def build_all():
     data = load_data()
     is_draft = bool(data.get("draft", False))
+    faq_entries = load_faq()
     out = []
     for page in data["pages"]:
         out.append((os.path.join(ROOT, page["slug"] + ".html"),
-                    page, render(page, is_draft)))
+                    page, render(page, is_draft, faq_entries)))
     return out, is_draft
 
 
